@@ -1,0 +1,32 @@
+#!/bin/sh
+
+# Use brightnessctl to naturally adjust laptop screen brightness and send a notification
+
+ICON_PATH="/home/deanr/.local/share/icons/dunst"
+
+currentbrightness=$(brightnessctl -e1 -m | awk -F, '{print substr($4, 0, length($4)-1)}')
+if [ "$currentbrightness" -lt 1 ] && [ "$1" = "down" ]; then exit 1; fi
+
+send_notification() {
+	brightness=$(brightnessctl -e1 -m | awk -F, '{print substr($4, 0, length($4)-1)}')
+	if [ "$brightness" -lt 33 ]; then
+		ICON="brightness"
+	elif [ "$brightness" -lt 66 ]; then
+		ICON="brightness"
+	else
+		ICON="brightness"
+	fi
+	dunstify -a "Backlight" -u low -r 9994 -h int:value:"$brightness" -i "$ICON_PATH/$ICON.svg" "Brightness" "Currently at $brightness%" -t 1000
+}
+
+case $1 in
+	up)
+		brightnessctl -e1 set +2%
+		send_notification "$1"
+		;;
+	down)
+		brightnessctl -e1 set 2%-
+		send_notification "$1"
+		;;
+esac
+
