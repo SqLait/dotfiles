@@ -1,0 +1,85 @@
+#!/usr/bin/env bash
+
+file=$1
+w=$2
+h=$3
+x=$4
+y=$5
+
+# Function to display text files with syntax highlighting if available
+display_text() {
+    bat --color=always "$file" 2>/dev/null || cat "$file"
+}
+
+# Get the file extension
+extension="${file##*.}"
+
+# Check if the file is an image
+if [[ "$(file -Lb --mime-type "$file")" =~ ^image ]]; then
+    kitty +kitten icat --silent --stdin no --transfer-mode file --place "${w}x${h}@${x}x${y}" "$file" < /dev/null > /dev/tty
+    exit 1
+fi
+
+# Check if the file is a video
+if [[ "$(file -Lb --mime-type "$file")" =~ ^video ]]; then
+    kitty +kitten icat --silent --stdin no --transfer-mode file --place "${w}x${h}@${x}x${y}" "$(vidthumb "$file")" < /dev/null > /dev/tty
+    exit 1
+fi
+
+# Handle different file types based on extension
+case "$extension" in
+    # General-Purpose Languages
+    c|cpp|h|java|py|rb|js|ts|cs|swift|go|rs|kt|dart)
+        display_text
+        ;;
+    # Web Development Languages
+    html|css|php|asp|erb|ejs)
+        display_text
+        ;;
+    # Scripting Languages
+    pl|lua|sh|ps1)
+        display_text
+        ;;
+    # Functional Programming Languages
+    hs|erl|ex|exs|fs|lisp|scm|clj)
+        display_text
+        ;;
+    # Statistical and Data Analysis Languages
+    r|jl|m)
+        display_text
+        ;;
+    # Database Query Languages
+    sql|pks|pkb|plsql)
+        display_text
+        ;;
+    # Mobile Development Languages
+    java|kt|swift|m|dart)
+        display_text
+        ;;
+    # Embedded Systems Languages
+    c|cpp|s|ada)
+        display_text
+        ;;
+    # Educational and Beginner-Friendly Languages
+    sb2|sb3|logo|a2w|py)
+        display_text
+        ;;
+    # Concurrent and Parallel Programming Languages
+    erl|go|rs|clj)
+        display_text
+        ;;
+    # Logic Programming Languages
+    pl|dl)
+        display_text
+        ;;
+    # Others
+    f|for|f90|f95|cbl|cob|scala|groovy|vhdl|v|sv)
+        display_text
+        ;;
+    *)
+        # Use pistol for other file types
+        #pistol "$file"
+        display_text
+        ;;
+esac
+
