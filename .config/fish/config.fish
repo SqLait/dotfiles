@@ -6,7 +6,7 @@ if status is-interactive
 
   set fish_greeting ""
   set -g catppuccin "catmocha"
-  set -gx PATH "$HOME/dotfiles/ohmyposh/oh-my-posh/" $PATH
+  set -gx PATH "$HOME/.config/ohmyposh/oh-my-posh/" $PATH
 end
 
 oh-my-posh init fish --config $HOME/.config/ohmyposh/zen.toml | source 
