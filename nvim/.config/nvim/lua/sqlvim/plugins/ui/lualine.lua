@@ -1,263 +1,116 @@
-return {
-  "nvim-lualine/lualine.nvim",
-  dependencies = { "nvim-tree/nvim-web-devicons" },
-  config = function()
-    local lualine = require('lualine')
+local function format(component, text, hl_group)
+  if not hl_group then
+    return text
+  end
 
-    -- Color table for highlights
-    -- stylua: ignore
-    local colors = {
-      bg       = '#181825',
-      fg       = '#bac2de',
-      yellow   = '#f9e2af',
-      cyan     = '#94e2d5',
-      darkblue = '#89b4fa',
-      green    = '#a6e3a1',
-      orange   = '#fab387',
-      violet   = '#b4befe',
-      magenta  = '#cba6f7',
-      blue     = '#89b4fa',
-      red      = '#f38ba8',
-    }
-
-    local conditions = {
-      buffer_not_empty = function()
-        return vim.fn.empty(vim.fn.expand('%:t')) ~= 1
-      end,
-      hide_in_width = function()
-        return vim.fn.winwidth(0) > 80
-      end,
-      check_git_workspace = function()
-        local filepath = vim.fn.expand('%:p:h')
-        local gitdir = vim.fn.finddir('.git', filepath .. ';')
-        return gitdir and #gitdir > 0 and #gitdir < #filepath
-      end,
-    }
-     local function get_os()
-      local os_info = vim.loop.os_uname().sysname
-      if os_info == 'Windows_NT' then
-        return ''
-      elseif os_info == 'Darwin' then
-        return ''
-      elseif os_info == 'Linux' then
-        return '󰣇'
-      elseif os_info == 'BSD' then
-        return '󰣠'
+  ---@type table<string, string>
+  component.hl_cache = component.hl_cache or {}
+  local lualine_hl_group = component.hl_cache[hl_group]
+  if not lualine_hl_group then
+    local utils = require("lualine.utils.utils")
+    local mygui = function()
+      local mybold = utils.extract_highlight_colors(hl_group, "bold") and "bold"
+      local myitalic = utils.extract_highlight_colors(hl_group, "italic") and "italic"
+      if mybold and myitalic then
+        return mybold .. "," .. myitalic
+      elseif mybold then
+        return mybold
+      elseif myitalic then
+        return myitalic
       else
-        return 'UNKNOWN'
+        return ""
       end
     end
 
-    -- Config
-    local config = {
-      options = {
-        -- Disable sections and component separators
-        component_separators = '',
-        section_separators = '',
-        theme = {
-          -- We are going to use lualine_c an lualine_x as left and
-          -- right section. Both are highlighted by c theme .  So we
-          -- are just setting default looks o statusline
-          normal = { c = { fg = colors.fg, bg = colors.bg } },
-          inactive = { c = { fg = colors.fg, bg = colors.bg } },
+    lualine_hl_group = component:create_hl({
+      fg = utils.extract_highlight_colors(hl_group, "fg"),
+      gui = mygui(),
+    }, "LV_" .. hl_group)
+    component.hl_cache[hl_group] = lualine_hl_group
+  end
+  return component:format_hl(lualine_hl_group) .. text .. component:get_default_hl()
+end
+
+local function pretty_path(opts)
+  opts = vim.tbl_extend("force", {
+    relative = "cwd",
+    modified_hl = "MatchParen",
+    filename_hl = "Bold",
+    dirpath_hl = "Conceal",
+  }, opts or {})
+
+  return function(self)
+    local path = vim.fn.expand("%:p") --[[@as string]]
+    if path == "" then
+      return ""
+    end
+
+    local root = vim.fn.getcwd()
+    local cwd = vim.loop.cwd()
+
+    if opts.relative == "cwd" and path:find(cwd, 1, true) == 1 then
+      path = path:sub(#cwd + 2)
+    else
+      path = path:sub(#root + 2)
+    end
+
+    local sep = package.config:sub(1, 1)
+    local parts = vim.split(path, "[\\/]")
+
+    if #parts > 3 then
+      parts = { parts[1], "…", parts[#parts - 1], parts[#parts] }
+    end
+
+    if opts.modified_hl and vim.bo.modified then
+      parts[#parts] = format(self, parts[#parts], opts.modified_hl)
+    else
+      parts[#parts] = format(self, parts[#parts], opts.filename_hl)
+    end
+
+    local dirpath = ""
+    if #parts > 1 then
+      dirpath = table.concat({ unpack(parts, 1, #parts - 1) }, sep)
+      dirpath = format(self, dirpath .. sep, opts.dirpath_hl)
+    end
+    return dirpath .. parts[#parts]
+  end
+end
+
+return {
+  {
+    "nvim-lualine/lualine.nvim",
+    opts = function(_, opts)
+      opts.options = opts.options or {
+        section_separators = { left = "", right = "" },
+        component_separators = { left = "", right = "" },
+      }
+
+      opts.sections = opts.sections or { lualine_a = {}, lualine_c = {}, lualine_y = {}, lualine_z = {} }
+
+      opts.sections.lualine_a = {
+        {
+          function()
+            return ""
+          end,
+          padding = { left = 1, right = 0 },
+          separator = "",
         },
-      },
-      sections = {
-        -- these are to remove the defaults
-        lualine_a = {},
-        lualine_b = {},
-        lualine_y = {},
-        lualine_z = {},
-        -- These will be filled later
-        lualine_c = {},
-        lualine_x = {},
-      },
-      inactive_sections = {
-        -- these are to remove the defaults
-        lualine_a = {},
-        lualine_b = {},
-        lualine_y = {},
-        lualine_z = {},
-        lualine_c = {},
-        lualine_x = {},
-      },
-    }
+        "mode",
+      }
 
-    -- Inserts a component in lualine_c at left section
-    local function ins_left(component)
-      table.insert(config.sections.lualine_c, component)
-    end
-
-    -- Inserts a component in lualine_x at right section
-    local function ins_right(component)
-      table.insert(config.sections.lualine_x, component)
-    end
-
-    ins_left {
-      function()
-        return '▊'
-      end,
-      color = { fg = colors.blue }, -- Sets highlighting of component
-      padding = { left = 0, right = 1 }, -- We don't need space before this
-    }
-
-    ins_left {
-      -- mode component
-      function()
-        return ''
-      end,
-      color = function()
-        -- auto change color according to neovims mode
-        local mode_color = {
-          n = colors.red,
-          i = colors.green,
-          v = colors.blue,
-          [''] = colors.blue,
-          V = colors.blue,
-          c = colors.orange,
-          no = colors.red,
-          s = colors.magenta,
-          S = colors.magenta,
-          [''] = colors.orange,
-          ic = colors.yellow,
-          R = colors.violet,
-          Rv = colors.violet,
-          cv = colors.red,
-          ce = colors.red,
-          r = colors.cyan,
-          rm = colors.cyan,
-          ['r?'] = colors.cyan,
-          ['!'] = colors.red,
-          t = colors.red,
-        }
-        return { fg = mode_color[vim.fn.mode()] }
-      end,
-      padding = { right = 1 },
-    }
-
-    ins_left {
-      -- filesize component
-      'filesize',
-      cond = conditions.buffer_not_empty,
-    }
-
-    ins_left {
-      'filename',
-      cond = conditions.buffer_not_empty,
-      color = function()
-        local mode_color = {
-          n = colors.red,
-          i = colors.green,
-          v = colors.blue,
-          [''] = colors.blue,
-          V = colors.blue,
-          c = colors.orange,
-          no = colors.red,
-          s = colors.magenta,
-          S = colors.magenta,
-          [''] = colors.orange,
-          ic = colors.yellow,
-          R = colors.violet,
-          Rv = colors.violet,
-          cv = colors.red,
-          ce = colors.red,
-          r = colors.cyan,
-          rm = colors.cyan,
-          ['r?'] = colors.cyan,
-          ['!'] = colors.red,
-          t = colors.red,
-        }
-        return { fg = mode_color[vim.fn.mode()], gui = 'bold' }
-      end,
-    }
-
-    ins_left { 'location' }
-
-    ins_left { 'progress', color = { fg = colors.fg, gui = 'bold' } }
-
-    ins_left {
-      'diagnostics',
-      sources = { 'nvim_diagnostic' },
-      symbols = { error = ' ', warn = ' ', info = ' ' },
-      diagnostics_color = {
-        color_error = { fg = colors.red },
-        color_warn = { fg = colors.yellow },
-        color_info = { fg = colors.cyan },
-      },
-    }
-
-    -- Insert mid section. You can make any number of sections in neovim :)
-    -- for lualine it's any number greater then 2
-    ins_left {
-      function()
-        return '%='
-      end,
-    }
-
-    ins_left {
-      -- Lsp server name .
-      function()
-        local msg = 'No Active Lsp'
-        local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
-        local clients = vim.lsp.get_active_clients()
-        if next(clients) == nil then
-          return msg
-        end
-        for _, client in ipairs(clients) do
-          local filetypes = client.config.filetypes
-          if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-            return client.name
-          end
-        end
-        return msg
-      end,
-      icon = ' LSP:',
-      color = { fg = '#89b4fa', gui = 'bold' },
-    }
-
-    -- Add components to right sections
-    ins_right {
-      'o:encoding', -- option component same as &encoding in viml
-      fmt = string.upper, -- I'm not sure why it's upper case either ;)
-      cond = conditions.hide_in_width,
-      color = { fg = colors.green, gui = 'bold' },
-    }
-
-    ins_right {
-      function()
-        return get_os()
-      end,
-      color = { fg = colors.green, gui = 'bold' },
-    }
-
-    ins_right {
-      'branch',
-      icon = '',
-      color = { fg = colors.violet, gui = 'bold' },
-    }
-
-    ins_right {
-      'diff',
-      -- Is it me or the symbol for modified us really weird
-      symbols = { added = ' ', modified = '󰝤 ', removed = ' ' },
-      diff_color = {
-        added = { fg = colors.green },
-        modified = { fg = colors.orange },
-        removed = { fg = colors.red },
-      },
-      cond = conditions.hide_in_width,
-    }
-
-    ins_right {
-      function()
-        return '▊'
-      end,
-      color = { fg = colors.blue },
-      padding = { left = 1 },
-    }
-
-    -- Now don't forget to initialize lualine
-    lualine.setup(config)
-  end,
+      opts.sections.lualine_c[4] = { pretty_path() }
+      opts.sections.lualine_y = { "progress" }
+      opts.sections.lualine_z = {
+        { "location", separator = "" },
+        {
+          function()
+            return ""
+          end,
+          padding = { left = 0, right = 1 },
+        },
+      }
+      return opts
+    end,
+  },
 }
 
