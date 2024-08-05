@@ -62,6 +62,7 @@ return {
           local kind = item.kind
           local kind_text = kind:lower()
           local icon_hl_group = "CmpItemKind" .. kind
+          item.abbr = string.sub(item.abbr, 1, 20)
 
           if vim.fn.hlID(icon_hl_group) == 0 then
             icon_hl_group = "CmpItemKind" -- fallback to default if specific kind group is missing
@@ -76,7 +77,7 @@ return {
         end,
       },
       experimental = {
-        ghost_text = true,
+        ghost_text = false,
       },
     })
     -- Custom highlights for all item kinds
@@ -116,5 +117,3 @@ return {
     end
   end,
 }
-
-
