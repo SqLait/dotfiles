@@ -26,7 +26,7 @@ return {
             surface2 = "#535763",
             surface1 = "#3a3d4b",
             surface0 = "#30303b",
-            base = "#202027",
+            base = "#1d1d1d",
             mantle = "#1c1d22",
             crust = "#171719",
           },
@@ -36,3 +36,5 @@ return {
     end
   },
 }
+
+-- OLD: base = "#202027",
