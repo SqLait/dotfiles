@@ -12,22 +12,24 @@ return {
         color_overrides = {
           mocha = {
             red = "#ff657a",
-            maroon = "#F29BA7",
+            maroon = "#f29ba7",
             peach = "#ff9b5e",
             yellow = "#eccc81",
             green = "#a8be81",
             teal = "#9cd1bb",
-            sky = "#A6C9E5",
-            sapphire = "#86AACC",
+            sky = "#a6c9e5",
+            sapphire = "#86aacc",
             blue = "#5d81ab",
-            lavender = "#66729C",
+            lavender = "#66729c",
             mauve = "#b18eab",
             text = "#fcfcfa",
+            subtext1 = "#fcfcfa",
+            subtext0 = "#fcfcfa",
             surface2 = "#535763",
             surface1 = "#3a3d4b",
             surface0 = "#30303b",
             base = "#1d1d1d",
-            mantle = "#1c1d22",
+            mantle = "#1b1b1b",
             crust = "#171719",
           },
         },
@@ -37,4 +39,5 @@ return {
   },
 }
 
--- OLD: base = "#202027",
+-- old: base = "#202027",
+--old: mantle = #1c1d22
