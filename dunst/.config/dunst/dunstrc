@@ -1,7 +1,7 @@
 [global]
     monitor = 0
     follow = mouse
-		width = 350
+    width = 350
     origin = bottom-right
     offset = 48x48
 
@@ -14,8 +14,8 @@
 
     indicate_hidden = yes
     shrink = no
-		separator_height = 2
-    separator_color = "#8caaeeee"
+    separator_height = 2
+    separator_color = "#5d81ab"  # blue
     padding = 15
     horizontal_padding = 15
     frame_width = 0
@@ -56,31 +56,32 @@
     per_monitor_dpi = false
 
 [urgency_low]
-    background = "#181825"
-    foreground = "#CDD6F4"
-    highlight = "#CDD6F4"
-    frame_color = "#181825"
+    background = "#1d1d1d"  # base
+    foreground = "#fcfcfa"  # text
+    highlight = "#fcfcfa"  # text
+    frame_color = "#1d1d1d"  # base
     timeout = 5
 
 [urgency_normal]
-    background = "#181825"
-    foreground = "#CDD6F4"
-    highlight = "#CDD6F4"
-    frame_color = "#181825"
+    background = "#1d1d1d"  # base
+    foreground = "#fcfcfa"  # text
+    highlight = "#fcfcfa"  # text
+    frame_color = "#1d1d1d"  # base
     timeout = 5
 
 [urgency_critical]
-    background = "#181825"
-    foreground = "#CDD6F4"
-    frame_color = "#f38ba8"
+    background = "#1d1d1d"  # base
+    foreground = "#fcfcfa"  # text
+    frame_color = "#ff657a"  # red
     timeout = 1000
 
 [volume]
     appname = "Volume"
-    highlight = "#cba6f7"
+    highlight = "#b18eab"  # mauve
 
 [backlight]
     appname = "Backlight"
-    highlight = "#eba0ac"
+    highlight = "#f29ba7"  # maroon
 
 # vim: ft=cfg
+
