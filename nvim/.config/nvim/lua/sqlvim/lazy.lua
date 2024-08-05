@@ -12,10 +12,12 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  { import = "sqlvim.plugins.lsp" }, { import = "sqlvim.plugins.modules" },
-  { import = "sqlvim.plugins.ui" }, { import = "sqlvim.plugins.terminal"}, { import = "sqlvim.plugins.dependencies" },
-  { import = "sqlvim.plugins.comments"}, { import = "sqlvim.plugins.syntax" }, { import = "sqlvim.plugins.misc" },
-  { import = "sqlvim.plugins.completion"}, { import = "sqlvim.plugins.git" }, },
+  { import = "sql.plugins.lsp" },
+  { import = "sql.plugins.ui" },
+  { import = "sql.plugins.syntax" },
+  { import = "sql.plugins.completion"},
+  { import = "sql.plugins.git" }, },
+
   {
   checker = {
     enabled = true,
