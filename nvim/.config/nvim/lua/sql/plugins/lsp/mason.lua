@@ -3,7 +3,6 @@ return {
   dependencies = {
     "williamboman/mason-lspconfig.nvim",
   },
-  event = 'VimEnter',
   config = function()
     -- import mason
     local mason = require("mason")

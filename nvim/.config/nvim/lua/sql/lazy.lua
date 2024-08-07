@@ -21,7 +21,7 @@ require("lazy").setup({
 },
 
   {
-    defaults = { lazy = true },
+    --defaults = { lazy = true },
     checker = {
       enabled = true,
       notify = false,
