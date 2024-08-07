@@ -29,6 +29,3 @@ opt.swapfile = false
 
 --Set line numbers
 opt.relativenumber = true
-
---Set shell
-opt.shell = "powershell"
