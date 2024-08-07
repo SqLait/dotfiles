@@ -1,2 +1,2 @@
-require("sqlvim.core")
-require("sqlvim.lazy")
+require("sql.core")
+require("sql.lazy")
