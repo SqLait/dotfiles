@@ -18,6 +18,7 @@ require("lazy").setup({
   { import = "sql.plugins.completion"},
   { import = "sql.plugins.git" },
   { import = "sql.plugins.misc" },
+  { import = "sql.plugins.org" }
 },
 
   {
