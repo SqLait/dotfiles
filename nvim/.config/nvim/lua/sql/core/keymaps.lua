@@ -63,7 +63,7 @@ keymap.set("n", "<tab>f", "<cmd>bfirst<cr>", {desc = "Jump to first buffer in th
 keymap.set("n", "<tab>l", "<cmd>blast<cr>", {desc = "Jump to the last buffer in the list"})
 
 --Toggle line numbers
-keymap.set("n", "<leader>nl", ":set relativenumber!<CR>", { desc = "Toggle relative line numbers" })
+keymap.set("n", "<leader>rl", ":set relativenumber!<CR>", { desc = "Toggle relative line numbers" })
 
 --NvimTree
 keymap.set("n", "<leader>ee", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file explorer" }) -- toggle file explorer
@@ -76,4 +76,7 @@ keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy f
 keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
 keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })
 keymap.set("n", "<leader>st", "<cmd>Telescope colorscheme<cr>", { desc = "Switch themes" })
+
+--Org-Mode
+keymap.set("n", "<leader>tm", "<cmd>TableModeToggle", { desc = "Toggle table formatting" })
 
