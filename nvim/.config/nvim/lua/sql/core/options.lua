@@ -30,5 +30,5 @@ opt.swapfile = false
 --Set line numbers
 opt.relativenumber = true
 
--- Add your directory to the runtimepath
-opt.rtp:append(vim.fn.expand("~/Documents/org-roam-files"))
+--opt.conceallevel = 2
+--opt.concealcursor = 'nc'
