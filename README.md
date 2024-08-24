@@ -64,7 +64,7 @@ Packages that you MUST download are as following:
 
 ```bash
 sudo pacman -S swww dotnet hyprland nvim waybar lf bat dunst fastfetch 
-fish rofi-wayland zig node ufw lua luajit fzf vlc github-cli
+fish rofi-wayland zig node ufw lua luajit fzf vlc github-cli lazygit vim
 
 ```
 
