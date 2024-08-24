@@ -1,0 +1,40 @@
+#!/bin/sh
+
+WALLPAPER_DIR="$HOME/.local/share/wallpapers"
+LAST_WALLPAPER_FILE="$HOME/.config/hypr/last_wallpaper"
+
+# Select a random wallpaper
+SELECTED_WALLPAPER=$(ls "$WALLPAPER_DIR" | shuf -n 1)
+
+# Check if a wallpaper was selected
+if [ -z "$SELECTED_WALLPAPER" ]; then
+    echo "No wallpaper selected."
+    exit 1
+fi
+
+# Full path to the selected wallpaper
+WALLPAPER_PATH="$WALLPAPER_DIR/$SELECTED_WALLPAPER"
+
+# Store the selected wallpaper path in a file
+echo "$WALLPAPER_PATH" > "$LAST_WALLPAPER_FILE"
+
+# Update the Hyprland wallpaper configuration
+HYPR_CONFIG_PATH="$HOME/.config/hypr/hyprpaper.conf"
+
+echo '' > "$HYPR_CONFIG_PATH"
+echo "preload = $WALLPAPER_PATH" >> "$HYPR_CONFIG_PATH"
+echo "wallpaper = ,$WALLPAPER_PATH" >> "$HYPR_CONFIG_PATH"
+
+# Update the Hyprland lockscreen configuration
+HYPRLOCK_CONFIG_PATH="$HOME/.config/hypr/hyprlock.conf"
+
+# Use 'sed' to replace the 'path' variable in the background section
+sed -i "s|^    path =.*|    path = $WALLPAPER_PATH|g" "$HYPRLOCK_CONFIG_PATH"
+
+notify-send "Wallpaper changed!" -r 9898 -u normal "Successfully changed wallpaper to $SELECTED_WALLPAPER"
+
+# Reload Hyprland wallpaper settings (adjust command as needed)
+# This is a placeholder and might need to be adapted to your specific setup
+killall hyprpaper
+hyprpaper
+
