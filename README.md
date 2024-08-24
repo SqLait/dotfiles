@@ -56,3 +56,15 @@ stow kitty # using kitty as an example
 ``````
 
 Happy stowing!
+
+# Outside of stow:
+There are some packages that you need to install before you can use the system like before.
+
+Packages that you MUST download are as following:
+
+```bash
+sudo pacman -S swww dotnet hyprland nvim waybar lf bat dunst fastfetch 
+fish rofi-wayland zig node ufw lua luajit fzf vlc github-cli
+
+```
+
