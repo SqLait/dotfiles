@@ -29,7 +29,7 @@
     "custom/notification",
     "custom/power",
   ],
-  
+
   "custom/icon": {
     "format": "󰣇",
     "on-click": "exec $menu",
@@ -42,22 +42,23 @@
     "max-length": 10,
     "tooltip": false
   },
-  
+
   "clock": {
-		"format": "<b>󰥔  {:%H:%M   󰃭  %d/%m}</b> ",
-		//"format": "{:%a}",
-		"tooltip-format": "<tt>{calendar}</tt>",
-        "calendar": {
-                    "mode"          : "month",
-                    "format": {
-                              "months":     "<span color='#cdd6f4'><b>{}</b></span>",
-                              "days":       "<span color='#cdd6f4'><b>{}</b></span>",
-                              "weeks":      "<span color='#cdd6f4'><b>W{}</b></span>",
-                              "weekdays":   "<span color='#cdd6f4'><b>{}</b></span>",
-                              "today":      "<span color='#f38ba8'><b>{}</b></span>"
-                              }
-                    },
+    "format": "<b>󰥔  {:%H:%M   󰃭  %d/%m}</b> ",
+    //"format": "{:%a}",
+    "tooltip-format": "<tt>{calendar}</tt>",
+    "timezone": "CEST",
+    "calendar": {
+      "mode"          : "month",
+      "format": {
+        "months":     "<span color='#cdd6f4'><b>{}</b></span>",
+        "days":       "<span color='#cdd6f4'><b>{}</b></span>",
+        "weeks":      "<span color='#cdd6f4'><b>W{}</b></span>",
+        "weekdays":   "<span color='#cdd6f4'><b>{}</b></span>",
+        "today":      "<span color='#f38ba8'><b>{}</b></span>"
+      }
     },
+  },
 
   "memory": {
     "interval": 30,
@@ -83,26 +84,26 @@
     }
   },
 
-    "hyprland/workspaces" : {
-        "on-click": "activate",
-        "active-only": false,
-        "all-outputs": true,
-        "format": "{icon}",
-        "format-icons": {
-			"urgent": "",
-			"active": "",
-			"default": ""
-        },
-        "persistent-workspaces": {
-            "*": 4
-        }       
+  "hyprland/workspaces" : {
+    "on-click": "activate",
+    "active-only": false,
+    "all-outputs": true,
+    "format": "{icon}",
+    "format-icons": {
+      "urgent": "",
+      "active": "",
+      "default": ""
     },
-  
+    "persistent-workspaces": {
+      "*": 4
+    }       
+  },
+
   "backlight": {
     "format": "{icon} <b>{percent}%</b>",
     "format-icons": ["󰃞", "󰃟", "󰃠"],
     "tooltip": false,
-   },
+  },
 
   "pulseaudio": {
     "format": "{icon} <b>{volume}%</b>",
@@ -143,11 +144,11 @@
     "spacing": 10,
   },
 
-   "idle_inhibitor": {
+  "idle_inhibitor": {
     "format": "{icon}",
     "format-icons": {
-        "activated": "󰈈 ",
-        "deactivated": "󰈉 "
+      "activated": "󰈈 ",
+      "deactivated": "󰈉 "
     },
   },
 
@@ -167,18 +168,18 @@
   },
 
   "custom/spotify": {
-        "format": "{} ",
-        "max-length": 60,
-        "interval": "once",
-        "return-type": "json",
-        "exec": "~/.local/bin/spotifyctl",
-        "on-click": "playerctl --player=spotify play-pause && pkill -RTMIN+30 waybar",
-        "on-click-right": "playerctl --player=spotify loop track",
-        "on-scroll-down": "playerctl --player=spotify previous && pkill -RTMIN+30 waybar",
-        "on-scroll-up": "playerctl --player=spotify next && pkill -RTMIN+30 waybar",
-        "on-click-middle": "pkill --signal TERM spotify",
-        "signal": 30,
-        "smooth-scrolling-threshold": 1.0,
+    "format": "{} ",
+    "max-length": 60,
+    "interval": "once",
+    "return-type": "json",
+    "exec": "~/.local/bin/spotifyctl",
+    "on-click": "playerctl --player=spotify play-pause && pkill -RTMIN+30 waybar",
+    "on-click-right": "playerctl --player=spotify loop track",
+    "on-scroll-down": "playerctl --player=spotify previous && pkill -RTMIN+30 waybar",
+    "on-scroll-up": "playerctl --player=spotify next && pkill -RTMIN+30 waybar",
+    "on-click-middle": "pkill --signal TERM spotify",
+    "signal": 30,
+    "smooth-scrolling-threshold": 1.0,
   },
 
   "custom/power": {
@@ -207,15 +208,15 @@
     "escape": true
   },
 
-    "custom/updates": {
-        "format": "  {}",
-        "tooltip-format": "{}",
-        "escape": true,
-        "return-type": "json",
-        "exec": "~/.config/waybar/custom-scripts/updates",
-        "restart-interval": 60,
-        "on-click": "kitty -e ~/.config/waybar/custom-scripts/update",
-        "tooltip": false
-    },
+  "custom/updates": {
+    "format": "  {}",
+    "tooltip-format": "{}",
+    "escape": true,
+    "return-type": "json",
+    "exec": "~/.config/waybar/custom-scripts/updates",
+    "restart-interval": 60,
+    "on-click": "kitty -e ~/.config/waybar/custom-scripts/update",
+    "tooltip": false
+  },
 
 }

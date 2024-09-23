@@ -1,7 +1,7 @@
 return {
-  "lukas-reineke/headlines.nvim",
+  --[["lukas-reineke/headlines.nvim"],
   dependencies = "nvim-treesitter/nvim-treesitter",
   config = true, -- or `opts = {}`
   event = 'VeryLazy',
-  ft = { 'org' },
+  ft = { 'org' },]]
 }

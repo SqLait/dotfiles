@@ -30,5 +30,5 @@ opt.swapfile = false
 --Set line numbers
 opt.relativenumber = true
 
---opt.conceallevel = 2
---opt.concealcursor = 'nc'
+opt.conceallevel = 2
+opt.concealcursor = 'nc'

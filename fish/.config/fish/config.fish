@@ -1,8 +1,10 @@
 if status is-interactive
   alias lg "lazygit"
   alias vim "nvim"
+  alias vi "nvim"
   alias ll "ls -l"
   alias neofetch "fastfetch"
+  alias sudo "run0 --background="
 
   set fish_greeting ""
   set -g catppuccin "catmocha"
@@ -18,7 +20,8 @@ set -x PATH $HOME/.local/bin $PATH
 set -x PATH $HOME/.config/lf $PATH
 set -x PATH $HOME/.local/bin/C-scripts $PATH
 set -x PATH $HOME/.local/bin/Sh-scripts $PATH
-set -x FZF_DEFAULT_OPTS "--preview 'bat --style=numbers --color=always --line-range=:500 {}' --bind 'enter:execute(nvim {})'"
+set -x FZF_DEFAULT_OPTS "--preview 'bat --style=numbers --color=always --line-range=:500 {}'"
+set -x PATH $HOME/.dotnet/tools $PATH
 
 export EDITOR=vim
 export NVIM_YANK=wl-copy

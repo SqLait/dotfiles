@@ -13,11 +13,10 @@ return {
   },
   config = function()
     require("org-roam").setup({
-      directory = "~/Documents/OrgRoamFiles",
+      directory = "~/Documents/orgfiles/zettelkast",
       -- optional
       org_files = {
-        "~/Documents/orgfiles/**/*",
-        "~/Documents/OrgRoamFiles/**/*"
+        "~/Documents/orgfiles/zettelkast/**/*",
       }
     })
   end
