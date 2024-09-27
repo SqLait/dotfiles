@@ -8,8 +8,6 @@ opt.shiftwidth = 2
 opt.expandtab = true
 opt.autoindent = true
 
-opt.wrap = false
-
 -- search settings
 opt.ignorecase = true
 opt.smartcase = true
@@ -22,7 +20,7 @@ opt.splitright = true
 opt.splitbelow = true
 
 -- set cursor line
-opt.cursorline = false
+opt.cursorline = true
 
 -- Turn of swap file
 opt.swapfile = false
