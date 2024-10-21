@@ -38,13 +38,12 @@ cmd unarchive ${{
   esac
 }}
 
-# Trash bindings
 cmd trash ${{
   files=$(printf "$fx" | tr '\n' ';')
   while [ "$files" ]; do
     file=${files%%;*}
 
-    trashy put "$(basename "$file")"
+    rm -rf "$file"
     if [ "$files" = "$file" ]; then
       files=''
     else

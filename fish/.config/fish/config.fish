@@ -5,6 +5,8 @@ if status is-interactive
   alias ll "ls -l"
   alias neofetch "fastfetch"
   alias sudo "run0 --background="
+  alias ls "eza --color=always --long --git --icons=always"
+  alias tree "eza --tree --color=always --git --icons=always --all"
 
   set fish_greeting ""
   set -g catppuccin "catmocha"

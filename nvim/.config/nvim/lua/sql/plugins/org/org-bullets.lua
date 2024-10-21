@@ -8,7 +8,7 @@ return {
       symbols = {
         -- list symbol
         list = "•",
-        headlines = { "◉", "○", "✸", "✿" },
+        headlines = { "◉", "❃", "✿", "○"},
         checkboxes = {
           half = { "", "@org.checkbox.halfchecked" },
           done = { "✓", "@org.keyword.done" },
