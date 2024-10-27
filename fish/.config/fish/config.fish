@@ -15,6 +15,7 @@ end
 
 oh-my-posh init fish --config $HOME/.config/ohmyposh/zen.toml | source 
 zoxide init --cmd cd fish | source
+source ~/.config/fish/functions/vi.fish
 
 set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; set -gx PATH $HOME/.cabal/bin /home/deanr/.ghcup/bin $PATH # ghcup-env
 set -x PLASMA_USE_QT_SCALING '1'
