@@ -9,7 +9,7 @@ if status is-interactive
   alias tree "eza --tree --color=always --git --icons=always --all"
 
   set fish_greeting ""
-  set -g catppuccin "catmocha"
+  # set -g catppuccin "catmocha"
   set -gx PATH "$HOME/.config/ohmyposh/oh-my-posh/" $PATH
 end
 
@@ -25,6 +25,7 @@ set -x PATH $HOME/.local/bin/C-scripts $PATH
 set -x PATH $HOME/.local/bin/Sh-scripts $PATH
 set -x FZF_DEFAULT_OPTS "--preview 'bat --style=numbers --color=always --line-range=:500 {}'"
 set -x PATH $HOME/.dotnet/tools $PATH
+source ~/.config/fish/themes/gruvbox.fish
 
 export EDITOR=vim
 export NVIM_YANK=wl-copy

@@ -1,0 +1,32 @@
+# ~/.config/fish/custom_gruvbox.fish
+
+# Name: SqL gruvbox
+# Preferred Background: 282828 (dark gray)
+
+set -g fish_color_normal ebdbb2  # Normal text color (light beige)
+set -g fish_color_command 83a598  # Command color (blue)
+set -g fish_color_param fabd2f     # Parameter color (purple)
+set -g fish_color_keyword fabd2f   # Keyword color (yellow)
+set -g fish_color_quote b8bb26      # Quote color (light green)
+set -g fish_color_redirection d3869b # Redirection color (purple, same as keywords)
+set -g fish_color_end fe8019        # End color (orange)
+set -g fish_color_comment 928374    # Comment color (grayish)
+set -g fish_color_error fb4934      # Error color (red)
+set -g fish_color_gray 665c54       # Gray color (dark gray)
+set -g fish_color_selection --background=3c3836 # Selection background color (dark gray)
+set -g fish_color_search_match --background=3c3836 # Search match background color (dark gray)
+set -g fish_color_option b8bb26     # Option color (light green)
+set -g fish_color_operator d3869b   # Operator color (purple)
+set -g fish_color_escape fb4934      # Escape character color (red)
+set -g fish_color_autosuggestion 665c54 # Autosuggestion color (dark gray)
+set -g fish_color_cancel fb4934      # Cancel color (red)
+set -g fish_color_cwd fabd2f        # Current working directory color (yellow)
+set -g fish_color_user 83a598       # User color (light blue)
+set -g fish_color_host 458588       # Host color (dark blue)
+set -g fish_color_host_remote b8bb26 # Remote host color (light green)
+set -g fish_color_status fb4934      # Status color (red)
+set -g fish_pager_color_progress 665c54 # Pager progress color (dark gray)
+set -g fish_pager_color_prefix d3869b # Pager prefix color (purple)
+set -g fish_pager_color_completion ebdbb2 # Pager completion color (light beige)
+set -g fish_pager_color_description 665c54 # Pager description color (dark gray)
+

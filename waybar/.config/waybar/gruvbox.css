@@ -1,0 +1,38 @@
+/*
+*
+* Gruvbox palette
+* Maintainer: Aditya Shakya
+*
+*/
+
+@define-color base   #282828;  /* Dark background */
+@define-color mantle #1d1d1d;  /* Slightly lighter background */
+@define-color crust  #1b1b1b;  /* Darker background for the crust */
+
+@define-color text     #ebdbb2;  /* Light text */
+@define-color subtext0 #ebdbb2;  /* Light text */
+@define-color subtext1 #ebdbb2;  /* Light text */
+
+@define-color surface0 #3c3836;  /* Surface color 1 */
+@define-color surface1 #504945;  /* Surface color 2 */
+@define-color surface2 #665c54;  /* Surface color 3 */
+
+@define-color overlay0 #7c6f64;  /* Overlay color 1 */
+@define-color overlay1 #928374;  /* Overlay color 2 */
+@define-color overlay2 #fb4934;  /* Overlay color 3 */
+
+@define-color blue      #83a598;  /* Gruvbox blue */
+@define-color lavender  #d3869b;  /* Lavender color */
+@define-color sapphire  #8ec07c;  /* Sapphire color (adjusted) */
+@define-color sky       #a89984;  /* Sky color (neutral) */
+@define-color teal      #9cd1bb;  /* Teal color (unchanged) */
+@define-color green     #b8bb26;  /* Gruvbox green */
+@define-color yellow    #fabd2f;  /* Gruvbox yellow */
+@define-color peach     #ff9b5e;  /* Peach color (unchanged) */
+@define-color maroon    #fb4934;  /* Gruvbox red */
+@define-color red       #fb4934;  /* Gruvbox red */
+@define-color mauve     #b18eab;  /* Mauve color (unchanged) */
+@define-color pink      #d3869b;  /* Pink color (adjusted) */
+@define-color flamingo  #d3869b;  /* Flamingo color (adjusted) */
+@define-color rosewater #fb4934;  /* Gruvbox red */
+

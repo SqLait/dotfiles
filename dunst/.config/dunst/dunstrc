@@ -4,25 +4,22 @@
     width = 350
     origin = bottom-right
     offset = 48x48
-
     progress_bar = true
     progress_bar_height = 10
     progress_bar_frame_width = 1
     progress_bar_min_width = 150
     progress_bar_max_width = 400
     progress_bar_corner_radius = 5
-
     indicate_hidden = yes
     shrink = no
     separator_height = 2
-    separator_color = "#5d81ab"  # blue
+    separator_color = "#458588"   # blue (Gruvbox)
     padding = 15
     horizontal_padding = 15
     frame_width = 0
     corner_radius = 10
     sort = yes
     idle_threshold = 120
-
     font = JetBrainsMono
     line_height = 0
     markup = full
@@ -56,32 +53,32 @@
     per_monitor_dpi = false
 
 [urgency_low]
-    background = "#1d1d1d"  # base
-    foreground = "#fcfcfa"  # text
-    highlight = "#fcfcfa"  # text
-    frame_color = "#1d1d1d"  # base
+    background = "#282828"  # Gruvbox dark background
+    foreground = "#ebdbb2"  # Gruvbox light text
+    highlight = "#ebdbb2"   # Gruvbox light text
+    frame_color = "#282828" # Gruvbox dark background
     timeout = 5
 
 [urgency_normal]
-    background = "#1d1d1d"  # base
-    foreground = "#fcfcfa"  # text
-    highlight = "#fcfcfa"  # text
-    frame_color = "#1d1d1d"  # base
+    background = "#282828"  # Gruvbox dark background
+    foreground = "#ebdbb2"  # Gruvbox light text
+    highlight = "#ebdbb2"   # Gruvbox light text
+    frame_color = "#282828" # Gruvbox dark background
     timeout = 5
 
 [urgency_critical]
-    background = "#1d1d1d"  # base
-    foreground = "#fcfcfa"  # text
-    frame_color = "#ff657a"  # red
+    background = "#282828"  # Gruvbox dark background
+    foreground = "#ebdbb2"  # Gruvbox light text
+    frame_color = "#fb4934" # Gruvbox red
     timeout = 1000
 
 [volume]
     appname = "Volume"
-    highlight = "#b18eab"  # mauve
+    highlight = "#d3869b"   # Gruvbox mauve/purple
 
 [backlight]
     appname = "Backlight"
-    highlight = "#f29ba7"  # maroon
+    highlight = "#fe8019"   # Gruvbox orange
 
 # vim: ft=cfg
 

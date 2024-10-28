@@ -24,4 +24,4 @@ configuration{
     kb-remove-char-back: "BackSpace";
 }
 
-@theme "mocha1"
+@theme "gruvbox1"

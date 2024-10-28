@@ -3,7 +3,7 @@ configuration {
 }
 
 /*****----- Global Properties -----*****/
-@import                          "mocha.rasi"
+@import                          "gruvbox.rasi"
 
 /*****----- Main Window -----*****/
 window {

@@ -13,7 +13,7 @@ configuration {
 }
 
 /*****----- Global Properties -----*****/
-@import                          "mocha.rasi"
+@import                          "gruvbox.rasi"
 @import                          "fonts/fonts.rasi"
 
 /*
