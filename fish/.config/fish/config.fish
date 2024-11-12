@@ -10,3 +10,4 @@ source ~/.config/fish/functions/abrv.fish
 source ~/.config/fish/env/export.fish
 source ~/.config/fish/env/path.fish
 source ~/.config/fish/env/init.fish
+source ~/.config/fish/themes/gruvbox.fish
