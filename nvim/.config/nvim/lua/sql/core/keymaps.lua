@@ -34,12 +34,6 @@ keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", {desc = "go to next tab"})
 keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", {desc = "go to previous tab"})
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", {desc = "open current buffer in new tab"})
 
--- Window navigation
-vim.keymap.set('n', '<C-h>', '<C-w>h', { desc = 'Move to the left window' })
-vim.keymap.set('n', '<C-j>', '<C-w>j', { desc = 'Move to the lower window' })
-vim.keymap.set('n', '<C-k>', '<C-w>k', { desc = 'Move to the upper window' })
-vim.keymap.set('n', '<C-l>', '<C-w>l', { desc = 'Move to the right window' })
-
 -- Resize split windows
 keymap.set("n", "<C-Up>", ":resize -2<CR>")
 keymap.set("n", "<C-Down>", ":resize +2<CR>")
