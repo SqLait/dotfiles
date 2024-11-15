@@ -1,7 +1,6 @@
 if status is-interactive
-  set fish_greeting ""
-  # set -g catppuccin "catmocha"
-  set -gx PATH "$HOME/.config/ohmyposh/oh-my-posh/" $PATH
+    set fish_greeting ""
+    tmux; clear;
 end
 
 source ~/.config/fish/functions/vi.fish
