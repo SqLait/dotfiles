@@ -6,3 +6,4 @@ set -x PATH $HOME/.local/bin/C-scripts $PATH
 set -x PATH $HOME/.local/bin/Sh-scripts $PATH
 set -x FZF_DEFAULT_OPTS "--preview 'bat --style=numbers --color=always --line-range=:500 {}'"
 set -x PATH $HOME/.dotnet/tools $PATH
+set -gx PATH "$HOME/.config/ohmyposh/oh-my-posh/" $PATH
