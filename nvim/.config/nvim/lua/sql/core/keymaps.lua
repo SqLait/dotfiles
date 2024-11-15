@@ -75,3 +75,12 @@ keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find Todo comm
 --Org-Mode
 keymap.set("n", "<leader>tm", "<cmd>TableModeToggle", { desc = "Toggle table formatting" })
 
+keymap.set("n", "<c-k>", ":wincmd k<CR>")
+keymap.set("n", "<c-j>", ":wincmd j<CR>")
+keymap.set("n", "<c-h>", ":wincmd h<CR>")
+keymap.set("n", "<c-l>", ":wincmd l<CR>")
+
+keymap.set("n", "C-k", ":wincmd k<CR>")
+keymap.set("n", "C-j", ":wincmd j<CR>")
+keymap.set("n", "C-h", ":wincmd h<CR>")
+keymap.set("n", "C-l", ":wincmd l<CR>")
