@@ -14,10 +14,6 @@ function neofetch
     fastfetch
 end
 
-function sudo
-    run0 --background=
-end
-
 function ls
     eza --color=always --long --git --icons=always
 end
