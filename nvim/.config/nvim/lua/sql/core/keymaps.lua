@@ -75,6 +75,7 @@ keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find Todo comm
 --Org-Mode
 keymap.set("n", "<leader>tm", "<cmd>TableModeToggle", { desc = "Toggle table formatting" })
 
+--Tmux keybinds
 keymap.set("n", "<c-k>", ":wincmd k<CR>")
 keymap.set("n", "<c-j>", ":wincmd j<CR>")
 keymap.set("n", "<c-h>", ":wincmd h<CR>")
@@ -84,3 +85,13 @@ keymap.set("n", "C-k", ":wincmd k<CR>")
 keymap.set("n", "C-j", ":wincmd j<CR>")
 keymap.set("n", "C-h", ":wincmd h<CR>")
 keymap.set("n", "C-l", ":wincmd l<CR>")
+
+keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
+
+--Find and replace all appearences of that word
+keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+--chmod a bash file to be executable
+keymap.set("n", "<leader>chx", "<cmd>!chmod +x %<CR>", { silent = true })
+
+keymap.set("n", "<C-d>", "<C-d>zz")
+keymap.set("n", "<C-u>", "<C-u>zz")
