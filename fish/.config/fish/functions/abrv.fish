@@ -21,3 +21,8 @@ end
 function tree
     eza --tree --color=always --git --icons=always --all
 end
+
+function man
+    btrman $argv
+end
+
