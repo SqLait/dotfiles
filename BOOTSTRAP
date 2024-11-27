@@ -1,0 +1,62 @@
+#!/bin/bash
+
+INSTALL="sudo pacman -Syu \
+    nvim bat dunst fastfetch\
+    fish kitty yazi rofi-wayland tmux\
+    waybar bluez bottom cmake\
+    eza discord brightnessctl\
+    firefox fzf git github-cli grim\
+    hyprlock hypridle lazygit libnotify slurp\
+    swww spotify-launcher stow ufw zip unzip vim wl-clipboard zathura\
+    zathura-pdf-poppler zoxide man-db man-pages ripgrep make --noconfirm"
+
+echo "Installing packages..."
+eval "$INSTALL"
+
+echo "Authenticating with GitHub..."
+gh auth login
+
+GET_YAY="sudo pacman -Syu --needed git base-devel --noconfirm\
+    git clone https://aur.archlinux.org/yay.git\
+    cd yay\
+    makepkg -si"
+
+echo "Installing yay..."
+eval "$GET_YAY"
+
+echo "Yay Installation completed."
+
+INSTALL_YAY_SOFTWARE="yay ttf-ms-fonts unityhub"
+echo "INstalling AUR packages..."
+eval "$INSTALL_YAY_SOFTWARE"
+
+cd ~/dotfiles || exit 1
+
+for DIR in */; do
+    DIR=${DIR%/}
+
+    echo "Stowing $DIR"
+    stow "$DIR"
+done
+
+echo "All directories stowed successfully."
+
+TPM_INSTALL="git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm"
+echo "Installing tmux package manager"
+eval "$TPM_INSTALL"
+
+echo "Installing Programming languages"
+PROG_LANGS="sudo pacman -Syu gcc lua luajit python\
+    deno ghc dotnet-sdk --noconfirm"
+
+echo "Setting firewall rules"
+
+sudo ufw default allow outgoing
+sudo ufw default deny incoming
+sudo ufw allow 443/tcp
+sudo ufw limit 22/tcp
+sudo ufw allow 80/tcp
+sudo systemctl enable ufw
+sudo systemctl start ufw
+
+echo "Firewall rules set"
