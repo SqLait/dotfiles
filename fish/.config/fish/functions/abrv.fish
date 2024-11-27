@@ -1,17 +1,17 @@
 function lg
-    lazygit
+    lazygit $argv
 end
 
 function vim
-    nvim
+    nvim $argv
 end
 
 function vi
-    vim
+    vim $argv
 end
 
 function neofetch
-    fastfetch
+    fastfetch $argv
 end
 
 function ls
