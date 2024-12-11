@@ -94,8 +94,8 @@ return {
             ["clangd"] = function()
                 lspconfig["clangd"].setup({
                     capabilities = capabilities,
-                    cmd = { "csharp_ls" },
-                    filetype = { "cs" },
+                    cmd = { "clangd" },
+                    filetype = { "c", "cpp" },
                 })
             end,
             ["csharp_ls"] = function()
