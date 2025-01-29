@@ -26,7 +26,7 @@ return {
       ensure_installed = {
         "lua_ls", "clangd", "csharp_ls", --[["tsserver",]]
         "pylsp", "rust_analyzer", "zls", "elixirls",
-        "html", "cssls", "fortls"
+        "fortls"
       },
     })
   end,

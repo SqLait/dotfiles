@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Increment, decrement, or mute the volume using Pipewire and send a notification
+# Increment, decrement, mute, or unmute the volume using Pipewire and send a notification
 
 ICON_PATH="/home/deanr/.local/share/icons/dunst"
 
@@ -12,7 +12,7 @@ case $1 in
 	up)
 		# Set the volume on (if it was muted)
 		wpctl set-mute @DEFAULT_AUDIO_SINK@ 0
-    VOLUME=$(get_volume)
+		VOLUME=$(get_volume)
 		if [ "$VOLUME" -lt 100 ]; then
 			wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+
 		fi
@@ -23,6 +23,10 @@ case $1 in
 		;;
 	mute)
 		wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+		;;
+	unmute)
+		# Unmute the volume if muted
+		wpctl set-mute @DEFAULT_AUDIO_SINK@ 0
 		;;
 esac
 
@@ -41,6 +45,8 @@ case $1 in
 			*MUTED* ) send_notification mute;;
 			*       ) send_notification;;
 		esac;;
+	unmute)
+		send_notification;;
 	*)
 		send_notification;;
 esac
