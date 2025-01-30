@@ -1,41 +1,33 @@
 #!/usr/bin/env bash
 
 # Current Theme
-dir="$HOME/.config/rofi/menu"
-theme='powermenu'
+dir="$HOME/.config/rofi"
+theme='config'
 
 # CMDs
 uptime="`uptime -p | sed -e 's/up //g'`"
 host="deanr"
 
 # Options
-shutdown='󰐥'
-reboot=''
-lock='󰌾'
-suspend='󱫪'
-logout='󰍃'
-yes=''
-no=''
+shutdown='󰐥 shutdown'
+reboot=' reboot'
+lock='󰌾 lock'
+suspend='󱫪 suspend'
+logout='󰍃 logout'
+yes=' yes'
+no=' no'
 
 # Rofi CMD
 rofi_cmd() {
 	rofi -dmenu \
-		-p "Uptime: $uptime" \
-		-mesg "Uptime: $uptime" \
-		-theme ${dir}/${theme}.rasi
+        -p "$uptime"
 }
 
 # Confirmation CMD
 confirm_cmd() {
-	rofi -theme-str 'window {location: center; anchor: center; fullscreen: false; width: 450px;}' \
-		-theme-str 'mainbox {children: [ "message", "listview" ];}' \
-		-theme-str 'listview {columns: 2; lines: 1;}' \
-		-theme-str 'element-text {horizontal-align: 0.5;}' \
-		-theme-str 'textbox {horizontal-align: 0.5;}' \
-		-dmenu \
+	rofi -dmenu \
 		-p 'Confirmation' \
-		-mesg 'Are you Sure?' \
-		-theme ${dir}/${theme}.rasi
+		-mesg 'Are you Sure?'
 }
 
 # Ask for confirmation

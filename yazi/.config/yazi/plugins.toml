@@ -1,0 +1,5 @@
+[preview]
+rules = [
+  { mime = "text/*", use = "bat --paging=never --color=always {}" }
+]
+
