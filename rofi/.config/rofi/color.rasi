@@ -1,15 +1,14 @@
 * {
   // general
-  bg: #1d1d1d;               // base (solid for bg)
-  bgt: #28282895;            // semi-transparent for bgt
+  bg: #050505;
+  bgt: #28282895;
   t: transparent;
-  fg: #fcfcfa;               // text (solid)
+  fg: #dbc6a2;
 
-  selected-bg: #fcfcfa;      // text (solid)
-  selected-fg: #1d1d1d;      // base (solid)
+  selected-bg: @fg;
+  selected-fg: @bg;
 
   // for windows
-  active: #a8be81;           // green
-  urgent: #ff657a;           // red
+  active: #a9b665;
+  urgent: #fb4934;
 }
-
