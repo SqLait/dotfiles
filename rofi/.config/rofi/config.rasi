@@ -16,7 +16,7 @@ configuration {
 }
 
 /*Color scheme file*/
-@import "./catpu.rasi"
+@import "./gruvbox.rasi"
 
 window {
   fullscreen: true;
