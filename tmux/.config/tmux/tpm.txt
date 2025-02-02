@@ -1,4 +1,0 @@
-If in the case you are trying to get this to work on a new system.
-
-REMOVE THE PLUGINS FOLDER.
-For some weird reason if you don't remove this, tpm won't install your plugins
