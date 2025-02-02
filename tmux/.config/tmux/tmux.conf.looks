@@ -1,0 +1,8 @@
+# Status bar position
+set-option -g status-position bottom
+
+# Split window bindings with current path
+bind '"' split-window -v -c "#{pane_current_path}"
+bind % split-window -h -c "#{pane_current_path}"
+
+set -g status-style 'bg=#333333 fg=#b8bb26'
