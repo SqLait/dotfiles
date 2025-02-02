@@ -1,0 +1,60 @@
+#+TITLE: ~/.config/tmux/tmux.conf
+
+* Install
+
+  In order to make this tmux config work you need to install a couple of dependencies:
+
+  ALWAYS UPDATE THE SYSTEM BEFORE INSTALLING SOFTWARE:
+
+  #+BEGIN_SRC sh
+  sudo pacman -Syu 
+  #+END_SRC
+
+** Core packages:
+
+   #+BEGIN_SRC sh
+   sudo pacman -S tmux fzf zoxide 
+   #+END_SRC
+
+   Once you have installed these packages, you have all the core dependencies for this config.
+
+** Tpm (Tmux Package Manager)
+
+   Next you need to install a package manager for tmux.
+   This requires git to be installed on the system:
+
+   #+BEGIN_SRC sh
+   sudo pacman -Syu git
+   #+END_SRC
+
+   After installing git you can clone the tpm repository:
+
+   #+BEGIN_SRC sh
+   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm 
+   #+END_SRC
+
+   This will install tpm in the =.tmux/plugins/tpm= folder.
+
+   The next step is to actually install the packages.
+
+   *IMPORTANT:*
+   Make sure that in the =~/dotfiles/tmux/.config/tmux/plugins/= folder
+   you delete the plugin folders on a new system. They will be empty anyways.
+   The reason why is that if you keep them there when you press =Prefix + I=
+   for some reason _tpm won't install the packages_.
+   Removing those package folders will fix this behaviour.
+
+   The tmux config already contains the packages you would need:
+
+   #+BEGIN_SRC tmux
+
+   # Plugins
+   set -g @plugin 'tmux-plugins/tpm'
+   set -g @plugin 'tmux-plugins/tmux-sensible'
+   set -g @plugin 'christoomey/vim-tmux-navigator'
+
+   # Initialize TPM (keep this at the end)
+   run '~/.tmux/plugins/tpm/tpm'
+   #+END_SRC
+
+   after you have done all of this you can press =CTRL + I= to install all the packages.
