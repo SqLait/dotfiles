@@ -16,7 +16,7 @@ configuration {
 }
 
 /*Color scheme file*/
-@import "./color.rasi"
+@import "./catpu.rasi"
 
 window {
   fullscreen: true;
