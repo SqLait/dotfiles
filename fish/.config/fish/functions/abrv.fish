@@ -7,7 +7,7 @@ function vim
 end
 
 function vi
-    vim $argv
+    command vim $argv
 end
 
 function neofetch
