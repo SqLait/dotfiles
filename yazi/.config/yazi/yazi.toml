@@ -14,3 +14,12 @@ cursor_blink = true
 [delete]
 command = "rm"
 args = ["-ri"]
+
+[opener]
+play = [
+    { run 'vlc "$@"', orphan = true, for = "unix" }
+]
+
+edit = [
+    { run = 'nvim "$@"', block = true, for = "unix" },
+]
