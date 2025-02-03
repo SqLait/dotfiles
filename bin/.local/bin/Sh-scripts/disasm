@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# INFO: Disasm is a simple frontend to check the resulted asm from a objdump
+
+# Check if an argument (executable file) is provided
+if [ "$#" -ne 1 ]; then
+    echo "Usage: $0 <executable>"
+    exit 1
+fi
+
+EXECUTABLE="$1"
+
+# Check if the file exists and is executable
+if [ ! -f "$EXECUTABLE" ] || [ ! -x "$EXECUTABLE" ]; then
+    echo "Error: File '$EXECUTABLE' does not exist or is not executable."
+    exit 1
+fi
+
+# Create a temporary file to store objdump output
+TEMP_FILE="$(mktemp --suffix=.asm)"
+
+# Run objdump and save the output
+objdump -d "$EXECUTABLE" > "$TEMP_FILE"
+
+# Open the file in Neovim with assembly syntax highlighting
+nvim "+set syntax=nasm" "$TEMP_FILE"
+
+# Clean up the temp file when Neovim exits
+rm -f "$TEMP_FILE"
+

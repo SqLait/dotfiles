@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-# Current Theme
-theme='menu/grim'
-
 # Options
 entire_screen="Entire screen"
 select_area="Select an area"
@@ -16,8 +13,7 @@ tmp_filename="$HOME/Pictures/screenshot_$(date +%d)-$(date +%m)-$(date +%y)_$(da
 # Rofi CMD
 rofi_cmd() {
 	rofi -dmenu \
-		-mesg "Screenshot" \
-		-theme ${theme}.rasi
+		-mesg "Screenshot options: "
 }
 
 # Pass variables to rofi dmenu
@@ -27,14 +23,8 @@ run_rofi() {
 
 # Mode selection
 mode_cmd() {
-	rofi -theme-str 'window {location: center; anchor: center; fullscreen: false; width: 250px;}' \
-		-theme-str 'mainbox {children: [ "message", "listview" ];}' \
-		-theme-str 'listview {columns: 1; lines: 2;}' \
-		-theme-str 'element-text {horizontal-align: 0.5;}' \
-		-theme-str 'textbox {horizontal-align: 0.5;}' \
-		-dmenu \
-		-mesg 'Screenshot taken' \
-		-theme ${theme}.rasi
+	rofi -dmenu \
+		-mesg 'Screenshot taken'
 }
 
 # Ask to select mode
