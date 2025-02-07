@@ -94,7 +94,7 @@ return {
             ["clangd"] = function()
                 lspconfig["clangd"].setup({
                     capabilities = capabilities,
-                    cmd = { "clangd" },
+                    cmd = { "clangd", "--compile-commands-dir=build" },
                     filetype = { "c", "cpp" },
                 })
             end,
