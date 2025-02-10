@@ -174,7 +174,7 @@
       org-ellipsis " ⤵"
       org-auto-align-tags nil
       org-tags-column 0
-      org-catch-invisible-edits 'show-and-error
+      org-fold-catch-invisible-edits 'show-and-error
       org-special-ctrl-a/e t
       org-insert-heading-respect-content t)
 
@@ -183,3 +183,13 @@
 (setq org-agenda-tags-column 0
       org-agenda-block-separator ?─
       org-agenda-time-grid '((daily today) (800 1000 1200 1400 1600 1800 2000) "---" ""))
+
+(custom-set-faces
+ '(org-document-title ((t (:inherit title :height 1.2 :weight bold))))
+ '(org-document-info ((t (:inherit title :height 1.0 :weight bold))))
+ '(org-level-1 ((t (:inherit outline-1 :height 1.1)))))
+
+(after! flyspell
+  (setq ispell-dictionary "en_US")) ;; Change to your preferred language
+(add-hook 'text-mode-hook #'flyspell-mode)  ;; Enable spell check for text files
+(add-hook 'prog-mode-hook #'flyspell-prog-mode)  ;; Enable spell check for comments in code
