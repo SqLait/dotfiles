@@ -10,3 +10,5 @@ set -x FZF_DEFAULT_OPTS "--preview 'bat --style=numbers --color=always --line-ra
 set -x PATH $HOME/.dotnet/tools $PATH
 set -gx PATH "$HOME/.config/ohmyposh/oh-my-posh/" $PATH
 set -Ux SUDO "run0 --background="
+set -gx EMACSDIR "$HOME/.config/emacs/"
+set -x PATH $HOME/.config/emacs/bin/ $PATH
