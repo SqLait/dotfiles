@@ -32,6 +32,7 @@
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
 ;; 'doom-one' is a pretty good theme
+
 (setq doom-theme 'doom-gruvbox)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
@@ -134,16 +135,6 @@
             (tags-todo "work")
             (tags-todo "next"))))))
 
-(use-package! org
-  :config
-  (defun my/paste-image-from-clipboard ()
-    "Paste an image from the clipboard into the current buffer."
-    (interactive)
-    (let ((file (make-temp-file "clipboard-image" nil ".png")))
-      ;; Use wl-clipboard to get the image from the clipboard and save it to a file
-      (call-process "wl-paste" nil nil nil "--type" "image/png" "-o" file)
-      (insert-image (create-image file)))))
-
 (after! org
   (global-org-modern-mode))
 
@@ -193,3 +184,8 @@
   (setq ispell-dictionary "en_US")) ;; Change to your preferred language
 (add-hook 'text-mode-hook #'flyspell-mode)  ;; Enable spell check for text files
 (add-hook 'prog-mode-hook #'flyspell-prog-mode)  ;; Enable spell check for comments in code
+
+(setq org-agenda-files (directory-files-recursively "~/Documents/orgfiles/Agenda/" "\\.org$"))
+
+(setq org-file-apps
+      '(("\\.pdf\\'" . "zathura %s")))
