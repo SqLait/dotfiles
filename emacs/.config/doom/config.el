@@ -189,3 +189,9 @@
 
 (setq org-file-apps
       '(("\\.pdf\\'" . "zathura %s")))
+(setq org-agenda-week-start-day 1)  ;; Monday as the start of the week
+
+(map! :map org-agenda-mode-map
+      :leader
+      :desc "Next week" "n w" #'org-agenda-later
+      :desc "Previous week" "n W" #'org-agenda-earlier)
