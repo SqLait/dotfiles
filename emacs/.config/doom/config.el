@@ -175,9 +175,11 @@
       org-agenda-block-separator ?─
       org-agenda-time-grid '((daily today) (800 1000 1200 1400 1600 1800 2000) "---" ""))
 
+(setq org-modern-property-use t) ;; Ensures properties are highlighted
 (custom-set-faces
  '(org-document-title ((t (:inherit title :height 1.2 :weight bold))))
  '(org-document-info ((t (:inherit title :height 1.0 :weight bold))))
+ '(org-property-value ((t (:height 1.0 :weight bold))))
  '(org-level-1 ((t (:inherit outline-1 :height 1.1)))))
 
 (after! flyspell
@@ -195,3 +197,4 @@
       :leader
       :desc "Next week" "n w" #'org-agenda-later
       :desc "Previous week" "n W" #'org-agenda-earlier)
+
