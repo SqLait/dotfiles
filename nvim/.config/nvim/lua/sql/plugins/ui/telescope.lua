@@ -5,7 +5,6 @@ return {
     { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Fuzzy find files in cwd" },
     { "<leader>fs", "<cmd>Telescope live_grep<cr>", desc = "Find string in cwd" },
     { "<leader>fc", "<cmd>Telescope grep_string<cr>", desc = "Find string under cursor in cwd" },
-    { "<leader>st", "<cmd>Telescope colorscheme<cr>", desc = "Switch themes" }
   },
   dependencies = {
     "nvim-lua/plenary.nvim",

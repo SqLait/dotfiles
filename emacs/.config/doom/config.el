@@ -197,4 +197,3 @@
       :leader
       :desc "Next week" "n w" #'org-agenda-later
       :desc "Previous week" "n W" #'org-agenda-earlier)
-

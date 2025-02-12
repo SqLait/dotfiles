@@ -37,12 +37,19 @@ opt.relativenumber = true
 opt.conceallevel = 2
 opt.concealcursor = 'nc'
 
+-- Incremental search
+opt.hlsearch = false
+opt.incsearch = true
+
+-- Scrolling
+opt.scrolloff = 8
+
 --Set language to english
-vim.o.spelllang = 'en_us'
+o.spelllang = 'en_us'
 
 --Tab shizzle:
-vim.o.title = true
-vim.o.titlestring = "%t"
+o.title = true
+o.titlestring = "%t"
 
 g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
@@ -50,7 +57,7 @@ g.loaded_matchparen = 1
 
 --Optimization:
 o.lazyredraw = true
-o.updatetime = 300
+o.updatetime = 50
 o.swapfile = false
 o.hidden = true
 o.termguicolors = true
