@@ -32,168 +32,18 @@
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
 ;; 'doom-one' is a pretty good theme
+;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
-(setq doom-theme 'doom-gruvbox)
+;; Load split configuration files
+(load! "lisp/ui.el")           ;; UI settings like fonts and themes
+(load! "lisp/org-config.el")   ;; Org mode & Org Roam
+(load! "lisp/agenda.el")       ;; Org Agenda setup
+(load! "lisp/programming.el")  ;; Programming-related settings
+(load! "lisp/bindings.el")     ;; Custom keybindings
+(load! "lisp/misc.el")         ;; Miscellaneous settings
 
-;; This determines the style of line numbers in effect. If set to `nil', line
-;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type t)
-(setq doom-themes-enable-bold t
-      doom-themes-enable-italic t)
-
-;; If you use `org' and don't want your org files in the default location below,
-;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/Documents/orgfiles/")
-
-(setq doom-font (font-spec :family "JetBrains Mono Nerd Font" :size 16 :weight 'regular :ligatures t)
-      doom-variable-pitch-font (font-spec :family "JetBrains Mono Nerd Font" :size 18 :ligatures t)
-      doom-serif-font (font-spec :family "JetBrains Mono Nerd Font" :size 18 :ligatures t)
-
-      ;; Set the bold and italic fonts
-      doom-font-bold (font-spec :family "JetBrains Mono Nerd Font" :weight 'bold :ligatures t)
-      doom-font-italic (font-spec :family "JetBrains Mono Nerd Font" :slant 'italic :ligatures t))
-
-(set-face-attribute 'default nil :family "JetBrains Mono Nerd Font" :height 140)
-(set-face-attribute 'variable-pitch nil :family "JetBrains Mono Nerd Font" :height 160)
-(set-face-attribute 'fixed-pitch nil :family "JetBrains Mono Nerd Font")
-
-;; Enable font ligatures
-(setq +ligatures-extra-symbols t)
-
-;; Whenever you reconfigure a package, make sure to wrap your config in an
-;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
-;;
-;;   (after! PACKAGE
-;;     (setq x y))
-;;
-;; The exceptions to this rule:
-;;
-;;   - Setting file/directory variables (like `org-directory')
-;;   - Setting variables which explicitly tell you to set them before their
-;;     package is loaded (see 'C-h v VARIABLE' to look up their documentation).
-;;   - Setting doom variables (which start with 'doom-' or '+').
-
-(after! org
-  (setq org-babel-load-languages
-        '((emacs-lisp . t)    ;; Emacs Lisp
-          (python . t)         ;; Python
-          (shell . t)          ;; Shell scripting
-          (ruby . t)           ;; Ruby
-          (R . t)              ;; R
-          (js . t)             ;; JavaScript
-          (java . t)           ;; Java
-          (matlab . t)         ;; MATLAB
-          (org . t)            ;; Org mode itself
-          (sql . t)            ;; SQL
-          (plantuml . t)       ;; PlantUML
-          (haskell . t)        ;; Haskell
-          (C . t)              ;; C language
-          (lua . t)            ;; Lua language
-          (perl . t))))        ;; Perl language
-
-;; Ensure the necessary ob-* modules are loaded
-(after! org
-  (use-package! ob-emacs-lisp)  ;; For Emacs Lisp
-  (use-package! ob-python)      ;; For Python
-  (use-package! ob-shell)       ;; For Shell
-  (use-package! ob-ruby)        ;; For Ruby
-  (use-package! ob-R)           ;; For R
-  (use-package! ob-js)          ;; For JavaScript
-  (use-package! ob-java)        ;; For Java
-  (use-package! ob-matlab)      ;; For MATLAB
-  (use-package! ob-org)         ;; For Org mode code blocks
-  (use-package! ob-sql)         ;; For SQL
-  (use-package! ob-plantuml)    ;; For PlantUML
-  (use-package! ob-haskell)     ;; For Haskell
-  (use-package! ob-lua)         ;; For Lua language
-  (use-package! ob-C)
-  (use-package! ob-perl))       ;; For Perl language
-
-;; Enable org-roam
-(after! org-roam
-  (setq org-roam-directory (file-truename "~/Documents/orgfiles/zettelkast/"))
-  (org-roam-db-autosync-mode))
-
-;; Enable org-super-agenda
-(after! org-agenda
-  (setq org-super-agenda-groups
-        '((:name "Today"
-                 :time-grid t
-                 :order 1)
-          (:name "Next"
-                 :todo "NEXT"
-                 :order 2)
-          (:name "Someday"
-                 :todo "SOMEDAY"
-                 :order 3))))
-
-;; Custom org-agenda view example
-(after! org-agenda
-  (setq org-agenda-custom-commands
-        '(("c" "Agenda"
-           ((agenda "")
-            (tags-todo "work")
-            (tags-todo "next"))))))
-
-(after! org
-  (global-org-modern-mode))
-
-(setq org-modern-table nil
-      org-modern-star ["◉" "○" "✸" "✿"]
-      org-modern-hide-stars nil
-      org-modern-todo nil
-      org-modern-timestamp t)
-
+;; Disable menu bar, tool bar, scroll bar globally
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
-(setq display-line-numbers-type nil)
 
-(modify-all-frames-parameters
- '((right-divider-width . 0)
-   (internal-border-width . 0)))
-(dolist (face '(window-divider
-                window-divider-first-pixel
-                window-divider-last-pixel))
-  (face-spec-reset-face face)
-  (set-face-foreground face (face-attribute 'default :background)))
-(set-face-background 'fringe (face-attribute 'default :background))
-
-;; Org Styling & Prettification
-(setq org-hide-emphasis-markers t
-      org-pretty-entities t
-      org-ellipsis " ⤵"
-      org-auto-align-tags nil
-      org-tags-column 0
-      org-fold-catch-invisible-edits 'show-and-error
-      org-special-ctrl-a/e t
-      org-insert-heading-respect-content t)
-
-;; Org Agenda Enhancements
-(add-hook 'org-agenda-finalize-hook #'org-modern-agenda)
-(setq org-agenda-tags-column 0
-      org-agenda-block-separator ?─
-      org-agenda-time-grid '((daily today) (800 1000 1200 1400 1600 1800 2000) "---" ""))
-
-(setq org-modern-property-use t) ;; Ensures properties are highlighted
-(custom-set-faces
- '(org-document-title ((t (:inherit title :height 1.2 :weight bold))))
- '(org-document-info ((t (:inherit title :height 1.0 :weight bold))))
- '(org-property-value ((t (:height 1.0 :weight bold))))
- '(org-level-1 ((t (:inherit outline-1 :height 1.1)))))
-
-(after! flyspell
-  (setq ispell-dictionary "en_US")) ;; Change to your preferred language
-(add-hook 'text-mode-hook #'flyspell-mode)  ;; Enable spell check for text files
-(add-hook 'prog-mode-hook #'flyspell-prog-mode)  ;; Enable spell check for comments in code
-
-(setq org-agenda-files (directory-files-recursively "~/Documents/orgfiles/Agenda/" "\\.org$"))
-
-(setq org-file-apps
-      '(("\\.pdf\\'" . "zathura %s")))
-(setq org-agenda-week-start-day 1)  ;; Monday as the start of the week
-
-(map! :map org-agenda-mode-map
-      :leader
-      :desc "Next week" "n w" #'org-agenda-later
-      :desc "Previous week" "n W" #'org-agenda-earlier)
