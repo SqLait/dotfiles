@@ -23,3 +23,9 @@
   (face-spec-reset-face face)
   (set-face-foreground face (face-attribute 'default :background)))
 (set-face-background 'fringe (face-attribute 'default :background))
+
+(custom-set-faces
+ '(org-document-title ((t (:weight bold :height 1.2))))
+ '(org-document-info ((t (:weight bold :height 1.1))))
+ '(org-property-value ((t (:weight bold :foreground "gray50"))))
+ '(org-document-info-keyword ((t (:weight bold :height 1.0)))))

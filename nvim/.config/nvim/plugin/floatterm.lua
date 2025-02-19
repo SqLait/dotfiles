@@ -4,6 +4,7 @@ local state = {
         win = -1,
     }
 }
+
 local function CreateFloatingWindow(opts)
     opts = opts or {}
     local width = opts.width or math.floor(vim.o.columns * 0.8)
@@ -45,7 +46,7 @@ local ToggleTerminal = function()
     end
 end
 
-local ClearBuffer = function ()
+local ClearBuffer = function()
     state.floating.buf = -1
     state.floating.win = -1
 end
@@ -53,6 +54,5 @@ end
 vim.api.nvim_create_user_command("FloatTerm", ToggleTerminal, {})
 vim.api.nvim_create_user_command("FloatTermClearBuff", ClearBuffer, {})
 
-vim.keymap.set({"n", "t"}, "<leader>tt", ToggleTerminal)
-vim.keymap.set({"n", "t"}, "<leader>cb", ClearBuffer)
-
+vim.keymap.set({ "n", "t" }, "<leader>tt", ToggleTerminal)
+vim.keymap.set({ "n", "t" }, "<leader>cb", ClearBuffer)

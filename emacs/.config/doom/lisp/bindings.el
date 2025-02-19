@@ -1,10 +1,88 @@
-;;; lisp/bindings.el --- Keybindings -*- lexical-binding: t; -*-
+;;; Keybindings for Doom Emacs (converted from Neovim)
+;;; Place these in your config.el file
 
-(map! :map org-mode-map
-      :leader
-      :desc "Insert heading" "o h" #'org-insert-heading)
+(map! :leader
+      ;; Clear search highlights
+      (:desc "Clear search highlights" "nh" #'evil-ex-nohighlight)
 
-(map! :map org-agenda-mode-map
-      :leader
-      :desc "Next week" "n w" #'org-agenda-later
-      :desc "Previous week" "n W" #'org-agenda-earlier)
+      ;; Increment/Decrement numbers
+      (:desc "Increment number" "+" #'evil-numbers/inc-at-pt)
+      (:desc "Decrement number" "-" #'evil-numbers/dec-at-pt)
+
+      ;; Window management
+      (:desc "Split window vertically" "sv" #'evil-window-vsplit)
+      (:desc "Split window horizontally" "sh" #'evil-window-split)
+      (:desc "Make split equal size" "se" #'balance-windows)
+      (:desc "Close current split" "sx" #'delete-window)
+
+      ;; Tab management (uses workspaces)
+      (:desc "Open new tab (workspace)" "to" #'+workspace/new)
+      (:desc "Close current tab (workspace)" "tx" #'+workspace/close)
+      (:desc "Next tab (workspace)" "tn" #'+workspace/switch-right)
+      (:desc "Previous tab (workspace)" "tp" #'+workspace/switch-left)
+      (:desc "Open buffer in new tab (workspace)" "tf" #'+workspace/new)
+
+      ;; Toggle line numbers
+      (:desc "Toggle relative line numbers" "rl" #'doom/toggle-line-numbers)
+
+      ;; File Explorer (Dired as replacement for Oil)
+      (:desc "Toggle file explorer" "ee" #'dired-jump)
+
+      ;; Search & Navigation (Telescope -> Consult/Projectile)
+      (:desc "Find files" "ff" #'projectile-find-file)
+      (:desc "Search string in project" "fs" #'consult-ripgrep)
+      (:desc "Find string under cursor" "fc" #'consult-line)
+      (:desc "Find TODO comments" "ft" #'hl-todo-occur)
+      (:desc "Switch themes" "st" #'counsel-load-theme)
+
+      ;; Org-Mode (Table Mode Toggle)
+      (:desc "Toggle table formatting" "tm" #'org-table-toggle-column-width)
+
+      ;; Buffer Management
+      (:desc "Delete buffer" "bd" #'kill-this-buffer)
+
+      ;; Find and Replace (Evil Substitute)
+      (:desc "Find & Replace word under cursor" "s"
+             (cmd! (evil-ex ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI")))
+
+      ;; Make bash script executable
+      (:desc "Make script executable" "chx"
+             (cmd! (shell-command (concat "chmod +x " (buffer-file-name)))))
+
+      ;; Undo Tree Toggle
+      (:desc "Undo tree" "u" #'undo-tree-visualize))
+
+;; Move selected text up/down in Visual mode
+(map! :v "J" ":m '>+1<CR>gv=gv")
+(map! :v "K" ":m '<-2<CR>gv=gv")
+
+;; Indentation in visual mode
+(map! :v "<" "<gv")
+(map! :v ">" ">gv")
+
+;; Window navigation (like Tmux)
+(map! :n "<C-k>" #'evil-window-up
+      :n "<C-j>" #'evil-window-down
+      :n "<C-h>" #'evil-window-left
+      :n "<C-l>" #'evil-window-right)
+
+;; Center the screen when scrolling
+(map! :n "<C-d>" (lambda () (interactive) (evil-scroll-down 0) (evil-scroll-line-to-center nil)))
+(map! :n "<C-u>" (lambda () (interactive) (evil-scroll-up 0) (evil-scroll-line-to-center nil)))
+
+;; Resize windows
+(map! :n "<C-Up>"    #'evil-window-increase-height
+      :n "<C-Down>"  #'evil-window-decrease-height
+      :n "<C-Left>"  #'evil-window-decrease-width
+      :n "<C-Right>" #'evil-window-increase-width)
+
+
+;; Buffer Navigation
+(map! :n "<S-tab>" #'previous-buffer
+      :n "<tab>n" #'next-buffer
+      :n "<tab>f" #'beginning-of-buffer
+      :n "<tab>l" #'end-of-buffer)
+
+;; Remap J to join lines without moving cursor
+(map! :n "J" (lambda () (interactive) (evil-join 1) (evil-scroll-line-to-center nil)))
+
