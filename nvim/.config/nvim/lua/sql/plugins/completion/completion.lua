@@ -10,7 +10,6 @@ return {
         keymap = {
             ['<C-k>'] = { 'select_prev' },
             ['<C-j>'] = { 'select_next' },
-            ['Enter'] = { 'select_and_accept' },
         },
 
         appearance = {
