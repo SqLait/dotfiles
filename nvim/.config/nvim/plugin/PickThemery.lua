@@ -1,3 +1,4 @@
+-- Import telescope
 local pickers = require("telescope.pickers")
 local finders = require("telescope.finders")
 local previewers = require("telescope.previewers")
@@ -5,8 +6,9 @@ local sorters = require("telescope.sorters")
 local actions = require("telescope.actions")
 local action_state = require("telescope.actions.state")
 
+-- Set the path where your current_color.lua file will be.
 local path = "/extra/current_color.lua"
-local globalTheme = 0
+-- Variable that will hold your selected theme
 
 local function theme_picker(opts)
     opts = opts or {}
@@ -18,12 +20,6 @@ local function theme_picker(opts)
 
     -- Get Vim colorschemes (excluding unwanted Gruvbox)
     local vim_colors = vim.fn.getcompletion("", "color") or {}
-    for i = #vim_colors, 1, -1 do
-        if vim_colors[i] == "gruvbox" then
-            table.remove(vim_colors, i) -- Remove default Gruvbox from theme pack
-        end
-    end
-    table.insert(vim_colors, "gruvbox") -- Ensure ellisonleao/gruvbox.nvim is listed
 
     -- Detect current colorscheme
     local current_theme = vim.g.colors_name or "default"
@@ -54,7 +50,6 @@ local function theme_picker(opts)
                     local config_file = vim.fn.stdpath("config") .. path
                     local file = io.open(config_file, "w")
                     if file then
-                        globalTheme = selection
                         file:write('vim.cmd("colorscheme ' .. selection .. '")\n')
                         file:close()
                         print("Colorscheme persisted: " .. selection)
