@@ -52,9 +52,9 @@ keymap.set("t", "<Esc>", "<C-\\><C-N>", { desc = "terminal escape terminal mode"
 --buffer navigation
 keymap.set("n", "<leader>bd", "<Cmd>bd<CR>", {desc = "delete open buffer"})
 keymap.set("n", "<S-tab>", "<cmd>bprev<cr>", {desc = "Prev Buffer"})
-keymap.set("n", "<tab>n", "<cmd>bnext<cr>", {desc = "Next Buffer"})
-keymap.set("n", "<tab>f", "<cmd>bfirst<cr>", {desc = "Jump to first buffer in the list"})
-keymap.set("n", "<tab>l", "<cmd>blast<cr>", {desc = "Jump to the last buffer in the list"})
+keymap.set("n", "<tab>", "<cmd>bnext<cr>", {desc = "Next Buffer"})
+-- keymap.set("n", "<tab>f", "<cmd>bfirst<cr>", {desc = "Jump to first buffer in the list"})
+-- keymap.set("n", "<tab>l", "<cmd>blast<cr>", {desc = "Jump to the last buffer in the list"})
 
 --Toggle line numbers
 keymap.set("n", "<leader>rl", ":set relativenumber!<CR>", { desc = "Toggle relative line numbers" })
@@ -70,11 +70,8 @@ keymap.set("n", "-", "<cmd>Oil --float<CR>", { desc = "Toggle file explorer" }) 
 keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files in cwd" })
 keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
 keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })
-keymap.set("n", "<leader>st", "<cmd>Themery<cr>", { desc = "Switch themes" })
+keymap.set("n", "<leader>st", "<cmd>PickThemery<cr>", { desc = "Switch themes" })
 keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find Todo comments" })
-
---Org-Mode
-keymap.set("n", "<leader>tm", "<cmd>TableModeToggle", { desc = "Toggle table formatting" })
 
 --Tmux keybinds
 keymap.set("n", "<c-k>", ":wincmd k<CR>")
@@ -90,7 +87,7 @@ keymap.set("n", "C-l", ":wincmd l<CR>")
 keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 
 --Find and replace all appearences of that word
-keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+-- keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 --chmod a bash file to be executable
 keymap.set("n", "<leader>chx", "<cmd>!chmod +x %<CR>", { silent = true })
 

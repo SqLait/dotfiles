@@ -1,7 +1,7 @@
 -- This file contains all the colorschemes you want
 
 return {
-    {
+    --[[{
         "catppuccin/nvim",
         lazy = false,
         name = "catppuccin",
@@ -36,10 +36,9 @@ return {
                     },
                 },
             })
-            --vim.cmd.colorscheme "catppuccin"
         end
-    },
-    {
+    }, ]]
+    --[[{
         "ellisonleao/gruvbox.nvim",
         priority = 1000,
         config = function()
@@ -72,7 +71,13 @@ return {
                 transparent_mode = false,
             })
 
-            vim.cmd([[colorscheme gruvbox]])
         end,
-    }
+    },]]
+    {
+        "notken12/base46-colors",
+        -- lazy = false,
+        priority = 1000,
+        --vim.cmd.colorscheme "catppuccin"
+        -- vim.cmd([[colorscheme gruvbox]])
+    },
 }
