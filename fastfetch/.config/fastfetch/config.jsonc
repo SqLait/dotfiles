@@ -11,23 +11,23 @@
     },
     "modules": [
         {
-            "key": "Distro      ",
+            "key": "Дистри      ",
             "type": "os"
         },
         {
-            "key": "Shell       ",
+            "key": "Оболочка    ",
             "type": "shell"
         },
         {
-            "key": "Terminal    ",
+            "key": "Терм        ",
             "type": "terminal"
         },
         {
-            "key": "Wm          ",
+            "key": "Ом          ",
             "type": "wm"
         },
         {
-            "key": "Pkgs        ",
+            "key": "Пакеты      ",
             "type": "packages"
         },
         "break",
