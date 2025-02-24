@@ -99,3 +99,10 @@ keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
 
 -- Capital J remap
 keymap.set("n", "J", "mzJ`z")
+
+-- rename variables
+keymap.set("n", "<leader>rn", "<cmd>Renamer<CR>")
+
+-- Maximize splits
+keymap.set('n', '<leader>sm', '<cmd>MaximizerToggle<Cr>')
+
