@@ -33,10 +33,6 @@ opt.swapfile = false
 --Set line numbers
 opt.relativenumber = true
 
---Shorten URLS
-opt.conceallevel = 2
-opt.concealcursor = 'nc'
-
 -- Incremental search
 opt.hlsearch = false
 opt.incsearch = true
@@ -57,7 +53,7 @@ g.loaded_matchparen = 1
 
 --Optimization:
 o.lazyredraw = true
-o.updatetime = 50
+o.updatetime = 150
 o.swapfile = false
 o.hidden = true
 o.termguicolors = true
