@@ -7,7 +7,7 @@ local actions = require("telescope.actions")
 local action_state = require("telescope.actions.state")
 
 -- Set the path where your current_color.lua file will be.
-local path = "/extra/current_color.lua"
+local filePath = "/extra/current_color.lua"
 -- Variable that will hold your selected theme
 
 local function theme_picker(opts)
@@ -47,7 +47,7 @@ local function theme_picker(opts)
                     print("Vim colorscheme set to: " .. selection)
 
                     -- Persist selected colorscheme
-                    local config_file = vim.fn.stdpath("config") .. path
+                    local config_file = vim.fn.stdpath("config") .. filePath
                     local file = io.open(config_file, "w")
                     if file then
                         file:write('vim.cmd("colorscheme ' .. selection .. '")\n')
@@ -89,7 +89,7 @@ end
 vim.api.nvim_create_user_command("PickThemery", theme_picker, {})
 
 -- Load persisted theme on startup
-local color_file = vim.fn.stdpath("config") .. path
+local color_file = vim.fn.stdpath("config") .. filePath
 local ok, _ = pcall(dofile, color_file)
 if not ok then
     vim.cmd("colorscheme gruvbox") -- Default to ellisonleao's gruvbox if none found

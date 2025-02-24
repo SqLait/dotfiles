@@ -37,7 +37,7 @@ return {
                 },
             })
         end
-    }, ]]
+    },]]
     --[[{
         "ellisonleao/gruvbox.nvim",
         priority = 1000,
