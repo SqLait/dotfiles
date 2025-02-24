@@ -10,8 +10,14 @@ return {
         keymap = {
             ['<C-k>'] = { 'select_prev' },
             ['<C-j>'] = { 'select_next' },
+            ['<CR>'] = { 'accept', 'fallback' },
         },
 
+        cmdline = {
+            keymap = {
+                ['<CR>'] = { }
+            }
+        },
         appearance = {
             use_nvim_cmp_as_default = true,
             -- Set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
@@ -19,10 +25,27 @@ return {
             nerd_font_variant = 'mono'
         },
         completion = {
+            menu = {
+                border = vim.g.border_style,
+                scrolloff = 1,
+                scrollbar = false,
+                draw = {
+                    columns = {
+                        { "kind_icon", "label", gap = 1 },
+                        { "kind" }
+                    }
+                }
+            },
             documentation = {
                 auto_show = false,
-                auto_show_delay_ms = 500,
+                auto_show_delay_ms = 50,
+                window = {
+                    border = vim.g.border_style
+                }
             },
+            ghost_text = {
+                enabled = false
+            }
         },
         -- Default list of enabled providers defined so that you can extend it
         -- elsewhere in your config, without redefining it, due to `opts_extend`
