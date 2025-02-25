@@ -12,3 +12,4 @@ set -gx PATH "$HOME/.config/ohmyposh/oh-my-posh/" $PATH
 set -Ux SUDO "run0 --background="
 set -gx EMACSDIR "$HOME/.config/emacs/"
 set -x PATH $HOME/.config/emacs/bin/ $PATH
+set -x MANPAGER "nvim +Man!"
