@@ -11,11 +11,24 @@ return {
             ['<C-k>'] = { 'select_prev' },
             ['<C-j>'] = { 'select_next' },
             ['<CR>'] = { 'accept', 'fallback' },
+            ['<C-q>'] = { 'show_documentation', 'hide_documentation' },
+            ['<M-k>'] = {
+                function(cmp)
+                    cmp.scroll_documentation_up(4)
+                end, "fallback"
+            },
+            ['<M-j>'] = {
+                function(cmp)
+                    cmp.scroll_documentation_down(4)
+                end, "fallback"
+            },
         },
-
         cmdline = {
             keymap = {
-                ['<CR>'] = { }
+                ['<CR>'] = { },
+                ['<C-k>'] = { 'select_prev' },
+                ['<C-j>'] = { 'select_next' },
+                ['<C-y>'] = { 'accept', 'fallback' },
             }
         },
         appearance = {

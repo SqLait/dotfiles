@@ -5,6 +5,9 @@ local o = vim.o
 local g = vim.g
 local loader = vim.loader
 
+-- disable the mouse
+opt.mouse = ""
+
 -- tabs & indentation
 opt.tabstop = 4
 opt.shiftwidth = 4
