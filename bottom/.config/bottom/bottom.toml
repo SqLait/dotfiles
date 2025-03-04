@@ -1,0 +1,13 @@
+[flags]
+basic = false
+group_processes = true
+temperature_type = "c"
+disable_click = true
+process_memory_as_value = true
+show_table_scroll_position = true
+disable_gpu = true # I don't care about my gpu stats :p
+
+[styles.memory]
+swap_color = "Light Blue"
+ram_color = "Light Cyan"
+cache_color = "Light Red"
