@@ -1,15 +1,102 @@
 * {
-  // general
-  bg: #1d1d1d;               // base (solid for bg)
-  bgt: #28282895;            // semi-transparent for bgt
-  t: transparent;
-  fg: #fcfcfa;               // text (solid)
+    font: "Figtree 14";
+    g-spacing: 10px;
+    g-margin: 0;
+    b-color: #1d1d1d; /* Background color from Catppuccin */
+    fg-color: #fcfcfa; /* Foreground color from Catppuccin */
+    fgp-color: #a8a8a8; /* Placeholder color */
+    b-radius: 8px;
+    g-padding: 8px;
+    hl-color: #86aacc; /* Highlight color (green from Catppuccin) */
+    hlt-color: #1d1d1d; /* Highlight text color (base color from Catppuccin) */
+    alt-color: #282828FF; /* Alternate color (semi-transparent from Catppuccin) */
+    wbg-color: #282828FF; /* Window background color (semi-transparent from Catppuccin) */
+    w-border: 2px solid;
+    w-border-color: #fcfcfa; /* Border color from Catppuccin */
+    w-padding: 12px;
+}
 
-  selected-bg: #fcfcfa;      // text (solid)
-  selected-fg: #1d1d1d;      // base (solid)
+configuration {
+    modi: "drun";
+    show-icons: true;
+    display-drun: "";
+}
 
-  // for windows
-  active: #a8be81;           // green
-  urgent: #ff657a;           // red
+listview {
+    columns: 1;
+    lines: 7;
+    fixed-height: true;
+    fixed-columns: true;
+    cycle: false;
+    scrollbar: false;
+    border: 0px solid;
+}
+
+window {
+    transparency: "false";
+    width: 450px;
+    border-radius: @b-radius;
+    background-color: @wbg-color;
+    border: @w-border;
+    border-color: @w-border-color;
+    padding: @w-padding;
+}
+
+prompt {
+    text-color: @fg-color;
+}
+
+inputbar {
+    children: ["prompt", "entry"];
+    spacing: @g-spacing;
+}
+
+entry {
+    placeholder: "Search Apps";
+    text-color: @fg-color;
+    placeholder-color: @fgp-color;
+}
+
+mainbox {
+    spacing: @g-spacing;
+    margin: @g-margin;
+    padding: @g-padding;
+    children: ["inputbar", "listview", "message"];
+}
+
+element {
+    spacing: @g-spacing;
+    margin: @g-margin;
+    padding: @g-padding;
+    border: 0px solid;
+    border-radius: @b-radius;
+    border-color: @b-color;
+    background-color: transparent;
+    text-color: @fg-color;
+}
+
+element normal.normal {
+    background-color: transparent;
+    text-color: @fg-color;
+}
+
+element alternate.normal {
+    background-color: transparent; /* Same as normal items to disable alternation */
+    text-color: @fg-color;
+}
+
+element selected.active {
+    background-color: @hl-color; /* Green for active selection */
+    text-color: @hlt-color;
+}
+
+element selected.normal {
+    background-color: @hl-color; /* Green for normal selection */
+    text-color: @hlt-color;
+}
+
+message {
+    background-color: #ff657a; /* Red for error or message color */
+    border: 0px solid;
 }
 
