@@ -1,0 +1,227 @@
+@define-color cc-bg #30303b;
+@define-color noti-border-color #3a3d4b;
+@define-color noti-bg #535763;
+@define-color noti-bg-darker #535763;
+@define-color noti-bg-hover #9cd1bb;
+@define-color noti-bg-focus rgba(135, 148, 202, 0.6);
+@define-color text-color #fcfcfa;
+@define-color text-color-disabled #b18eab;
+@define-color bg-selected #eccc81;
+
+* {
+    font-family: JetBrainsMono NFP;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.control-center .notification-row:focus,
+.control-center .notification-row:hover {
+    opacity: 1;
+    background: @noti-bg-darker;
+}
+
+.notification-row {
+    outline: none;
+    margin: 20px;
+    padding: 0;
+}
+
+.notification {
+    background: transparent;
+    margin: 0px;
+}
+
+.notification-content {
+    background: @cc-bg;
+    padding: 7px;
+    border-radius: 0px;
+    border: 2px solid #86aacc;
+    margin: 0;
+}
+
+.close-button {
+    background: #ff9b5e;
+    color: @cc-bg;
+    text-shadow: none;
+    padding: 0;
+    border-radius: 0px;
+    margin-top: 5px;
+    margin-right: 5px;
+}
+
+.close-button:hover {
+    box-shadow: none;
+    background: #eccc81;
+    transition: all .15s ease-in-out;
+    border: none;
+}
+
+.notification-action {
+    color: #fcfcfa;
+    border: 2px solid #86aacc;
+    border-top: none;
+    border-radius: 0px;
+    background: @cc-bg;
+}
+
+.notification-default-action:hover,
+.notification-action:hover {
+    color: #fcfcfa;
+    background: @cc-bg;
+}
+
+.summary {
+    padding-top: 7px;
+    font-size: 13px;
+    color: #fcfcfa;
+}
+
+.time {
+    font-size: 11px;
+    color: #ff9b5e;
+    margin-right: 24px;
+}
+
+.body {
+    font-size: 12px;
+    color: #fcfcfa;
+}
+
+.control-center {
+    background: @cc-bg;
+    border: 2px solid #86aacc;
+    border-radius: 0px;
+}
+
+.control-center-list {
+    background: transparent;
+}
+
+.control-center-list-placeholder {
+    opacity: .5;
+}
+
+.floating-notifications {
+    background: transparent;
+}
+
+.blank-window {
+    background: alpha(black, 0.1);
+}
+
+.widget-title {
+    color: #fcfcfa;
+    background: @noti-bg-darker;
+    padding: 5px 10px;
+    margin: 10px 10px 5px 10px;
+    font-size: 1.5rem;
+    border-radius: 5px;
+}
+
+.widget-title>button {
+    font-size: 1rem;
+    color: @text-color;
+    text-shadow: none;
+    background: @noti-bg;
+    box-shadow: none;
+    border-radius: 5px;
+}
+
+.widget-title>button:hover {
+    background: #ff657a;
+    color: @cc-bg;
+}
+
+.widget-dnd {
+    background: @noti-bg-darker;
+    padding: 5px 10px;
+    margin: 5px 10px 10px 10px;
+    border-radius: 5px;
+    font-size: large;
+    color: #f2e5bc;
+}
+
+.widget-dnd>switch {
+    border-radius: 4px;
+    background: #665c54;
+}
+
+.widget-dnd>switch:checked {
+    background: #eccc81;
+    border: 1px solid #eccc81;
+}
+
+.widget-dnd>switch slider {
+    background: @cc-bg;
+    border-radius: 5px;
+}
+
+.widget-dnd>switch:checked slider {
+    background: @cc-bg;
+    border-radius: 5px;
+}
+
+.widget-label {
+    margin: 10px 10px 5px 10px;
+}
+
+.widget-label>label {
+    font-size: 1rem;
+    color: @text-color;
+}
+
+.widget-mpris {
+    color: @text-color;
+    background: @noti-bg-darker;
+    padding: 5px 10px 0px 0px;
+    margin: 5px 10px 5px 10px;
+    border-radius: 0px;
+}
+
+.widget-mpris > box > button {
+    border-radius: 5px;
+}
+
+.widget-mpris-player {
+    padding: 5px 10px;
+    margin: 10px;
+}
+
+.widget-mpris-title {
+    font-weight: 700;
+    font-size: 1.25rem;
+}
+
+.widget-mpris-subtitle {
+    font-size: 1.1rem;
+}
+
+.widget-buttons-grid {
+    font-size: x-large;
+    padding: 5px;
+    margin: 5px 10px 10px 10px;
+    border-radius: 5px;
+    background: @noti-bg-darker;
+}
+
+.widget-buttons-grid>flowbox>flowboxchild>button {
+    margin: 3px;
+    background: @cc-bg;
+    border-radius: 5px;
+    color: @text-color;
+}
+
+.widget-buttons-grid>flowbox>flowboxchild>button:hover {
+    background: #ff657a;
+    color: @cc-bg;
+}
+
+.widget-menubar>box>.menu-button-bar>button {
+    border: none;
+    background: transparent;
+}
+
+.topbar-buttons>button {
+    border: none;
+    background: transparent;
+}
