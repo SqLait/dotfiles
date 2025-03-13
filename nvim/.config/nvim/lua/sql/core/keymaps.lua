@@ -106,3 +106,5 @@ keymap.set("n", "<leader>rn", "<cmd>Renamer<CR>")
 -- Maximize splits
 keymap.set('n', '<leader>sm', '<cmd>MaximizerToggle<Cr>')
 
+-- some modifier based binds I like
+keymap.set('i', '<C-H>', '<C-W>', { silent = true, noremap = true })
