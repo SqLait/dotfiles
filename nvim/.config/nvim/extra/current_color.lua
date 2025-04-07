@@ -1,1 +1,1 @@
-vim.cmd("colorscheme g_gruvbox")
+vim.cmd("colorscheme gruvbox")
