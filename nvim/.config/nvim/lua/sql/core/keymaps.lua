@@ -108,3 +108,4 @@ keymap.set('n', '<leader>sm', '<cmd>MaximizerToggle<Cr>')
 
 -- some modifier based binds I like
 keymap.set('i', '<C-H>', '<C-W>', { silent = true, noremap = true })
+keymap.set({'n', 'v', 'i'}, '<C-C>', '<Esc>')

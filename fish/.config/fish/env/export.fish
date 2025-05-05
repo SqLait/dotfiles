@@ -1,6 +1,10 @@
 export EDITOR=vim
 export NVIM_YANK=wl-copy
 export NVIM_PASTE=wl-paste
+export CC=clang
+export CXX=clang++
+export DEBUGINFOD_URLS="https://debuginfod.archlinux.org"
+export DEBUGINFO_URLS="https://debuginfod.archlinux.org"
 
 export LF_ICONS="\
 tw=:\
