@@ -1,5 +1,6 @@
 if status is-interactive
     set fish_greeting ""
+
     # alias sudo "run0 --background="
     tmux; clear;
 end
