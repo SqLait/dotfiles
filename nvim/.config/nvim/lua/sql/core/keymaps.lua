@@ -1,6 +1,7 @@
 vim.g.mapleader = " "
 
 local keymap = vim.keymap
+local opts = { noremap=true, silent=true }
 
 keymap.set("n", "<leader>nh", ":nohl<Cr>", {desc = "Clear search highlights"})
 
@@ -101,7 +102,7 @@ keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
 keymap.set("n", "J", "mzJ`z")
 
 -- rename variables
-keymap.set("n", "<leader>rn", "<cmd>Renamer<CR>")
+keymap.set("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
 
 -- Maximize splits
 keymap.set('n', '<leader>sm', '<cmd>MaximizerToggle<Cr>')
