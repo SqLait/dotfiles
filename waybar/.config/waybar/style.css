@@ -35,7 +35,7 @@
 
 /* ------ Cpu Usage, Temperature, and Memory ------ */
 #cpu, #temperature, #memory {
-  background-color: @surface1;
+  background-color: @face1;
   padding: 2px 5px;
   margin: 4px 2px;
 }
@@ -54,7 +54,7 @@ window#waybar {
     background-color: rgba(0, 0, 0, 0);
     border-bottom: 0px solid #ffffff;
     /* color: #FFFFFF; */
-    background: transparent;
+    background: @base;
     transition-property: background-color;
     transition-duration: .5s;
 }

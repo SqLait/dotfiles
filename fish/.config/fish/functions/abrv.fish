@@ -25,7 +25,3 @@ end
 function fman
     man -k . | fzf --preview="man {1}" | awk '{print $1}' | xargs -r -I {} nvim -c "Man {}"
 end
-
-function cmake
-    command cmake --build . $argv
-end
