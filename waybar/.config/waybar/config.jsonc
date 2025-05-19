@@ -2,10 +2,10 @@
   "layer": "top",
   "position": "top",
   "spacing": 4,
-  "margin-top": 5,
+  "margin-top": 0, // 5
   "margin-bottom": 0,
-  "margin-left": 5,
-  "margin-right": 5,
+  "margin-left": 0, // 5
+  "margin-right": 0, // 5
 
   "modules-left": [
     "custom/icon",
