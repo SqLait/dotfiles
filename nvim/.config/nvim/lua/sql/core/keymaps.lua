@@ -52,8 +52,8 @@ keymap.set("t", "<Esc>", "<C-\\><C-N>", { desc = "terminal escape terminal mode"
 
 --buffer navigation
 keymap.set("n", "<leader>bd", "<Cmd>bd<CR>", {desc = "delete open buffer"})
-keymap.set("n", "<S-tab>", "<cmd>bprev<cr>", {desc = "Prev Buffer"})
-keymap.set("n", "<tab>", "<cmd>bnext<cr>", {desc = "Next Buffer"})
+-- keymap.set("n", "<S-tab>", "<cmd>bprev<cr>", {desc = "Prev Buffer"})
+-- keymap.set("n", "<tab>", "<cmd>bnext<cr>", {desc = "Next Buffer"})
 -- keymap.set("n", "<tab>f", "<cmd>bfirst<cr>", {desc = "Jump to first buffer in the list"})
 -- keymap.set("n", "<tab>l", "<cmd>blast<cr>", {desc = "Jump to the last buffer in the list"})
 
@@ -72,7 +72,12 @@ keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy f
 keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
 keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })
 keymap.set("n", "<leader>st", "<cmd>PickThemery<cr>", { desc = "Switch themes" })
-keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find Todo comments" })
+keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Show buffers in telescope" })
+keymap.set("n", "<leader>xx", "<cmd>Telescope diagnostics<cr>", { desc = "Show LSP diagnostic (global)" })
+keymap.set("n", "<leader>xl", "<cmd>Telescope diagnostics bufnr=0<cr>", { desc = "Show LSP diagnostic (local)" })
+keymap.set("n", "<leader>fgc", "<cmd>Telescope git_commits", { desc = "Show LSP diagnostic (global)" })
+keymap.set("n", "<leader>fgs", "<cmd>Telescope git_status", { desc = "Show LSP diagnostic (global)" })
+keymap.set("n", "<leader>fgb", "<cmd>Telescope git_branches", { desc = "Show LSP diagnostic (global)" })
 
 --Tmux keybinds
 keymap.set("n", "<c-k>", ":wincmd k<CR>")

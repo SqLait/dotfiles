@@ -3,6 +3,7 @@ return {
     dependencies = {
         "saghen/blink.cmp",
         "williamboman/mason-lspconfig.nvim",
+        --[[ For working with neovim itself
         {
             "folke/lazydev.nvim",
             opts = {
@@ -10,7 +11,7 @@ return {
                     { path = "${3rd}/luv/library", words = { "vim%.uv" } },
                 },
             },
-        },
+        },]]
     },
     config = function()
         local capabilities = require("blink.cmp").get_lsp_capabilities()
@@ -19,7 +20,7 @@ return {
 
         vim.diagnostic.config({
             virtual_text = true,
-            signs = true,
+            signs = false,
             underline = true,
             update_in_insert = false,
             severity_sort = true,
@@ -68,7 +69,6 @@ return {
                 map.set("n", "gt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
 
                 map.set("n", "gs", vim.lsp.buf.signature_help, opts)
-                map.set("i", ",s", vim.lsp.buf.signature_help, opts)
             end,
         })
 

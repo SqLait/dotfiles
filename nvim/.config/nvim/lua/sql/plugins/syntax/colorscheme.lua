@@ -1,10 +1,9 @@
 return {
     {
         "catppuccin/nvim",
-        lazy = false,
         name = "catppuccin",
         priority = 1000,
-        event = 'VimEnter',
+        event = 'VeryLazy',
         config = function()
             require("catppuccin").setup({
                 flavour = "mocha",
