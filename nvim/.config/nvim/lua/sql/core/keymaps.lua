@@ -73,9 +73,15 @@ keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find str
 keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })
 keymap.set("n", "<leader>st", "<cmd>PickThemery<cr>", { desc = "Switch themes" })
 keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Show buffers in telescope" })
-keymap.set("n", "<leader>xx", "<cmd>Telescope diagnostics<cr>", { desc = "Show LSP diagnostic (global)" })
-keymap.set("n", "<leader>xl", "<cmd>Telescope diagnostics bufnr=0<cr>", { desc = "Show LSP diagnostic (local)" })
-keymap.set("n", "<leader>fgc", "<cmd>Telescope git_commits", { desc = "Show LSP diagnostic (global)" })
+keymap.set("n", "<leader>xx", function()
+  require("telescope.builtin").diagnostics({ previewer = false })
+end, { desc = "Show LSP diagnostic (global)" })
+keymap.set("n", "<leader>xl", function()
+  require("telescope.builtin").diagnostics({
+    bufnr = 0,
+    previewer = false
+  })
+end, { desc = "Show LSP diagnostic (local)" })keymap.set("n", "<leader>fgc", "<cmd>Telescope git_commits", { desc = "Show LSP diagnostic (global)" })
 keymap.set("n", "<leader>fgs", "<cmd>Telescope git_status", { desc = "Show LSP diagnostic (global)" })
 keymap.set("n", "<leader>fgb", "<cmd>Telescope git_branches", { desc = "Show LSP diagnostic (global)" })
 
