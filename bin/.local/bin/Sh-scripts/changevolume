@@ -1,7 +1,7 @@
-#!/bin/sh
+#!/bin/dash
 
 # Increment, decrement, mute, or unmute the volume using Pipewire and send a notification
-
+SWAYNC_REPLACES_ID="9898"
 ICON_PATH="/home/deanr/.local/share/icons/dunst"
 
 get_volume() {
@@ -36,7 +36,12 @@ send_notification() {
 	if [ "$1" = "mute" ]; then ICON="mute"; elif [ "$VOLUME" -lt 20 ]; then ICON="low"; elif [ "$VOLUME" -lt 60 ]; then ICON="medium"; else ICON="high"; fi
 	if [ "$1" = "mute" ]; then TEXT="Currently muted"; else TEXT="Currently at ${VOLUME}%"; fi
 
-	dunstify -a "Volume" -r 9993 -h int:value:"$VOLUME" -i "$ICON_PATH/volume-$ICON.svg" "Volume" "$TEXT" -t 2000
+    notify-send -a "Volume" \
+        -u normal \
+        -t 2000 \
+        -h int:value:"$VOLUME" \
+        -h string:synchronous:volume \
+        "Volume" "$TEXT"
 }
 
 case $1 in
