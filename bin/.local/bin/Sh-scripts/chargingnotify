@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/dash
 
 # Send a notification when the laptop is plugged in/unplugged
 # Add the following to /etc/udev/rules.d/60-power.rules (replace USERNAME with your user)
