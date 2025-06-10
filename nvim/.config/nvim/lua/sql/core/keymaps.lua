@@ -74,13 +74,13 @@ keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find s
 keymap.set("n", "<leader>st", "<cmd>PickThemery<cr>", { desc = "Switch themes" })
 keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Show buffers in telescope" })
 keymap.set("n", "<leader>xx", function()
-  require("telescope.builtin").diagnostics({ previewer = false })
+    require("telescope.builtin").diagnostics({ previewer = false })
 end, { desc = "Show LSP diagnostic (global)" })
 keymap.set("n", "<leader>xl", function()
-  require("telescope.builtin").diagnostics({
-    bufnr = 0,
-    previewer = false
-  })
+    require("telescope.builtin").diagnostics({
+        bufnr = 0,
+        previewer = false
+    })
 end, { desc = "Show LSP diagnostic (local)" })keymap.set("n", "<leader>fgc", "<cmd>Telescope git_commits", { desc = "Show LSP diagnostic (global)" })
 keymap.set("n", "<leader>fgs", "<cmd>Telescope git_status", { desc = "Show LSP diagnostic (global)" })
 keymap.set("n", "<leader>fgb", "<cmd>Telescope git_branches", { desc = "Show LSP diagnostic (global)" })
@@ -121,3 +121,13 @@ keymap.set('n', '<leader>sm', '<cmd>MaximizerToggle<Cr>')
 -- some modifier based binds I like
 keymap.set('i', '<C-H>', '<C-W>', { silent = true, noremap = true })
 keymap.set({'n', 'v', 'i'}, '<C-C>', '<Esc>')
+
+keymap.set('n', '<F5>', function() require('dap').continue() end)
+keymap.set('n', '<F10>', function() require('dap').step_over() end)
+keymap.set('n', '<F11>', function() require('dap').step_into() end)
+keymap.set('n', '<F12>', function() require('dap').step_out() end)
+keymap.set('n', '<Leader>db', function() require('dap').toggle_breakpoint() end)
+keymap.set('n', '<Leader>B', function() require('dap').set_breakpoint() end)
+keymap.set('n', '<Leader>lp', function() require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end)
+keymap.set('n', '<Leader>dr', function() require('dap').repl.open() end)
+keymap.set('n', '<Leader>dl', function() require('dap').run_last() end)
