@@ -121,13 +121,3 @@ keymap.set('n', '<leader>sm', '<cmd>MaximizerToggle<Cr>')
 -- some modifier based binds I like
 keymap.set('i', '<C-H>', '<C-W>', { silent = true, noremap = true })
 keymap.set({'n', 'v', 'i'}, '<C-C>', '<Esc>')
-
-keymap.set('n', '<F5>', function() require('dap').continue() end)
-keymap.set('n', '<F10>', function() require('dap').step_over() end)
-keymap.set('n', '<F11>', function() require('dap').step_into() end)
-keymap.set('n', '<F12>', function() require('dap').step_out() end)
-keymap.set('n', '<Leader>db', function() require('dap').toggle_breakpoint() end)
-keymap.set('n', '<Leader>B', function() require('dap').set_breakpoint() end)
-keymap.set('n', '<Leader>lp', function() require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end)
-keymap.set('n', '<Leader>dr', function() require('dap').repl.open() end)
-keymap.set('n', '<Leader>dl', function() require('dap').run_last() end)
