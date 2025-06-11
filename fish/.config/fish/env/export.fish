@@ -5,6 +5,7 @@ export CC=clang
 export CXX=clang++
 export DEBUGINFOD_URLS="https://debuginfod.archlinux.org"
 export DEBUGINFO_URLS="https://debuginfod.archlinux.org"
+export BAT_THEME="gruvbox"
 
 export LF_ICONS="\
 tw=:\
