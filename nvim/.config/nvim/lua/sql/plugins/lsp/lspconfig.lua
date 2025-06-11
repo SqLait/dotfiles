@@ -28,7 +28,7 @@ return {
 
         require("mason-lspconfig").setup({
             ensure_installed = {
-                "lua_ls", "clangd", "csharp_ls", "rust_analyzer", "elixirls", "pyright",
+                "lua_ls", "clangd", "csharp_ls", "rust_analyzer", "elixirls", "pyright", "denols"
             },
             automatic_enable = false,
         })
@@ -102,6 +102,10 @@ return {
         })
 
         lspconfig["rust_analyzer"].setup({
+            capabilities = capabilities,
+        })
+
+        lspconfig["denols"].setup({
             capabilities = capabilities,
         })
 
