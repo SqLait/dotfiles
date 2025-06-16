@@ -1,0 +1,39 @@
+#!/bin/sh
+
+BUILD_TYPE="native"
+
+# Parse args
+while [ "$#" -gt 0 ]; do
+    case "$1" in
+        -w|--windows)
+            BUILD_TYPE="windows"
+            ;;
+        -n|--native)
+            BUILD_TYPE="native"
+            ;;
+        -d|--debug)
+            DEBUG=1
+            ;;
+        *)
+            echo "Unknown option: $1"
+            exit 1
+            ;;
+    esac
+    shift
+done
+
+# Print what we're doing
+echo "🔧 Building for: $BUILD_TYPE"
+[ "$DEBUG" = "1" ] && echo "⚙ Debug mode enabled"
+
+# Choose preset or flags depending on build type
+if [ "$BUILD_TYPE" = "windows" ]; then
+    cmake --preset windows || exit 1
+    cmake --build --preset windows || exit 1
+    echo "✅ Windows build finished: build/win-bin/main.exe"
+else
+    cmake --preset default || exit 1
+    cmake --build --preset default || exit 1
+    echo "✅ Native build finished: build/bin/main"
+fi
+
