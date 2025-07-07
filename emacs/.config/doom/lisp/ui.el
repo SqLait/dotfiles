@@ -27,5 +27,7 @@
 (custom-set-faces
  '(org-document-title ((t (:weight bold :height 1.2))))
  '(org-document-info ((t (:weight bold :height 1.1))))
- '(org-property-value ((t (:weight bold :foreground "gray50"))))
+ '(org-property-value ((t (:height 1.0 :weight bold :foreground "gray60"))))
+ '(org-deadline-announce ((t (:weight bold))))
+ '(org-meta-line ((t (:height 1.0 :weight bold))))
  '(org-document-info-keyword ((t (:weight bold :height 1.0)))))
