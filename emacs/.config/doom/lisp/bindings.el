@@ -1,5 +1,9 @@
 ;;; Keybindings for Doom Emacs (converted from Neovim)
 ;;; Place these in your config.el file
+(map! :leader
+      "sv" nil
+      "s" nil
+      "sh" nil)
 
 (map! :leader
       ;; Clear search highlights
@@ -41,9 +45,6 @@
       ;; Buffer Management
       (:desc "Delete buffer" "bd" #'kill-this-buffer)
 
-      ;; Find and Replace (Evil Substitute)
-      (:desc "Find & Replace word under cursor" "s"
-             (cmd! (evil-ex ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI")))
 
       ;; Make bash script executable
       (:desc "Make script executable" "chx"
@@ -61,11 +62,12 @@
 (map! :v ">" ">gv")
 
 ;; Window navigation (like Tmux)
-(map! :n "<C-k>" #'evil-window-up
-      :n "<C-j>" #'evil-window-down
-      :n "<C-h>" #'evil-window-left
-      :n "<C-l>" #'evil-window-right)
-
+(define-key evil-normal-state-map (kbd "C-h") #'evil-window-left)
+(define-key evil-normal-state-map (kbd "C-j") #'evil-window-down)
+(define-key evil-normal-state-map (kbd "C-k") #'evil-window-up)
+(define-key evil-normal-state-map (kbd "C-l") #'evil-window-right)
+(define-key evil-insert-state-map (kbd "C-c") 'evil-normal-state)
+(define-key evil-visual-state-map (kbd "C-c") 'evil-normal-state)
 ;; Center the screen when scrolling
 (map! :n "<C-d>" (lambda () (interactive) (evil-scroll-down 0) (evil-scroll-line-to-center nil)))
 (map! :n "<C-u>" (lambda () (interactive) (evil-scroll-up 0) (evil-scroll-line-to-center nil)))
@@ -82,7 +84,4 @@
       :n "<tab>n" #'next-buffer
       :n "<tab>f" #'beginning-of-buffer
       :n "<tab>l" #'end-of-buffer)
-
-;; Remap J to join lines without moving cursor
-(map! :n "J" (lambda () (interactive) (evil-join 1) (evil-scroll-line-to-center nil)))
 

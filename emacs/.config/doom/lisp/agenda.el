@@ -1,7 +1,7 @@
 ;;; lisp/agenda.el --- Org Agenda Configuration -*- lexical-binding: t; -*-
 
 (after! org-agenda
-  (setq org-agenda-files (directory-files-recursively "~/Documents/orgfiles/Agenda/" "\\.org$")
+  (setq org-agenda-files (directory-files-recursively "~/Documents/notes/agenda/" "\\.org$")
         org-agenda-week-start-day 1
         org-agenda-tags-column 0
         org-agenda-block-separator ?─

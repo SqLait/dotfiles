@@ -49,4 +49,5 @@
 ;; (unpin! t)
 (package! org-roam)
 (package! org-super-agenda)
-(package! org-modern)
+(package! org-roam-ui)
+(package! websocket)
