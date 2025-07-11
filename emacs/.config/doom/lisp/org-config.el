@@ -25,9 +25,13 @@
 ;;   org-agenda-tags-column 0)
 ;;
 (setq org-roam-capture-templates
-      `(("d" "default" plain "%?"
-         :target (file+head "${slug}.org"
-                            "#+title: ${title}\n")
+      `(("z" "Zettel (Atomic note)" plain "%?"
+         :target (file+head "zettels/${slug}.org"
+                            "#+TITLE: ${title}\n#+filetags: nil\n")
+         :unnarrowed t)
+        ("h" "Hub Page (Overview note)" plain "%?"
+         :target (file+head "hubs/${slug}.org"
+                            "#+TITLE: ${title}\n#+filetags: nil\n")
          :unnarrowed t)))
 
 (use-package! org-roam-ui
