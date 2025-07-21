@@ -2,14 +2,14 @@
 
 (setq doom-theme 'doom-gruvbox)
 
-(setq doom-font (font-spec :family "JetBrains Mono Nerd Font" :size 16 :weight 'regular :ligatures t)
-      doom-variable-pitch-font (font-spec :family "JetBrains Mono Nerd Font" :size 18 :ligatures t)
-      doom-serif-font (font-spec :family "JetBrains Mono Nerd Font" :size 18 :ligatures t))
+(setq doom-font (font-spec :family "JetBrains Mono Nerd Font" :size 14 :weight 'regular :ligatures nil)
+      doom-variable-pitch-font (font-spec :family "JetBrains Mono Nerd Font" :size 16 :ligatures nil)
+      doom-serif-font (font-spec :family "JetBrains Mono Nerd Font" :size 16 :ligatures nil))
 
 (setq doom-themes-enable-bold t
       doom-themes-enable-italic t)
 
-(set-face-attribute 'default nil :family "JetBrains Mono Nerd Font" :height 140)
+(set-face-attribute 'default nil :family "JetBrains Mono Nerd Font" :height 130)
 (set-face-attribute 'variable-pitch nil :family "JetBrains Mono Nerd Font" :height 160)
 
 (setq display-line-numbers-type nil)
