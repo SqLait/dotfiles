@@ -1,8 +1,13 @@
 ;;; lisp/agenda.el --- Org Agenda Configuration -*- lexical-binding: t; -*-
 
 (after! org-agenda
-  (setq org-agenda-files (directory-files-recursively "~/Documents/notes/agenda/" "\\.org$")
-        org-agenda-week-start-day 1
+  ;; Add both directories to org-agenda-files
+  (setq org-agenda-files
+        (append (directory-files-recursively "~/Documents/notes/agenda/" "\\.org$")
+                (directory-files-recursively "~/Documents/school/" "\\.org$")))
+
+  ;; Configure other org-agenda settings
+  (setq org-agenda-week-start-day 1
         org-agenda-tags-column 0
         org-agenda-block-separator ?─
         org-agenda-time-grid '((daily today) (800 1000 1200 1400 1600 1800 2000) "---" "")))
