@@ -2,4 +2,3 @@
 
 (setq org-file-apps
       '(("\\.pdf\\'" . "zathura %s")))
-

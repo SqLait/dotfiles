@@ -1,7 +1,7 @@
 ;;; lisp/programming.el --- Programming-related settings -*- lexical-binding: t; -*-
 
 (after! flyspell
-  (setq ispell-dictionary "en_US"))
+  (setq ispell-dictionary "en_GB"))
 
 (add-hook 'text-mode-hook #'flyspell-mode)  ;; Enable spell check for text
 (add-hook 'prog-mode-hook #'flyspell-prog-mode)  ;; Spell check for comments
