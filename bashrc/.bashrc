@@ -7,8 +7,8 @@
 [[ $- != *i* ]] && return
 
 alias grep='grep --color=auto'
-PS1='[\u@\h \W]\$ '
-
+PS1="\[\e[32m\][\[\e[m\]\[\e[31m\]\u\[\e[m\]\[\e[33m\]@\[\e[m\]\[\e[32m\]\h\[\e[m\]:\[\e[36m\]\w\[\e[m\]\[\e[32m\]]\[\e[m\]\$ "
+set -o vi
 #=====================================Alias===================================
 # Alias lazygit
 lg() {
@@ -30,9 +30,9 @@ neofetch() {
 }
 
 # Enhanced ls using eza
-ls() {
-    eza --color=always --long --git --icons=always
-}
+#ls() {
+#    eza --color=always --long --git --icons=always
+#}
 
 # Enhanced tree using eza
 tree() {
@@ -62,7 +62,6 @@ fe() {
 bind -x '"\C-f": fs'
 
 #=====================================Init===================================
-eval "$(oh-my-posh init bash --config $HOME/.config/ohmyposh/zengruv.toml)"
 eval "$(zoxide init --cmd cd bash)"
 #=====================================Startup===================================
 tmux; clear;

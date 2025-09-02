@@ -52,10 +52,8 @@ keymap.set("t", "<Esc>", "<C-\\><C-N>", { desc = "terminal escape terminal mode"
 
 --buffer navigation
 keymap.set("n", "<leader>bd", "<Cmd>bd<CR>", {desc = "delete open buffer"})
--- keymap.set("n", "<S-tab>", "<cmd>bprev<cr>", {desc = "Prev Buffer"})
--- keymap.set("n", "<tab>", "<cmd>bnext<cr>", {desc = "Next Buffer"})
--- keymap.set("n", "<tab>f", "<cmd>bfirst<cr>", {desc = "Jump to first buffer in the list"})
--- keymap.set("n", "<tab>l", "<cmd>blast<cr>", {desc = "Jump to the last buffer in the list"})
+keymap.set("n", "<leader>bp", "<cmd>bprev<cr>", {desc = "Prev Buffer"})
+keymap.set("n", "<leader>bn", "<cmd>bnext<cr>", {desc = "Next Buffer"})
 
 --Toggle line numbers
 keymap.set("n", "<leader>rl", ":set relativenumber!<CR>", { desc = "Toggle relative line numbers" })

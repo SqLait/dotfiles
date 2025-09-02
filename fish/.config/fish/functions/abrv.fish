@@ -14,9 +14,9 @@ function neofetch
     fastfetch $argv
 end
 
-function ls
-    eza --color=always --long --git --icons=always $argv
-end
+# function ls
+#     eza --color=always --long --git --icons=always $argv
+# end
 
 function tree
     eza --tree --color=always --git --icons=always --all $argv
