@@ -1,4 +1,4 @@
-#!/bin/dash
+#!/bin/bash
 
 WALLPAPER_DIR="$HOME/.local/share/wallpapers"
 WALLPAPER_CONFIG_FILE="$HOME/.config/hypr/.current_wallpaper"
