@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/dash
 
 # Current Theme
 dir="$HOME/.config/rofi"
