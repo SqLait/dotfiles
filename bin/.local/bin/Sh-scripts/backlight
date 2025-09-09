@@ -16,7 +16,12 @@ send_notification() {
 	else
 		ICON="brightness"
 	fi
-	dunstify -a "Backlight" -u low -r 9994 -h int:value:"$brightness" -i "$ICON_PATH/$ICON.svg" "Brightness" "Currently at $brightness%" -t 1000
+    notify-send -a "Backlight" \
+        -u normal \
+        -t 2001 \
+        -h int:value:"$brightness" \
+        -h string:synchronous:brightness \
+        "Brightness" "Currently at $brightness%"
 }
 
 case $1 in
