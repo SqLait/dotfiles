@@ -20,6 +20,10 @@ LIGHT_BLUE="\e[94m"
 LIGHT_MAGENTA="\e[95m"
 LIGHT_CYAN="\e[96m"
 RESET="\e[0m"
+BOLD="\e[1m"
+FAINT="\e[2m"
+ITALIC="\e[3m"
+UNDERLINED="\e[4m"
 
 # Function to save the current session status
 save_session() {
