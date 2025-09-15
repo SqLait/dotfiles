@@ -1,3 +1,6 @@
 [submodule "pomodoro"]
 	path = bin/.local/bin/Sh-scripts/pomodoro-cli
 	url = https://github.com/SqLait/pomodoro-cli
+[submodule "bin/.local/bin/Sh-scripts/pomodoro-cli"]
+	path = bin/.local/bin/Sh-scripts/pomodoro-cli
+	url = https://github.com/SqLait/pomodoro-cli.git
