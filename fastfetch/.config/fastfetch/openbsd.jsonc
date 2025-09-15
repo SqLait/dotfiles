@@ -1,0 +1,23 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
+
+  "logo": {
+    "source": "openbsd",
+    "type": "small",
+    "padding": {
+      "bottom": 5,
+    }
+  },
+  "modules": [
+    "title",
+    "separator",
+    "os",
+    "shell",
+    "wm",
+    "terminal",
+    "cpu",
+    "memory",
+    "separator"
+  ]
+}
+
