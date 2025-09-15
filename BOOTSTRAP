@@ -2,13 +2,13 @@
 
 INSTALL="sudo pacman -Syu \
     nvim bat dunst fastfetch\
-    fish kitty yazi rofi-wayland tmux\
+    fish kitty yazi rofi tmux\
     waybar bluez bottom cmake\
     eza discord brightnessctl\
     firefox fzf git github-cli grim\
     hyprlock hypridle lazygit libnotify slurp\
     swww spotify-launcher stow ufw zip unzip vim wl-clipboard zathura\
-    zathura-pdf-poppler zoxide man-db man-pages ripgrep make --noconfirm"
+    zathura-pdf-poppler zoxide man-db man-pages ripgrep make pacman-contrib --noconfirm"
 
 echo "Installing packages..."
 eval "$INSTALL"
