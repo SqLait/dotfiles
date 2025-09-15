@@ -95,6 +95,7 @@ SHOW_SESSION=""
 SHOW_LIST=false
 RECONNECT=false
 REMOVE=false
+SOUND_FILE="/home/deanr/.local/bin/SoundFiles/startup.mov"
 
 while [[ $# -gt 0 ]]; do
     case $1 in
@@ -326,6 +327,7 @@ for ((; CURRENT < NUM_POM; CURRENT++)); do
             -t 2001 \
             -h int:value:"Pomodoro [$CURRENT/$NUM_POM] completed! Take a short break."
 
+        cvlc --play-and-exit --no-video "$SOUND_FILE"
         printf "\e[2J\e[H"
         BORDER_COLOR=$RED
         echo -e "${BORDER_COLOR}┌──── Pomodoro - COMPLETE ────────────────────────┐${RESET}"
