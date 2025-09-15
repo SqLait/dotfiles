@@ -5,7 +5,9 @@ set -x PATH $HOME/.config/lf $PATH
 set -x PATH $HOME/.local/bin/C-scripts $PATH
 set -x PATH $HOME/.local/bin/Sh-scripts $PATH
 set -x PATH $HOME/.local/scripts/C-scripts $PATH
-set -Ux PATH $HOME/.local/scripts/Sh-scripts $HOME/.local/scripts/Sh-scripts/pomodoro-cli $PATH
+set -x PATH $HOME/.local/scripts/Sh-scripts $PATH
+set -x PATH $HOME/.local/bin/Sh-scripts $PATH
+set -x PATH $HOME/.local/bin/Sh-scripts/pomodoro-cli $PATH
 set -x FZF_DEFAULT_OPTS "--preview 'bat --style=numbers --color=always --line-range=:500 {}'"
 set -x PATH $HOME/.dotnet/tools $PATH
 set -gx PATH "$HOME/.config/ohmyposh/oh-my-posh/" $PATH
