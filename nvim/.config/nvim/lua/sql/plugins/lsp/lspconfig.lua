@@ -3,19 +3,12 @@ return {
     dependencies = {
         "saghen/blink.cmp",
         "williamboman/mason-lspconfig.nvim",
-        --[[ For working with neovim itself
-        {
-            "folke/lazydev.nvim",
-            opts = {
-                library = {
-                    { path = "${3rd}/luv/library", words = { "vim%.uv" } },
-                },
-            },
-        },]]
     },
     config = function()
         local capabilities = require("blink.cmp").get_lsp_capabilities()
-        local lspconfig = require("lspconfig")
+        local lspconfig = vim.lsp.config('*', {
+            capabilities = capabilities,
+        })
         local map = vim.keymap
 
         vim.diagnostic.config({
@@ -27,10 +20,9 @@ return {
         })
 
         require("mason-lspconfig").setup({
-            ensure_installed = {
-                "lua_ls", "clangd", "csharp_ls", "rust_analyzer", "elixirls", "pyright", "denols"
-            },
-            automatic_enable = false,
+            function(name)
+                vim.lsp.enable(name)
+            end,
         })
 
         vim.api.nvim_create_autocmd("LspAttach", {
@@ -73,21 +65,21 @@ return {
         })
 
         -- Individual LSP server setups
-        lspconfig["lua_ls"].setup({
+        vim.lsp.config.lua_ls = {
             capabilities = capabilities,
-        })
+        }
 
-        lspconfig["clangd"].setup({
+        vim.lsp.config.clangd = {
             capabilities = capabilities,
             cmd = { "clangd", "--compile-commands-dir=build" },
             filetype = { "c", "cpp" },
-        })
+        }
 
-        lspconfig["csharp_ls"].setup({
+        vim.lsp.config.csharp_ls = {
             capabilities = capabilities,
-        })
+        }
 
-        lspconfig["pyright"].setup({
+        vim.lsp.config.pyright = {
             capabilities = capabilities,
             settings = {
                 python = {
@@ -99,20 +91,20 @@ return {
                     },
                 },
             },
-        })
+        }
 
-        lspconfig["rust_analyzer"].setup({
+        vim.lsp.config.rust_analyzer = {
             capabilities = capabilities,
-        })
+        }
 
-        lspconfig["denols"].setup({
+        vim.lsp.config.denols = {
             capabilities = capabilities,
-        })
+        }
 
-        lspconfig["elixirls"].setup({
+        vim.lsp.config.elixirls = {
             cmd = { "elixir-ls" },
             capabilities = capabilities,
-        })
+        }
     end,
 }
 

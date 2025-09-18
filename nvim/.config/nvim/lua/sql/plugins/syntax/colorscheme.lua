@@ -1,5 +1,5 @@
 return {
-    {
+    --[[{
         "catppuccin/nvim",
         name = "catppuccin",
         priority = 1000,
@@ -34,7 +34,7 @@ return {
                 },
             })
         end
-    },
+    },]]--
     --[[{
         "ellisonleao/gruvbox.nvim",
         priority = 1000,
