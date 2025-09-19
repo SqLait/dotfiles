@@ -65,23 +65,19 @@ keymap.set("n", "-", "<cmd>Oil --float<CR>", { desc = "Toggle file explorer" }) 
 -- keymap.set("n", "<leader>ec", "<cmd>NvimTreeCollapse<CR>", { desc = "Collapse file explorer" }) -- collapse file explorer
 -- keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh file explorer" }) -- refresh file explorer
 
---Telescope
-keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files in cwd" })
-keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
-keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })
-keymap.set("n", "<leader>st", "<cmd>PickThemery<cr>", { desc = "Switch themes" })
-keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Show buffers in telescope" })
-keymap.set("n", "<leader>xx", function()
-    require("telescope.builtin").diagnostics({ previewer = false })
-end, { desc = "Show LSP diagnostic (global)" })
-keymap.set("n", "<leader>xl", function()
-    require("telescope.builtin").diagnostics({
-        bufnr = 0,
-        previewer = false
-    })
-end, { desc = "Show LSP diagnostic (local)" })keymap.set("n", "<leader>fgc", "<cmd>Telescope git_commits", { desc = "Show LSP diagnostic (global)" })
-keymap.set("n", "<leader>fgs", "<cmd>Telescope git_status", { desc = "Show LSP diagnostic (global)" })
-keymap.set("n", "<leader>fgb", "<cmd>Telescope git_branches", { desc = "Show LSP diagnostic (global)" })
+-- Fzf
+keymap.set("n", "<leader>ff", "<cmd>FzfLua files<cr>", { desc = "Fuzzy find files in cwd" })
+keymap.set("n", "<leader>fb", "<cmd>FzfLua tabs<cr>", { desc = "Fuzzy find open tabs" })
+keymap.set("n", "<leader>fs", "<cmd>FzfLua grep<cr>", { desc = "Find string in cwd" })
+keymap.set("n", "<leader>fc", "<cmd>FzfLua grep_cword<cr>", { desc = "Find string under cursor in cwd" })
+keymap.set("n", "<leader>fv", "<cmd>FzfLua grep_visual<cr>", { desc = "Find highligh in cwd" })
+keymap.set("n", "<leader>xx", "<cmd>FzfLua diagnostics_document<cr>", { desc = "Show current file diagnostics" })
+keymap.set("n", "<leader>xl", "<cmd>FzfLua diagnostics_workspace<cr>", { desc = "Show current file diagnostics" })
+
+-- GIt based Fzf
+keymap.set("n", "<leader>fgc", "<cmd>FzfLua git_commits", { desc = "Show LSP diagnostic (global)" })
+keymap.set("n", "<leader>fgs", "<cmd>FzfLua git_branches<cr>", { desc = "Show LSP diagnostic (global)" })
+keymap.set("n", "<leader>fgb", "<cmd>FzfLua git_branches<cr>", { desc = "Show git branches" })
 
 --Tmux keybinds
 keymap.set("n", "<c-k>", ":wincmd k<CR>")

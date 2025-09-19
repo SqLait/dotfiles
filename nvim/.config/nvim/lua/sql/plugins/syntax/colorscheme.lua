@@ -1,3 +1,4 @@
+vim.cmd("colorscheme gruvbox")
 return {
     --[[{
         "catppuccin/nvim",
