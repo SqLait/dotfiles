@@ -1,4 +1,5 @@
 return {
+    --[[
     "nvim-telescope/telescope.nvim",
     branch = "0.1.x",
     dependencies = {
@@ -81,4 +82,5 @@ return {
 
         telescope.load_extension("fzf")
     end,
+    ]]
 }
