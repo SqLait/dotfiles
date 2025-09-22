@@ -6,6 +6,9 @@
       "sh" nil)
 
 (map! :leader
+      (:desc "Find org roam file" "rf" #'org-roam-node-find)
+      (:desc "Insert org roam file" "ri" #'org-roam-node-insert)
+      (:desc "Insert org roam file" "ru" #'org-roam-ui-mode)
       ;; Clear search highlights
       (:desc "Clear search highlights" "nh" #'evil-ex-nohighlight)
 
