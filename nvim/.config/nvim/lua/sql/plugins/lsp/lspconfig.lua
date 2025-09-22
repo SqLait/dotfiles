@@ -59,6 +59,9 @@ return {
                 map.set("n", "gt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
 
                 map.set("n", "gs", vim.lsp.buf.signature_help, opts)
+
+                opts.desc = "Restart LSP"
+                map.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
             end,
         })
 

@@ -14,6 +14,10 @@ function neofetch
     fastfetch $argv
 end
 
+function edit
+    vim $(fzf)
+end
+
 # function ls
 #     eza --color=always --long --git --icons=always $argv
 # end
