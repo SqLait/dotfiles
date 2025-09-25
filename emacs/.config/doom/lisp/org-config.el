@@ -28,6 +28,9 @@
 ;;   org-pretty-entities t
 ;;   org-agenda-tags-column 0)
 
+(setq org-roam-ui-follow nil)
+(setq org-roam-ui-sync-theme t)
+
 (setq org-roam-capture-templates
       `(("z" "Zettel (Atomic note)" plain "%?"
          :target (file+head "zettels/${slug}.org"

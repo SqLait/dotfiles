@@ -1,7 +1,7 @@
 #!/bin/bash
 
 INSTALL="sudo pacman -Syu \
-    nvim bat dunst fastfetch\
+    nvim bat swaync fastfetch\
     fish kitty yazi rofi tmux\
     waybar bluez bottom cmake\
     eza discord brightnessctl\
@@ -47,7 +47,7 @@ eval "$TPM_INSTALL"
 
 echo "Installing Programming languages"
 PROG_LANGS="sudo pacman -Syu gcc lua luajit python\
-    deno ghc dotnet-sdk --noconfirm"
+    deno ghc dotnet-sdk zig rustup --noconfirm"
 
 echo "Setting firewall rules"
 
