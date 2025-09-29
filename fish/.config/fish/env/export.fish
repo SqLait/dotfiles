@@ -7,6 +7,13 @@ export DEBUGINFOD_URLS="https://debuginfod.archlinux.org"
 export DEBUGINFO_URLS="https://debuginfod.archlinux.org"
 export BAT_THEME="gruvbox"
 
+# export GCC_13_3="/tools/arm-gnu-toolchain-13.3.rel1-x86_64-arm-none-eabi" 
+# export TOOLCHAIN_PATH="$GCC_13_3"
+# export PATH="$PATH:$TOOLCHAIN_PATH/bin"
+# export GNUARMEMB_TOOLCHAIN_PATH="$TOOLCHAIN_PATH"
+export ZEPHYR_TOOLCHAIN_VARIANT=gnuarmemb
+export GNUARMEMB_TOOLCHAIN_PATH=/
+
 export LF_ICONS="\
 tw=:\
 st=:\
