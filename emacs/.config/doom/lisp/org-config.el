@@ -12,6 +12,12 @@
   (setq org-roam-directory (file-truename "~/Documents/notes/zettelkast/"))
   (org-roam-db-autosync-mode))
 
+(after! org
+  ;; Unbind C-j and C-k in org-mode (if bound)
+  (map! :map org-mode-map
+        "C-j" nil
+        "C-k" nil))
+
 ;;  (setq
 ;;  ;; Edit settings
 ;;  org-auto-align-tags nil

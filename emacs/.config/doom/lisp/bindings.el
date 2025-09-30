@@ -76,10 +76,11 @@
 (map! :v ">" ">gv")
 
 ;; Window navigation (like Tmux)
-(define-key evil-normal-state-map (kbd "C-h") #'evil-window-left)
-(define-key evil-normal-state-map (kbd "C-j") #'evil-window-down)
-(define-key evil-normal-state-map (kbd "C-k") #'evil-window-up)
-(define-key evil-normal-state-map (kbd "C-l") #'evil-window-right)
+(define-key evil-normal-state-map (kbd "C-j") 'evil-window-down)
+(define-key evil-normal-state-map (kbd "C-k") 'evil-window-up)
+(define-key evil-normal-state-map (kbd "C-h") 'evil-window-left)
+(define-key evil-normal-state-map (kbd "C-l") 'evil-window-right)
+
 (define-key evil-insert-state-map (kbd "C-c") 'evil-normal-state)
 (define-key evil-visual-state-map (kbd "C-c") 'evil-normal-state)
 ;; Center the screen when scrolling
@@ -98,3 +99,9 @@
       :n "<tab>n" #'next-buffer
       :n "<tab>f" #'beginning-of-buffer
       :n "<tab>l" #'end-of-buffer)
+
+(after! evil
+  ;; Rebind C-j and C-k in normal mode in org-mode to window movement
+  (map! :map org-mode-map
+        :n "C-j" #'evil-window-down
+        :n "C-k" #'evil-window-up))
