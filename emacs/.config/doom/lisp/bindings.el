@@ -1,5 +1,16 @@
 ;;; Keybindings for Doom Emacs (converted from Neovim)
 ;;; Place these in your config.el file
+
+(defun window-split ()
+  "Do a horizontal split and move focus to the new window."
+  (interactive)
+  (select-window (split-window-below)))
+
+(defun window-vsplit ()
+  "Do a vertical split and move focus to the new window."
+  (interactive)
+  (select-window (split-window-right)))
+
 (map! :leader
       "sv" nil
       "s" nil
@@ -17,8 +28,8 @@
       (:desc "Decrement number" "-" #'evil-numbers/dec-at-pt)
 
       ;; Window management
-      (:desc "Split window vertically" "sv" #'evil-window-vsplit)
-      (:desc "Split window horizontally" "sh" #'evil-window-split)
+      (:desc "Split window vertically" "sv" #'window-vsplit)
+      (:desc "Split window horizontally" "sh" #'window-split)
       (:desc "Make split equal size" "se" #'balance-windows)
       (:desc "Close current split" "sx" #'delete-window)
 
@@ -87,4 +98,3 @@
       :n "<tab>n" #'next-buffer
       :n "<tab>f" #'beginning-of-buffer
       :n "<tab>l" #'end-of-buffer)
-
