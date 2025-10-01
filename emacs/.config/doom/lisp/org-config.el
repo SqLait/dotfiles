@@ -1,7 +1,4 @@
 ;;; lisp/org-config.el --- Org Mode Configuration -*- lexical-binding: t; -*-
-
-(setq org-directory "~/Documents/notes/")
-
 (after! org
   (setq org-babel-load-languages
         '((emacs-lisp . t) (python . t) (shell . t) (ruby . t) (R . t)
