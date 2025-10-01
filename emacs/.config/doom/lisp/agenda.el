@@ -20,10 +20,12 @@
 
 (after! org-agenda
   (setq org-agenda-custom-commands
-        '(("c" "Agenda"
+        '(("c" "Agenda view"
            ((agenda "")
-            (tags-todo "work")
-            (tags-todo "next"))))))
+            (alltodo "")
+            (tags-todo "WORK")
+            (tags-todo "STUDY")
+            (tags-todo "NEXT"))))))
 
 (add-hook 'org-agenda-finalize-hook #'org-modern-agenda)
 
