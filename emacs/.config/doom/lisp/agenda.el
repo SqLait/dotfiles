@@ -22,10 +22,14 @@
   (setq org-agenda-custom-commands
         '(("c" "Agenda view"
            ((agenda "")
-            (alltodo "")
+            (tags "PRIORITY=\"A\""
+                  ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
+                   (org-agenda-overriding-header "High-priority tasks:")))
             (tags-todo "WORK")
             (tags-todo "STUDY")
-            (tags-todo "NEXT"))))))
+            (tags-todo "NEXT")
+            (alltodo "")
+            )))))
 
 (add-hook 'org-agenda-finalize-hook #'org-modern-agenda)
 
