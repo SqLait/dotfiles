@@ -68,8 +68,8 @@
       (:desc "Undo tree" "u" #'undo-tree-visualize))
 
 ;; Move selected text up/down in Visual mode
-(map! :v "J" ":m '>+1<CR>gv=gv")
-(map! :v "K" ":m '<-2<CR>gv=gv")
+(define-key evil-visual-state-map (kbd "J") (kbd "M-<down>"))
+(define-key evil-visual-state-map (kbd "K") (kbd "M-<up>"))
 
 ;; Indentation in visual mode
 (map! :v "<" "<gv")
