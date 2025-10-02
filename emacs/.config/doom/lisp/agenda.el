@@ -36,4 +36,10 @@
 (map! :map org-agenda-mode-map
       :leader
       :desc "Next week" "n w" #'org-agenda-later
-      :desc "Previous week" "n W" #'org-agenda-earlier)
+      :desc "Previous week" "p w" #'org-agenda-earlier)
+
+(setq org-priority-faces
+      '((?A . (:foreground "red" :weight bold))
+        (?B . (:foreground "orange"))
+        (?C . (:foreground "goldenrod"))
+        (?D . (:foreground "yellow green"))))
