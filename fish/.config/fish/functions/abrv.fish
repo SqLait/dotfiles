@@ -18,6 +18,14 @@ function edit
     vim $(fzf)
 end
 
+function fzf
+    rg --files | command fzf $argv
+end
+
+function svim
+    vim $(fzf)
+end
+
 function zathura
     zathura-sandbox $argv
 end

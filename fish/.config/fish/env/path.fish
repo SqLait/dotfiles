@@ -15,6 +15,7 @@ set -Ux SUDO "run0 --background="
 set -gx EMACSDIR "$HOME/.config/emacs/"
 set -x PATH $HOME/.config/emacs/bin/ $PATH
 set -x MANPAGER "nvim +Man!"
+# set -x PARU_PAGER "vim"
 set -U fish_cursor_insert block
 set -x PATH $HOME/.local/share/gem/ruby/3.4.0/bin $PATH
 set -x PATH $HOME/Projects/libs/JLink_Linux_V872_x86_64/ $PATH
