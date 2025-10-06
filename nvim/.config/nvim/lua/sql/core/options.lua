@@ -44,7 +44,7 @@ opt.incsearch = true
 opt.scrolloff = 8
 
 --Set language to english
-o.spelllang = 'en_us'
+o.spelllang = 'en_gb'
 
 --Tab shizzle:
 o.title = true
@@ -56,7 +56,7 @@ g.loaded_matchparen = 1
 
 --Optimization:
 o.lazyredraw = true
-o.updatetime = 150
+o.updatetime = 100
 o.swapfile = false
 o.hidden = true
 o.termguicolors = true
