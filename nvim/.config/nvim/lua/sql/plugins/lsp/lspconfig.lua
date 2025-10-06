@@ -1,5 +1,6 @@
 return {
     "neovim/nvim-lspconfig",
+    event = { "BufReadPre" },
     dependencies = {
         "saghen/blink.cmp",
         "williamboman/mason-lspconfig.nvim",
@@ -108,4 +109,5 @@ return {
         }
     end,
 }
+
 

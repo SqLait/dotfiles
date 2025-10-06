@@ -1,5 +1,6 @@
 return {
     "onsails/lspkind.nvim",
+    event = "VeryLazy",
     config = function()
         -- setup() is also available as an alias
         require('lspkind').init({
