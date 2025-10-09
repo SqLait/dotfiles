@@ -1,5 +1,5 @@
 function fs
-    set command (history | fzf --preview '' | sed 's/^[ \t]*[0-9]*[ \t]*//')
+    set command (history | command fzf --preview '' | sed 's/^[ \t]*[0-9]*[ \t]*//')
     
     if test -n "$command"
         commandline --replace "$command"
@@ -7,7 +7,7 @@ function fs
 end
 
 function fe
-    set command (history | fzf --preview '' | sed 's/^[ \t]*[0-9]*[ \t]*//')
+    set command (history | command fzf --preview '' | sed 's/^[ \t]*[0-9]*[ \t]*//')
     
     if test -n "$command"
         eval "$command"
