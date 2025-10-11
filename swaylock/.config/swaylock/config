@@ -1,0 +1,35 @@
+image="$(cat ~/.config/hypr/.current_wallpaper)"
+
+indicator
+indicator-thickness=15
+indicator-radius=150
+clock
+
+effect-blur=7x5
+effect-vignette=0.5:0.5
+fade-in=0.2
+
+font=Jetbrains Nerd Font Mono
+
+ring-color=fe8019
+key-hl-color=fabd2f
+line-color=00000000
+separator-color=00000000
+
+inside-color=50494588
+inside-clear-color=50494588
+
+text-color=ebdbb2
+text-clear-color=ebdbb2
+
+ring-clear-color=83a598
+
+ring-ver-color=d65d0e
+text-ver-color=ebdbb2
+inside-ver-color=50494588
+line-ver-color=00000000
+
+# background-color=32302fcc
+
+ignore-empty-password
+

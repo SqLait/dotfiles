@@ -8,7 +8,10 @@ export DEBUGINFO_URLS="https://debuginfod.archlinux.org"
 export BAT_THEME="gruvbox"
 export ZEPHYR_TOOLCHAIN_VARIANT="gnuarmemb"
 export GNUARMEMB_TOOLCHAIN_PATH="/home/deanr/Projects/libs/arm-gnu-toolchain-14.3.rel1-x86_64-arm-none-eabi"
-
+export WLR_NO_HARDWARE_CURSORS=1
+export OZONE_PLATFORM=wayland
+export DISCORD_USE_WAYLAND=1 discord
+export LIBGL_ALWAYS_SOFTWARE=1 spotify
 # export GCC_13_3="/tools/arm-gnu-toolchain-13.3.rel1-x86_64-arm-none-eabi" 
 # export TOOLCHAIN_PATH="$GCC_13_3"
 # export PATH="$PATH:$TOOLCHAIN_PATH/bin"
