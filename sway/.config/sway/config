@@ -1,0 +1,118 @@
+set $mod Mod4
+
+floating_modifier $mod
+
+set $terminal kitty
+set $fileManager kitty yazi
+set $menu rofi -show drun
+set $locker swaylock
+
+exec wlsunset -l 52.37 -L 4.89 -t 4000 -T 4500 -g 0.85
+exec LaunchSwww
+exec swaync
+exec swayidle -w \
+    timeout 3000 'swaylock -f -c 000000' \
+    timeout 6000 'swaymsg "output * poweroff"' resume 'swaymsg "output * power on"' \
+    before-sleep 'swaylock -f -c 000000'
+
+exec_always autotiling
+
+bindsym $mod+q exec $terminal
+bindsym $mod+c kill
+bindsym $mod+m exit
+bindsym $mod+e exec $fileManager
+bindsym $mod+v floating toggle
+bindsym $mod+r exec $menu
+bindsym $mod+f fullscreen
+bindsym $mod+o exec $locker
+bindsym $mod+x exec powermenu
+bindsym $mod+n exec switchwall
+bindsym $mod+w exec firefox -p
+bindsym $mod+Shift+e exec emacsclient -c -a 'emacs'
+bindsym $mod+Shift+n exec swaync-client -t -sw
+
+bindsym $mod+h focus left
+bindsym $mod+l focus right
+bindsym $mod+k focus up
+bindsym $mod+j focus down
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+l move right
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+j move down
+
+bindsym $mod+Shift+c reload
+
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+workspace 1 output DP-2
+workspace 2 output DP-2
+workspace 3 output DP-2
+workspace 4 output DP-2
+workspace 5 output DP-2
+workspace 6 output DP-2
+
+bindsym $mod+Shift+1 move container to workspace 1, workspace 1, focus
+bindsym $mod+Shift+2 move container to workspace 2, workspace 2, focus
+bindsym $mod+Shift+3 move container to workspace 3, workspace 3, focus
+bindsym $mod+Shift+4 move container to workspace 4, workspace 4, focus
+bindsym $mod+Shift+5 move container to workspace 5, workspace 5, focus
+bindsym $mod+Shift+6 move container to workspace 6, workspace 6, focus
+bindsym $mod+Shift+7 move container to workspace 7, workspace 7, focus
+bindsym $mod+Shift+8 move container to workspace 8, workspace 8, focus
+bindsym $mod+Shift+9 move container to workspace 9, workspace 9, focus
+bindsym $mod+Shift+0 move container to workspace 10, workspace 10, focus
+
+bindsym $mod+s move scratchpad
+bindsym $mod+Shift+s scratchpad show
+
+bindsym XF86AudioRaiseVolume exec changevolume up
+bindsym XF86AudioLowerVolume exec changevolume down
+bindsym F8 exec changevolume mute
+bindsym F9 exec changevolume unmute
+
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioPlay exec playerctl play-pause
+
+bindsym $mod+Right exec playerctl next
+bindsym $mod+Left exec playerctl previous
+bindsym $mod+Shift+Page_Up exec playerctl play-pause
+
+bindsym $mod+Up exec changevolume up
+bindsym $mod+Down exec changevolume down
+
+bindsym $mod+Page_Up exec backlight up
+bindsym $mod+Page_Down exec backlight down
+
+bindsym XF86MonBrightnessUp exec backlight up
+bindsym XF86MonBrightnessDown exec backlight down
+
+bindsym $mod+Shift+p layout splith
+bindsym $mod+p layout splitv
+
+input "type:keyboard" {
+    xkb_options caps:ctrl_modifier
+    repeat_delay 250
+    repeat_rate 30
+}
+
+input * {
+    xkb_layout us
+}
+
+mouse_warping none
+# Enable focus on the window under the mouse cursor
+focus click-to-focus
+
+output DP-2 resolution 1920x1080@144Hz pos 0 0
+output DP-3 resolution 1920x1080@60Hz pos 1920 0
+
