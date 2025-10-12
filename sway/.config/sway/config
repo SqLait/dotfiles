@@ -99,6 +99,8 @@ bindsym XF86MonBrightnessDown exec backlight down
 bindsym $mod+Shift+p layout splith
 bindsym $mod+p layout splitv
 
+bindsym Ctrl+Shift+s exec grim -g "$(slurp)" - | wl-copy
+
 input "type:keyboard" {
     xkb_options caps:ctrl_modifier
     repeat_delay 250
@@ -109,6 +111,32 @@ input * {
     xkb_layout us
 }
 
+bar {
+    swaybar_command swaybar
+    # swaybar_command waybar
+
+    # When the status_command prints a new line to stdout, swaybar updates.
+    # The default just shows the current date and time.
+    status_command while date +'%Y-%m-%d :: %X'; do sleep 1; done
+
+  position top
+  separator_symbol "::"
+  colors {
+    background #222222
+    statusline #9b8d7f
+    separator #9b8d7f
+
+    # gruvbox color: #d4be98
+    focused_workspace #9b8d7f #9b8d7f #222222
+    inactive_workspace #222222 #222222 #9b8d7f
+    active_workspace #222222 #222222 #9b8d7f
+    urgent_workspace #222222 #222222 #9b8d7f
+    binding_mode #222222 #222222 #9b8d7f
+  }
+  font pango:Jetbrains Mono Nerd Font 12
+  tray_output HDMI-A-0
+}
+
 mouse_warping none
 # Enable focus on the window under the mouse cursor
 focus click-to-focus
@@ -116,3 +144,8 @@ focus click-to-focus
 output DP-2 resolution 1920x1080@144Hz pos 0 0
 output DP-3 resolution 1920x1080@60Hz pos 1920 0
 
+# Default border colors
+client.focused          #333333 #363636 #ffffff #888888
+client.unfocused        #333333 #222222 #888888 #292929
+client.focused_inactive #3b3b3b #222222 #888888 #292929
+client.urgent           #900000 #900000 #ffffff #900000
