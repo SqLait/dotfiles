@@ -90,9 +90,7 @@ bindsym $mod+Page_Down exec backlight down
 bindsym XF86MonBrightnessUp exec backlight up
 bindsym XF86MonBrightnessDown exec backlight down
 
-bindsym $mod+Shift+p layout splith
-bindsym $mod+p layout splitv
-
+bindsym $mod+Shift+r exec swaymsg reload
 bindsym Ctrl+Shift+s exec grim -g "$(slurp)" - | wl-copy
 
 input "type:keyboard" {
