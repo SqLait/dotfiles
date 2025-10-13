@@ -3,8 +3,8 @@
 WALLPAPER_CONFIG_FILE="$HOME/.config/hypr/last_wallpaper"
 
 # Initialize swww
-swww init
-swww-daemon --format xrgb
+# swww init
+swww-daemon --format argb
 
 # Check if the configuration file exists
 if [ -f "$WALLPAPER_CONFIG_FILE" ]; then
