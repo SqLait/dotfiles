@@ -1,10 +1,10 @@
 ;;; lisp/ui.el --- UI Configuration -*- lexical-binding: t; -*-
 
+;; Set the Gruvbox variant to soft
+(setq doom-gruvbox-dark-variant "soft")
 (setq doom-theme 'doom-gruvbox)
-
-(setq doom-font (font-spec :family "JetBrains Mono Nerd Font" :size 14 :weight 'regular :ligatures nil)
-      doom-variable-pitch-font (font-spec :family "JetBrains Mono Nerd Font" :size 16 :ligatures nil)
-      doom-serif-font (font-spec :family "JetBrains Mono Nerd Font" :size 16 :ligatures nil))
+(custom-set-faces!
+   '(region :background "#504945"))
 
 (setq doom-themes-enable-bold t
       doom-themes-enable-italic t)
