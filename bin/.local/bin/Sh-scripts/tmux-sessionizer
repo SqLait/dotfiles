@@ -16,7 +16,7 @@ if [[ $# -eq 1 ]]; then
     selected=$1
 else
     # If someone wants to make this extensible, i'll accept PR
-    selected=$(find ~/ ~/personal ~/personal/dev/env/.config -mindepth 1 -maxdepth 3 -type d | fzf)
+    selected=$(find -L ~/Projects ~/Documents ~/.config -mindepth 1 -maxdepth 3 -type d | fzf --tmux center)
 fi
 
 if [[ -z $selected ]]; then

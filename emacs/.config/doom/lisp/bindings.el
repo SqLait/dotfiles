@@ -105,3 +105,4 @@
   (map! :map org-mode-map
         :n "C-j" #'evil-window-down
         :n "C-k" #'evil-window-up))
+
