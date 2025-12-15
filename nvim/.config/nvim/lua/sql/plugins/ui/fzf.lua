@@ -10,6 +10,14 @@ return {
             files = {
                 rg_glob = true,
             },
+            keymap = {
+                builtin = {
+                    ["<S-j>"] = "preview-page-down",
+                    ["<S-k>"] = "preview-page-up",
+                    ["<M-j>"] = "preview-down",
+                    ["<M-k>"] = "preview-up",
+                }
+            }
         })
     end
 }

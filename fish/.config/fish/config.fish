@@ -12,3 +12,5 @@ source ~/.config/fish/env/export.fish
 source ~/.config/fish/env/path.fish
 source ~/.config/fish/env/init.fish
 source ~/.config/fish/themes/gruvbox.fish
+
+fish_add_path /home/deanr/.spicetify

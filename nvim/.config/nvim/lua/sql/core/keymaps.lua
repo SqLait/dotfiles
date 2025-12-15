@@ -117,3 +117,18 @@ keymap.set('i', '<C-H>', '<C-W>', { silent = true, noremap = true })
 keymap.set({'n', 'v', 'i'}, '<C-C>', '<Esc>')
 
 keymap.set('n', '<tab>', 'za', { silent = true, noremap = true })
+
+-- Formatting
+-- Not bothered to download a linter so this is some simple vimscript that swaps from common formats
+-- K&R -> Allman
+keymap.set('n', '<leader>{', function ()
+    vim.cmd([[%s/\s*{\s*$/\r{/g]])
+    vim.cmd([[normal! gg=G]])
+end, { silent = true, noremap = true })
+
+-- Allman -> K&R
+keymap.set('n', '<leader>}', function ()
+    vim.cmd([[%s/)\n{\s*$/) {/]])
+    vim.cmd([[%s/\n\s*{\s*$/ {/]])
+    vim.cmd([[normal! gg=G]])
+end, { silent = true, noremap = true })

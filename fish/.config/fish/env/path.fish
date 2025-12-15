@@ -8,7 +8,7 @@ set -x PATH $HOME/.local/scripts/C-scripts $PATH
 set -x PATH $HOME/.local/scripts/Sh-scripts $PATH
 set -x PATH $HOME/.local/bin/Sh-scripts $PATH
 set -x PATH $HOME/.local/bin/Sh-scripts/pomodoro-cli $PATH
-set -x FZF_DEFAULT_OPTS "--preview 'bat --style=numbers --color=always --line-range=:500 {}'"
+set -x FZF_DEFAULT_OPTS ""
 set -x PATH $HOME/.dotnet/tools $PATH
 set -gx PATH "$HOME/.config/ohmyposh/oh-my-posh/" $PATH
 set -Ux SUDO "run0 --background="
@@ -20,3 +20,4 @@ set -U fish_cursor_insert block
 set -x PATH $HOME/.local/share/gem/ruby/3.4.0/bin $PATH
 set -x PATH $HOME/Projects/libs/JLink_Linux_V872_x86_64/ $PATH
 set -x PATH $HOME/Projects/libs/nrf-command-line-tools/bin/ $PATH
+set -x PATH $HOME/.spicetify $PATH
