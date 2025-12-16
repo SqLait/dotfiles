@@ -31,6 +31,36 @@
 ;;   org-pretty-entities t
 ;;   org-agenda-tags-column 0)
 
+(after! org
+  (setq org-todo-keywords
+        '((sequence
+            "IDEA(i)"
+            "SOMEDAY(S)"
+            "TODO(t)"
+            "PLAN(p)"
+            "STRT(s)"
+            "PROG(P)"
+            "REVIEW(r)"
+            "WAIT(w)"
+            "HOLD(h)"
+            "|"
+            "DONE(d)"
+            "KILL(k)"
+            "CANCELLED(c)"
+            ))))
+
+(after! org
+  (setq org-todo-keyword-faces
+        '(
+          ("PLAN" . (:foreground "goldenrod" :weight bold))
+          ("STRT" . (:foreground "#9ece6a" :weight bold))
+          ("PROG" . (:foreground "orange" :weight bold))
+          ("WAIT" . (:foreground "#e0af68" :weight bold))
+          ("HOLD" . (:foreground "#73daca" :weight bold))
+          ("CANCELLED" . (:foreground "red" :weight bold))
+          ("SOMEDAY" . (:foreground "#9ece6a" :weight bold))
+          ("KILL" . (:foreground "red" :weight bold)))))
+
 (use-package! org-roam-ui
     :after org-roam
     :config
