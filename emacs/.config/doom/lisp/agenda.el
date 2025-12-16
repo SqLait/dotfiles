@@ -18,18 +18,45 @@
           (:name "Next" :todo "NEXT" :order 2)
           (:name "Someday" :todo "SOMEDAY" :order 3))))
 
+(setq org-log-reschedule 'note)
+(setq org-log-done 'time)
+
 (after! org-agenda
   (setq org-agenda-custom-commands
         '(("c" "Agenda view"
            ((agenda "")
             (tags "PRIORITY=\"A\""
-                  ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
+                  ((org-agenda-skip-function
+                    '(org-agenda-skip-entry-if 'todo 'done))
                    (org-agenda-overriding-header "High-priority tasks:")))
             (tags-todo "WORK")
             (tags-todo "STUDY")
             (tags-todo "NEXT")
-            (alltodo "")
-            )))))
+            (alltodo "")))
+
+          ("d" "Done today"
+           agenda ""
+           ((org-agenda-span 1)
+            (org-agenda-start-day "0d")
+            (org-agenda-start-with-log-mode t)
+            (org-agenda-show-log 'done)
+            (org-agenda-include-inactive-timestamps t)))
+
+          ("w" "Done this week"
+           agenda ""
+           ((org-agenda-span 'week)              ;; show current week
+            (org-agenda-start-day "0d")         ;; start from today
+            (org-agenda-start-with-log-mode t)  ;; enable log mode
+            (org-agenda-show-log 'done)         ;; include DONE tasks
+            (org-agenda-include-inactive-timestamps t)
+            (org-agenda-overriding-header "Done this week:"))))))
+
+(defvar org-agenda-idle-timer nil)
+
+(defun open-agenda-on-idle ()
+  (unless (or (minibufferp)
+              (get-buffer "*Org Agenda*"))
+    (org-agenda nil "c")))
 
 (add-hook 'org-agenda-finalize-hook #'org-modern-agenda)
 
