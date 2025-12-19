@@ -41,10 +41,10 @@
 (load! "lisp/programming.el")  ;; Programming-related settings
 (load! "lisp/bindings.el")     ;; Custom keybindings
 (load! "lisp/misc.el")         ;; Miscellaneous settings
+(load! "lisp/dashboard.el")
 
 ;; Disable menu bar, tool bar, scroll bar globally
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
-(setq display-line-numbers 'relative)
 
