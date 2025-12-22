@@ -13,4 +13,12 @@
   (setq dashboard-items '((recents . 5)
                           (agenda . 10)   ;; show org-agenda
                           )))
-
+(setq dashboard-startupify-list '(dashboard-insert-banner
+                                  dashboard-insert-newline
+                                  dashboard-insert-banner-title
+                                  dashboard-insert-navigator
+                                  dashboard-insert-newline
+                                  dashboard-insert-items
+                                  dashboard-insert-init-info
+                                  ))
+(setq dashboard-item-names '(("Agenda for the coming week:" . "Agenda:")))
