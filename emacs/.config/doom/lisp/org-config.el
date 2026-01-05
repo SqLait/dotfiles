@@ -85,4 +85,16 @@
         org-roam-ui-follow nil
         org-roam-ui-update-on-save t))
 
+(setq org-capture-templates
+      '(("t" "Todo" entry (file+headline "~/Documents/notes/general/todos.org" "Tasks")
+         "* TODO %?\n  %i\n  %a")
+        ("n" "Note" entry (file+headline "~/Documents/notes/general/notes.org" "Notes")
+         "* %?\n  %i\n  %a")
+        ("m" "Meeting" entry (file+headline "~/Documents/notes/general/meetings.org" "Meetings")
+         "* %?\n  %T\n  %i\n  %a")
+        ("r" "Refile" entry (file+headline "~/Documents/notes/general/refile.org" "Refile")
+         "* %?\n  %T\n  %i\n  %a")
+        ("z" "Zettel" entry (file+headline "~/Documents/notes/general/zettelkasten.org" "Zettels")
+         "* %?\n  %i\n  %a\n  :PROPERTIES:\n  :ID:       %x\n  :END:")))
+
 (org-roam-db-sync)
