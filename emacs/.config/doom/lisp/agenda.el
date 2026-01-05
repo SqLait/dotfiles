@@ -72,7 +72,7 @@
         (?D . (:foreground "yellow green"))))
 
 
-(defun my/org-agenda-highlight-holidays ()
+(defun agenda/org-agenda-highlight-holidays ()
   "Highlight agenda items with the file category 'holidays' in red."
   (save-excursion
     (goto-char (point-min))
@@ -82,4 +82,15 @@
           (add-text-properties (match-beginning 0) (match-end 0)
                                '(face (:foreground "orange" :weight bold))))))))
 
-(add-hook 'org-agenda-finalize-hook #'my/org-agenda-highlight-holidays)
+(defun agenda/org-agenda-highlight-birthdays ()
+  "Highlight agenda items with the file category 'holidays' in red."
+  (save-excursion
+    (goto-char (point-min))
+    (while (re-search-forward "^[ \t]*\\([^:\n]+\\)\\(?::\\)?[ \t]+\\(.*\\)" nil t)
+      (let ((category (match-string 1)))
+        (when (string-match-p "birthdays" category)
+          (add-text-properties (match-beginning 0) (match-end 0)
+                               '(face (:foreground "yellow green" :weight bold))))))))
+
+(add-hook 'org-agenda-finalize-hook #'agenda/org-agenda-highlight-holidays)
+(add-hook 'org-agenda-finalize-hook #'agenda/org-agenda-highlight-birthdays)
