@@ -3,6 +3,7 @@ show_hidden = true
 show_symlink = true
 ratio = [2, 4, 3]
 sort_dir_first = true
+linemode = "size_and_mtime"
 
 [preview]
 image_protocol = "kitty"
