@@ -98,6 +98,18 @@
         org-roam-ui-follow nil
         org-roam-ui-update-on-save t))
 
+(defun my-daily-plan-file ()
+  (let ((filename (expand-file-name
+                    (format "~/Documents/notes/general/plan/%s.org"
+                            (format-time-string "%Y-%m-%d")))))
+    (make-directory (file-name-directory filename) t)
+    filename))
+
+(setq org-capture-templates
+      '(("d" "Daily plan" plain
+         (function my-daily-plan-file)
+         "* %?")))
+
 (setq org-capture-templates
       '(("t" "Todo" entry (file+headline "~/Documents/notes/general/todos.org" "Tasks")
          "* TODO %?\n  %i\n  %a")
@@ -107,7 +119,6 @@
          "* %?\n  %T\n  %i\n  %a")
         ("r" "Refile" entry (file+headline "~/Documents/notes/general/refile.org" "Refile")
          "* %?\n  %T\n  %i\n  %a")
-        ("z" "Zettel" entry (file+headline "~/Documents/notes/general/zettelkasten.org" "Zettels")
-         "* %?\n  %i\n  %a\n  :PROPERTIES:\n  :ID:       %x\n  :END:")))
+        ))
 
 (org-roam-db-sync)
