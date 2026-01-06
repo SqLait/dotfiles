@@ -42,6 +42,7 @@
 (load! "lisp/bindings.el")     ;; Custom keybindings
 (load! "lisp/misc.el")         ;; Miscellaneous settings
 (load! "lisp/dashboard.el")
+(load! "lisp/journal.el")
 
 ;; Disable menu bar, tool bar, scroll bar globally
 (menu-bar-mode -1)

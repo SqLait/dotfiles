@@ -52,3 +52,4 @@
 (package! org-roam-ui)
 (package! websocket)
 (package! dashboard)
+(package! org-journal)
