@@ -65,7 +65,8 @@
              (cmd! (shell-command (concat "chmod +x " (buffer-file-name)))))
 
       ;; Undo Tree Toggle
-      (:desc "Undo tree" "u" #'undo-tree-visualize))
+      (:desc "Undo tree" "u" #'undo-tree-visualize)
+      (:desc "Daily plan file" "dp" #'org-journal-new-entry))
 
 ;; Move selected text up/down in Visual mode
 (define-key evil-visual-state-map (kbd "J") (kbd "M-<down>"))
