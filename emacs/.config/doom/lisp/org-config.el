@@ -61,6 +61,19 @@
           ("SOMEDAY" . (:foreground "#9ece6a" :weight bold))
           ("KILL" . (:foreground "red" :weight bold)))))
 
+(setq org-tag-faces
+      '(
+        ("WORK"  . (:foreground "orange1" :weight bold))
+        ("STUDY"  . (:foreground "mediumPurple1" :weight bold))
+        ("NEXT"  . (:foreground "yellow3" :weight bold))
+
+        ;("PLANNING"  . (:foreground "mediumPurple1" :weight bold))
+        ;("backend"   . (:foreground "royalblue1"    :weight bold))
+        ;("frontend"  . (:foreground "forest green"  :weight bold))
+        ;("QA"        . (:foreground "sienna"        :weight bold))
+        ;("meeting"   . (:foreground "yellow1"       :weight bold))
+        ))
+
 (use-package! org-roam-ui
     :after org-roam
     :config
