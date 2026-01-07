@@ -3,7 +3,7 @@
 * {
   padding: 0;
   margin: 0;
-  font-family: "Overpass", "JetBrains Mono Nerd Font";
+  font-family: "JetBrains Mono Nerd Font";
   font-size: 12px;
 }
 
@@ -42,7 +42,7 @@
 
 #cpu { color: @peach; }
 #memory { color: @mauve; }
-#temperature { color: @maroon; }
+#temperature { color: @yellow; }
 
 /* ------ Window Title ------ */
 #window { 
@@ -88,23 +88,23 @@ window#waybar {
 /* ------ Pulseaudio ------ */
 #pulseaudio {
   color: @peach;
-  background-color: @surface1;
+  /*background-color: @surface1;*/
   padding: 2px 5px;
   margin: 4px 2px;
 }
 
 /* ------ Backlight ------ */
 #backlight {
-  color: @sky;
-  background-color: @surface1;
+  color: @teal;
+  /*background-color: @surface1;*/
   padding: 2px 5px;
   margin: 4px 2px;
 }
 
 /* ------ Network ------ */
 #network {
-  color: @mauve;
-  background-color: @surface1;
+  color: @sapphire;
+  /*background-color: @surface1;*/
   padding: 2px 5px;
   margin: 4px 2px;
 }
@@ -112,7 +112,7 @@ window#waybar {
 /* ------ Battery ------ */
 #battery {
   color: @maroon;
-  background-color: @surface1;
+  /*background-color: @surface1;*/
   padding: 2px 5px;
   margin: 4px 2px;
 }
@@ -164,8 +164,8 @@ window#waybar {
 }
 
 #idle_inhibitor {
-  color: @green;
-  background-color: @surface1;
+  color: @sky;
+  /*background-color: @surface1;*/
   padding: 2px 9px;
   margin: 4px 2px;
   font-size: 15px;
