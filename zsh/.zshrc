@@ -1,8 +1,7 @@
 # If not running interactively, don't do anything
 [[ -o interactive ]] || return
 
-alias grep='grep --color=auto'
-PROMPT='[%n@%m %1~]%# '
+source ~/.sh_config/prompt
 
 # Alias lazygit
 lg() {
@@ -23,19 +22,8 @@ neofetch() {
     fastfetch "$@"
 }
 
-# Enhanced ls using eza
-ls() {
-    eza --color=always --long --git --icons=always
-}
-
-# Enhanced tree using eza
-tree() {
-    eza --tree --color=always --git --icons=always --all
-}
-
-# Use btrman instead of man
-man() {
-    btrman "$@"
+nfetch() {
+    neofetch -c ~/.config/fastfetch/openbsd.jsonc "$@"
 }
 
 # Fuzzy search command history and insert into prompt
@@ -57,6 +45,18 @@ fe() {
     fi
 }
 
-# Enable fs to work in Zsh interactive mode
-bindkey "^F" fs
+zathura() {
+    zathura-sandbox "$@"
+}
 
+ts() {
+    tmux-sessionizer
+}
+
+# Enable fs to work in Zsh interactive mode
+bindkey "^F" yazi
+
+source ~/.sh_config/init
+source ~/.sh_config/colours
+source ~/.sh_config/export
+source ~/.sh_config/plugins

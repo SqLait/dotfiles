@@ -1,0 +1,14 @@
+#!/bin/zsh
+
+if [ ! -d "${ZDOTDIR:-$HOME}/.local/share/zsh/zsh-syntax-highlighting" ]; then
+    echo "Installing zsh-syntax-highlighting..."
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZDOTDIR:-$HOME}/.local/share/zsh/zsh-syntax-highlighting"
+fi
+
+if [ ! -d "${ZDOTDIR:-$HOME}/.local/share/zsh/zsh-autocomplete" ]; then
+    echo "Installing zsh-autocomplete..."
+    git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git "${ZDOTDIR:-$HOME}/.local/share/zsh/zsh-autocomplete"
+fi
+
+# source "${ZDOTDIR:-$HOME}/.local/share/zsh/zsh-autocomplete/zsh-autocomplete.plugin.zsh"
+source "${ZDOTDIR:-$HOME}/.local/share/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"

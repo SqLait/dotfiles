@@ -1,0 +1,74 @@
+# ~/.sh_config/prompt
+
+# Colors (hex)
+YELLOW='%F{#fabd2f}'
+GREEN='%F{#b8bb26}'
+RED='%F{#fb4934}'
+CYAN='%F{#83a598}'
+GRAY='%F{#928374}'
+RESET='%f'
+
+# Git status function
+function parse_git_status() {
+  local branch=$(git branch --show-current 2>/dev/null)
+  if [ -z "$branch" ]; then
+    return
+  fi
+  local git_status=$(git status --porcelain 2>/dev/null)
+  local changes=$(echo "$git_status" | wc -l)
+  local ahead=$(git rev-list --left-right --count HEAD...@{upstream} 2>/dev/null | awk '{print $1}')
+  local behind=$(git rev-list --left-right --count HEAD...@{upstream} 2>/dev/null | awk '{print $2}')
+
+  local git_str="$branch"
+  if [ "$changes" -gt 0 ]; then
+    git_str+="*"
+  fi
+  if [ "$behind" -gt 0 ]; then
+    git_str+=" <$CYAN⇣$RESET"
+  fi
+  if [ "$ahead" -gt 0 ]; then
+    git_str+=" <$CYAN⇡$RESET"
+  fi
+  echo " $GRAY$git_str$RESET"
+}
+
+# Execution time
+typeset -g start_time
+function start_timer() {
+  start_time=$SECONDS
+}
+function end_timer() {
+  local elapsed=$((SECONDS - start_time))
+  if [ "$elapsed" -gt 0 ]; then
+    exec_time=" $YELLOW$elapsed"ms"$RESET"
+  else
+    exec_time=""
+  fi
+}
+
+# Set prompt
+function set_prompt() {
+  local git_info=$(parse_git_status)
+  local path="$YELLOW%~$RESET"
+  local prompt_symbol="❯"
+  if [ $? -ne 0 ]; then
+    prompt_symbol="$RED$prompt_symbol$RESET"
+  else
+    prompt_symbol="$GREEN$prompt_symbol$RESET"
+  fi
+  PROMPT="$path$git_info
+$prompt_symbol "
+  RPROMPT="$exec_time"
+}
+
+# Update prompt before each command
+precmd() {
+  end_timer
+  set_prompt
+}
+
+# Start timer before each command
+preexec() {
+  start_timer
+}
+
