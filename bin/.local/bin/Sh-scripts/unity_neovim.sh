@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/dash
 
 if [ $# -eq 2 ]; then
   kitty -- nvim +"$2" "$1"
