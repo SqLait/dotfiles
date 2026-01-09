@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/dash
 
 # Send a notification if the laptop battery is either low or is fully charged.
 # Set on a systemd timer (~/.config/systemd/user/battery-alert.timer).
