@@ -1,32 +1,32 @@
-#!/usr/bin/env bash
+#!/bin/dash
 
 switch_to_window() {
-    tmux select-window -t $1
+    tmux select-window -t "$1"
 }
 
 hydrate() {
-    if [ -f $2/.tmux-sessionizer ]; then
-        tmux send-keys -t $1 "source $2/.tmux-sessionizer" C-m
-    elif [ -f $HOME/.tmux-sessionizer ]; then
-        tmux send-keys -t $1 "source $HOME/.tmux-sessionizer" C-m
+    if [ -f "$2/.tmux-sessionizer" ]; then
+        tmux send-keys -t "$1" "source $2/.tmux-sessionizer" C-m
+    elif [ -f "$HOME/.tmux-sessionizer" ]; then
+        tmux send-keys -t "$1" "source $HOME/.tmux-sessionizer" C-m
     fi
 }
 
-if [[ $# -eq 1 ]]; then
-    selected=$1
+if [ $# -eq 1 ]; then
+    selected="$1"
 else
     # If someone wants to make this extensible, i'll accept PR
     selected=$(find -L ~/Projects ~/Documents ~/.config -mindepth 1 -maxdepth 3 -type d | fzf --tmux center)
 fi
 
-if [[ -z $selected ]]; then
+if [ -z "$selected" ]; then
     exit 0
 fi
 
 selected_name=$(basename "$selected" | tr . _)
 
-if [[ -z $TMUX ]]; then
-    echo "You need to run this script inside a tmux session."
+if [ -z "$TMUX" ]; then
+    echo "You need to run this script inside a tmux session." >&2
     exit 1
 fi
 
@@ -34,8 +34,8 @@ fi
 tmux new-window -n "$selected_name" -c "$selected"
 
 # Hydrate the window (if applicable)
-hydrate $selected_name $selected
+hydrate "$selected_name" "$selected"
 
 # Switch to the newly created window
-switch_to_window $selected_name
+switch_to_window "$selected_name"
 

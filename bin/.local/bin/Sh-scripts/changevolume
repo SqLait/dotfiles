@@ -2,7 +2,7 @@
 
 # Increment, decrement, mute, or unmute the volume using Pipewire and send a notification
 SWAYNC_REPLACES_ID="9898"
-ICON_PATH="/home/deanr/.local/share/icons/dunst"
+ICON_PATH="$HOME/.local/share/nt-icons"
 
 get_volume() {
 	wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print int($2 * 100)}'
@@ -33,12 +33,21 @@ esac
 VOLUME=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | tr -dc '0-9' | sed 's/^0\{1,2\}//')
 
 send_notification() {
-	if [ "$1" = "mute" ]; then ICON="mute"; elif [ "$VOLUME" -lt 20 ]; then ICON="low"; elif [ "$VOLUME" -lt 60 ]; then ICON="medium"; else ICON="high"; fi
+	if [ "$1" = "mute" ]; then
+        ICON="mute";
+    elif [ "$VOLUME" -lt 20 ]; then
+        ICON="low";
+    elif [ "$VOLUME" -lt 60 ]; then
+        ICON="medium";
+    else
+        ICON="high";
+    fi
 	if [ "$1" = "mute" ]; then TEXT="Currently muted"; else TEXT="Currently at ${VOLUME}%"; fi
 
     notify-send -a "Volume" \
         -u normal \
         -t 2000 \
+        -i "${ICON_PATH}/volume-${ICON}.png" \
         -h int:value:"$VOLUME" \
         -h string:synchronous:volume \
         "Volume" "$TEXT"
