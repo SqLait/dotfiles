@@ -1,43 +1,43 @@
 @import "mocha.css";
 
 * {
-  padding: 0;
-  margin: 0;
-  font-family: "JetBrains Mono Nerd Font";
-  font-size: 12px;
+    padding: 0;
+    margin: 0;
+    font-family: "JetBrains Mono Nerd Font";
+    font-size: 13px;
 }
 
 /* ------ Set a Uniform Border Radius ------ */
 .modules-left, .modules-center, .modules-right, #cpu, #memory, #temperature, #pulseaudio, #backlight, #custom-spotify, #custom-icon, #custom-updates, #network, #battery, #tray, #idle_inhibitor, #custom-power, #custom-notification {
-  border-radius: 18px;
+    border-radius: 18px;
 }
 
 /* ------ Modules Left ------ */
 .modules-left {
-  background-color: @base;
-  padding-right: 5px;
-  padding-left: 13px;
+    background-color: @base;
+    padding-right: 5px;
+    padding-left: 13px;
 }
 
 /* ------ Modules Center ------ */
 .modules-center {
-  background-color: @base;
-  padding-right: 5px;
-  padding-left: 5px;
+    background-color: @base;
+    padding-right: 5px;
+    padding-left: 5px;
 }
 
 /* ------ Modules Right ------ */
 .modules-right {
-  background-color: @base;
-  padding-right: 5px;
-  padding-left: 5px;
+    background-color: @base;
+    padding-right: 5px;
+    padding-left: 5px;
 }
 
 /* ------ Cpu Usage, Temperature, and Memory ------ */
 #cpu, #temperature, #memory {
-  background-color: @face1;
-  padding: 2px 5px;
-  margin: 4px 2px;
+    background-color: @face1;
+    padding: 2px 5px;
+    margin: 4px 2px;
 }
 
 #cpu { color: @peach; }
@@ -60,8 +60,8 @@ window#waybar {
 }
 
 /* -----------------------------------------------------
- * Workspaces 
- * ----------------------------------------------------- */
+* Workspaces 
+* ----------------------------------------------------- */
 
 #workspaces button.empty {
     color: @surface2;
@@ -87,111 +87,111 @@ window#waybar {
 
 /* ------ Pulseaudio ------ */
 #pulseaudio {
-  color: @peach;
-  /*background-color: @surface1;*/
-  padding: 2px 5px;
-  margin: 4px 2px;
+    color: @peach;
+    /*background-color: @surface1;*/
+    padding: 2px 5px;
+    margin: 4px 2px;
 }
 
 /* ------ Backlight ------ */
 #backlight {
-  color: @teal;
-  /*background-color: @surface1;*/
-  padding: 2px 5px;
-  margin: 4px 2px;
+    color: @teal;
+    /*background-color: @surface1;*/
+    padding: 2px 5px;
+    margin: 4px 2px;
 }
 
 /* ------ Network ------ */
 #network {
-  color: @sapphire;
-  /*background-color: @surface1;*/
-  padding: 2px 5px;
-  margin: 4px 2px;
+    color: @sapphire;
+    /*background-color: @surface1;*/
+    padding: 2px 5px;
+    margin: 4px 2px;
 }
 
 /* ------ Battery ------ */
 #battery {
-  color: @maroon;
-  /*background-color: @surface1;*/
-  padding: 2px 5px;
-  margin: 4px 2px;
+    color: @maroon;
+    /*background-color: @surface1;*/
+    padding: 2px 5px;
+    margin: 4px 2px;
 }
 
 /* ------ Clock ------ */
 #clock {
-  padding-left: 10px;
-  color: @text;
-  font-weight: bold;
-  font-size: 13px;
+    padding-left: 10px;
+    color: @text;
+    font-weight: bold;
+    font-size: 13px;
 }
 
 /* ------ System Tray ------ */
 #tray {
-  background-color: @surface1;
-  padding: 2px 5px;
-  margin: 4px 2px;
+    background-color: @surface1;
+    padding: 2px 5px;
+    margin: 4px 2px;
 }
 
 /* ------ Custom Modules ------ */
 #custom-icon {
-  font-size: 18px;
-  color: @blue;
-  padding-right: 5px;
+    font-size: 18px;
+    color: @blue;
+    padding-right: 5px;
 }
 
 #custom-separator-arrow {
-  font-size: 14px;
-  color: @text;
+    font-size: 14px;
+    color: @text;
 }
 
 #custom-separator-dot {
-  font-size: 15px;
-  color: @text;
+    font-size: 15px;
+    color: @text;
 }
 
 #custom-spotify {
-  color: @mauve;
-  background-color: @surface1;
-  padding: 2px 9px;
-  margin: 4px 2px;
+    color: @mauve;
+    background-color: @surface1;
+    padding: 2px 9px;
+    margin: 4px 2px;
 }
 #custom-power {
-  color: @red;
-  background-color: @surface1;
-  padding: 2px 9px;
-  margin: 4px 2px;
-  font-size: 15px;
+    color: @red;
+    background-color: @surface1;
+    padding: 2px 9px;
+    margin: 4px 2px;
+    font-size: 15px;
 }
 
 #idle_inhibitor {
-  color: @sky;
-  /*background-color: @surface1;*/
-  padding: 2px 9px;
-  margin: 4px 2px;
-  font-size: 15px;
+    color: @sky;
+    /*background-color: @surface1;*/
+    padding: 2px 9px;
+    margin: 4px 2px;
+    font-size: 15px;
 }
 
 #custom-updates {
-  padding: 2px 7px;
-  margin: 4px 2px;
-  background-color: @surface1;  
+    padding: 2px 7px;
+    margin: 4px 2px;
+    background-color: @surface1;  
 }
 #custom-updates.green {
-  color: @text;
+    color: @text;
 }
 #custom-updates.yellow {
-  color: @peach;
+    color: @peach;
 }
 #custom-updates.red {
-  color: @red;
+    color: @red;
 }
 
 #custom-notification {
-  color: @teal;
-  background-color: @surface1;
-  padding: 2px 9px;
-  margin: 4px 2px;
-  font-size: 15px;
+    color: @teal;
+    background-color: @surface1;
+    padding: 2px 9px;
+    margin: 4px 2px;
+    font-size: 15px;
 }
 
 tooltip {
