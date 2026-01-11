@@ -16,7 +16,7 @@ WALLPAPER_PATH="$WALLPAPER_DIR/$SELECTED_WALLPAPER"
 mkdir -p "$(dirname "$WALLPAPER_CONFIG_FILE")"
 echo "$WALLPAPER_PATH" > "$WALLPAPER_CONFIG_FILE"
 
-swww img "$WALLPAPER_PATH" --transition-type=grow --transition-step 120 --transition-fps 100
+swww img "$WALLPAPER_PATH" --transition-type=fade --transition-step 120 --transition-fps 100
 
 HYPRLOCK_CONFIG_PATH="$HOME/.config/hypr/hyprlock.conf"
 
