@@ -89,7 +89,10 @@
     },
     "tray": {
         // "icon-size": 21,
-        "spacing": 0
+        "spacing": 0,
+        "icons": {
+            "spotify-client": "/home/deanr/.local/share/nt-icons/hicolor/16x16/apps/spotify.png"
+        }
     },
     "clock": {
         // "timezone": "America/New_York",
@@ -144,7 +147,7 @@
             "critical": 15
         },
         "format": "{capacity}% {icon}",
-        "format-charging": "{capacity}% 🗲",
+        "format-charging": "{capacity}% 󱐋",
         "format-plugged": "{capacity}% ",
         "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
