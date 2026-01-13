@@ -2,3 +2,9 @@ set statusbar-home-tilde true
 set selection-clipboard clipboard
 set adjust-open width
 set window-title-basename true
+
+# Image colouring settings
+set recolor 'true'
+set recolor-keephue 'false'
+set recolor-reverse-video 'false'
+

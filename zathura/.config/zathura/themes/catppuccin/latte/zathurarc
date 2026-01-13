@@ -20,7 +20,6 @@ set notification-error-fg     rgba(210,15,57,1)
 set notification-warning-bg   rgba(239,241,245,1)
 set notification-warning-fg   rgba(223,142,29,1)
 
-set recolor                   "true"
 set recolor-lightcolor        rgba(239,241,245,1)
 set recolor-darkcolor         rgba(76,79,105,1)
 
