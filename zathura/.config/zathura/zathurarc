@@ -1,1 +1,3 @@
-include themes/gruvbox-light-soft
+include themes/gruvbox/dark/zathurarc
+include options/zathurarc
+include keybinds/zathurarc

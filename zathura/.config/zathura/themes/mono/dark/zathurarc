@@ -1,0 +1,76 @@
+# Allow recolor
+set recolor 'true'
+
+# Don't allow original hue when recoloring
+set recolor-keephue 'false'
+
+# Don't keep original image colors while recoloring
+set recolor-reverse-video 'false'
+
+# Command line completion entries
+set completion-fg '#dee2d3'
+set completion-bg '#171110'
+
+# Command line completion group elements
+set completion-group-fg '#828D6E'
+set completion-group-bg '#171110'
+
+# Current command line completion element
+set completion-highlight-fg '#171110'
+set completion-highlight-bg '#dee2d3'
+
+# Default foreground/background color
+set default-bg rgba(23,17,16,1)
+
+# Input bar
+set inputbar-fg '#dee2d3'
+set inputbar-bg '#171110'
+
+# Notification
+set notification-fg '#dee2d3'
+set notification-bg '#171110'
+
+# Error notification
+set notification-error-fg '#dee2d3'
+set notification-error-bg '#AE9853'
+
+# Warning notification
+set notification-warning-fg '#dee2d3'
+set notification-warning-bg '#AE9853'
+
+# Tab - TODO
+# set tabbar-fg
+# set tabbar-bg
+
+# Focused tab - TODO
+# set tabbar-focus-fg
+# set tabbar-focus-bg
+
+# Status bar
+set statusbar-fg '#dee2d3'
+set statusbar-bg '#171110'
+
+# Highlighting parts of the document (e.g. show search results)
+
+set highlight-color rgba(255,255,0,0.3)   # pale yellow background
+
+# Text color for highlighted search terms
+set highlight-fg rgba(0,0,0,1)             # solid black text
+
+set highlight-active-color rgba(255,0,0,0.3)  
+
+# Represent light/dark colors in recoloring mode
+set recolor-lightcolor rgba(0,0,0,0)
+set recolor-darkcolor '#dee2d3'
+
+# 'Loading...' text
+set render-loading-fg '#dee2d3'
+set render-loading-bg '#171110'
+
+# Index mode
+set index-fg '#dee2d3'
+set index-bg '#171110'
+
+# Selected element in index mode
+set index-active-fg '#171110'
+set index-active-bg '#dee2d3'
