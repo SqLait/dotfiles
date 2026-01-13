@@ -1,12 +1,3 @@
-# Allow recolor
-set recolor 'true'
-
-# Don't allow original hue when recoloring
-set recolor-keephue 'false'
-
-# Don't keep original image colors while recoloring
-set recolor-reverse-video 'false'
-
 # Command line completion entries
 set completion-fg '#dee2d3'
 set completion-bg '#171110'
