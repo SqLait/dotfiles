@@ -1,5 +1,5 @@
 * {
-    font: "Figtree 14";
+    font: "JetBrains Mono 14";
     g-spacing: 10px;
     g-margin: 0;
     b-color: #282828FF; /* Background color from gruvbox */
