@@ -7,7 +7,7 @@
 [[ $- != *i* ]] && return
 
 alias grep='grep --color=auto'
-PS1="\[\e[32m\][\[\e[m\]\[\e[31m\]\u\[\e[m\]\[\e[33m\]@\[\e[m\]\[\e[32m\]\h\[\e[m\]:\[\e[36m\]\w\[\e[m\]\[\e[32m\]]\[\e[m\]\$ "
+PS1="\[\e[32m\][\[\e[m\]\[\e[31m\]\u\[\e[m\]\[\e[33m\]@\[\e[m\]\[\e[32m\]\h\[\e[m\]:\[\e[36m\]\w\[\e[m\]\[\e[32m\]]\[\e[m\]\\n$ "
 set -o vi
 #=====================================Alias===================================
 # Alias lazygit
@@ -60,6 +60,8 @@ fe() {
 
 # Enable fs to work in Bash interactive mode
 bind -x '"\C-f": fs'
+source /usr/share/fzf/completion.bash
+source /usr/share/fzf/key-bindings.bash
 
 #=====================================Init===================================
 eval "$(zoxide init --cmd cd bash)"
