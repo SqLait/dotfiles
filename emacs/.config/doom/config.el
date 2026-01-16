@@ -43,6 +43,7 @@
 (load! "lisp/misc.el")         ;; Miscellaneous settings
 (load! "lisp/dashboard.el")
 (load! "lisp/journal.el")
+(load! "lisp/markdown.el")
 
 ;; Disable menu bar, tool bar, scroll bar globally
 (menu-bar-mode -1)
