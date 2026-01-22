@@ -3,7 +3,7 @@ return {
     event = "VeryLazy",
     ---@module 'oil'
     opts = {},
-    dependencies = { { "nvim-tree/nvim-web-devicons", opts = {} } },
+    --dependencies = { { "nvim-tree/nvim-web-devicons", opts = {} } },
     lazy = false,
     config = function ()
         require("oil").setup({
