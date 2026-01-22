@@ -8,8 +8,6 @@
 '(markdown-header-face-6 :height 1.005 :foreground "goldenrod" :weight semi-bold :inherit markdown-header-face)
 )
 
-(markdown-toggle-markup-hiding)
-
 ;; (defvar-local nb/current-line '(0 . 0))
 ;; 
 ;; (defun nb/unhide-current-line (limit)
