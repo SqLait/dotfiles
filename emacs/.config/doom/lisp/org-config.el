@@ -66,6 +66,7 @@
         ("WORK"  . (:foreground "orange1" :weight bold))
         ("STUDY"  . (:foreground "mediumPurple1" :weight bold))
         ("NEXT"  . (:foreground "yellow3" :weight bold))
+        ("SCHOOL"  . (:foreground "#8dc07b" :weight bold))
 
         ;("PLANNING"  . (:foreground "mediumPurple1" :weight bold))
         ;("backend"   . (:foreground "royalblue1"    :weight bold))
