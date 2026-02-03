@@ -31,6 +31,7 @@
                    (org-agenda-overriding-header "High-priority tasks:")))
             (tags-todo "WORK")
             (tags-todo "STUDY")
+            (tags-todo "SCHOOL")
             (tags-todo "NEXT")
             (alltodo "")))
 
