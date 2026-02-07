@@ -53,19 +53,19 @@
   (setq org-todo-keyword-faces
         '(
           ("PLAN" . (:foreground "goldenrod" :weight bold))
-          ("STRT" . (:foreground "#9ece6a" :weight bold))
-          ("PROG" . (:foreground "orange" :weight bold))
+          ("STRT" . (:foreground "#8ec07c" :weight bold))
+          ("PROG" . (:foreground "#fe8019" :weight bold))
           ("WAIT" . (:foreground "#e0af68" :weight bold))
           ("HOLD" . (:foreground "#73daca" :weight bold))
           ("CANCELLED" . (:foreground "red" :weight bold))
-          ("SOMEDAY" . (:foreground "#9ece6a" :weight bold))
+          ("SOMEDAY" . (:foreground "#83a598" :weight bold))
           ("KILL" . (:foreground "red" :weight bold)))))
 
 (setq org-tag-faces
       '(
-        ("WORK"  . (:foreground "orange1" :weight bold))
-        ("STUDY"  . (:foreground "mediumPurple1" :weight bold))
-        ("NEXT"  . (:foreground "yellow3" :weight bold))
+        ("WORK"  . (:foreground "#fe8019" :weight bold))
+        ("STUDY"  . (:foreground "#d3869b" :weight bold))
+        ("NEXT"  . (:foreground "#fabd2f" :weight bold))
         ("SCHOOL"  . (:foreground "#8dc07b" :weight bold))
 
         ;("PLANNING"  . (:foreground "mediumPurple1" :weight bold))
