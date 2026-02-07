@@ -36,6 +36,23 @@ function y
 	rm -f -- "$tmp"
 end
 
+function incog
+    switch $argv[1]
+        case on
+            set -g fish_private_mode 1
+            echo "Incognito mode ON (history not saved)"
+        case off
+            set -e fish_private_mode
+            echo "Incognito mode OFF (history saved)"
+        case '*'
+            if set -q fish_private_mode
+                echo "Incognito mode is currently ON"
+            else
+                echo "Incognito mode is currently OFF"
+            end
+    end
+end
+
 # function ls
 #     eza --color=always --long --git --icons=always $argv
 # end
