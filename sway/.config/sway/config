@@ -32,6 +32,13 @@ bindsym $mod+Shift+m exec rofi -show calc -modi calc -no-show-match -no-sort
 bindsym $mod+Shift+e exec emacsclient -c -a 'emacs'
 bindsym $mod+Shift+n exec swaync-client -t -sw
 
+bindsym $mod+t layout tabbed
+bindsym $mod+Tab focus next
+bindsym $mod+Shift+Tab focus prev
+
+# bindsym $mod+s layout stacking
+bindsym $mod+p layout toggle split
+
 bindsym $mod+h focus left
 bindsym $mod+l focus right
 bindsym $mod+k focus up
