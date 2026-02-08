@@ -1,70 +1,54 @@
-# SqL's dotfiles.
+# SqL's dotfiles
 
-My own powerfull repo with all the customization I have done on my system for a few months.
-This will give a quick tutorial/rundown on how to get everything up and running.
+A collection of all my config files used for different applications, making use of **GNU stow** as the symlink manager.
 
-## Packages and deps
+## Dependencies
+You need only 2 packages from your distributions package repository:
+- git
+- stow
 
-Before you can start using everything you first need to install 2 dependencies to get everything working correctly.
+``` bash
+# Debian based
+sudo apt-get install git stow
 
-- [Git](https://git-scm.com/)
-- [Stow](https://www.gnu.org/software/stow/)
+# Arch based
+sudo pacman -S git stow
 
-In order to install them you need to download their binaries from your systems package manager.
-For this example I'll use pacman.
+# Fedora
+sudo dnf install git stow
 
-First update the system using the following command:
+# OpenSUSE
+sudo zypper install git stow
 
-````bash
-sudo pacman -Syu
+# FreeBSD
+doas pkg install git stow
+```
+## Fetching the repository
+Clone the repository in your home folder:
 
-``````
+``` bash
+cd # or cd ~
+git clone https://github.com/SqLait/dotfiles.git
+cd dotfiles
+```
+## Using dotfiles
+Naming of the dotfiles is done to make it as easy as possible to recognise what one is symlinking.
+You can use the dotfiles by going into the **dotfiles directory** and then using the following command:
 
-### Git
-`````bash
-sudo pacman -S git
-
-``````
-
-### Stow
-`````bash
-sudo pacman -S stow
-
-``````
-
-## Installation
-
-Next clone the repository into a folder you want to use as your Symlink manager (best practice: dotfiles, dots).
-I'll use dotfiles as it is the most straight forward.
-
-````bash
-git clone https://github.com/SqLait/dotfiles.git;
-cd dotfiles;
-
-``````
-Once in the directory you can use Gnu stow to create symlinks: 
-
-````bash
-stow .
-
-``````
-if you only want to stow a specific config then use the following command:
-
-````bash
-stow kitty # using kitty as an example
-
-``````
-
-Happy stowing!
-
-# Outside of stow:
-There are some packages that you need to install before you can use the system like before.
-
-Packages that you MUST download are as following:
-
-```bash
-sudo pacman -S swww dotnet hyprland nvim waybar lf bat dunst fastfetch 
-fish rofi-wayland zig node ufw lua luajit fzf vlc github-cli lazygit vim
-
+``` bash
+stow <name_of_dotfile>
 ```
 
+As an example I will use my **neovim** and **kitty** config:
+
+``` bash
+stow nvim kitty
+```
+**KEEP IN MIND** that there should be **NO** config files related to the ones you're trying to symlink.
+In given example above `~/.config/nvim` and `~/.config/kitty` **should be empty**.
+
+If you want to stop using a dotfile (unstowing) use the `-D` flag:
+
+``` bash
+stow -D nvim
+```
