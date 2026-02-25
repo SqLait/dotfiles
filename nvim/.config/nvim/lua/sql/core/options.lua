@@ -14,6 +14,8 @@ opt.shiftwidth = 4
 opt.expandtab = true
 opt.autoindent = true
 opt.colorcolumn = "80"
+opt.showtabline = 1
+opt.tabline = ''
 
 opt.wrap = false
 
@@ -43,6 +45,14 @@ opt.incsearch = true
 
 -- Scrolling
 opt.scrolloff = 8
+opt.sidescrolloff = 6
+
+-- highlights
+o.showmatch = true
+
+-- backspace
+vim.opt.backspace = "indent,eol,start"
+vim.opt.guicursor = "n-v-c:block,i-ci-ve:block"
 
 --Set language to english
 o.spelllang = 'en_gb'
@@ -57,10 +67,18 @@ g.loaded_matchparen = 1
 
 --Optimization:
 o.lazyredraw = true
-o.updatetime = 100
+o.updatetime = 200
 o.swapfile = false
 o.hidden = true
 o.termguicolors = true
 o.undofile = true
 
 loader.enable()
+
+-- Create undo directory if it doesn't exist
+local undodir = vim.fn.expand("~/.vim/undodir")
+if vim.fn.isdirectory(undodir) == 0 then
+  vim.fn.mkdir(undodir, "p")
+end
+
+opt.undodir = vim.fn.expand("~/.vim/undodir")  -- Undo directory
