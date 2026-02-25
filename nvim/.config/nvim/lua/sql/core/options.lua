@@ -52,7 +52,6 @@ o.showmatch = true
 
 -- backspace
 vim.opt.backspace = "indent,eol,start"
-vim.opt.guicursor = "n-v-c:block,i-ci-ve:block"
 
 --Set language to english
 o.spelllang = 'en_gb'
