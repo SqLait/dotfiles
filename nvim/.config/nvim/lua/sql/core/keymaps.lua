@@ -132,3 +132,10 @@ keymap.set('n', '<leader>}', function ()
     vim.cmd([[%s/\n\s*{\s*$/ {/]])
     vim.cmd([[normal! gg=G]])
 end, { silent = true, noremap = true })
+
+-- Copy Full File-Path
+vim.keymap.set("n", "<leader>pa", function()
+	local path = vim.fn.expand("%:p")
+	vim.fn.setreg("+", path)
+	print("file:", path)
+end)
