@@ -48,7 +48,7 @@ opt.scrolloff = 8
 opt.sidescrolloff = 6
 
 -- highlights
-o.showmatch = true
+o.showmatch = false
 
 -- backspace
 vim.opt.backspace = "indent,eol,start"
