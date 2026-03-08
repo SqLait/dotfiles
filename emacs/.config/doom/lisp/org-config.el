@@ -84,11 +84,11 @@
 (setq org-roam-capture-templates
       `(("z" "Zettel (Atomic note)" plain "%?"
          :target (file+head "zettels/${slug}.org"
-                            "#+TITLE: ${title}\n#+FILETAGS: nil\n")
+                            "#+TITLE: ${title}\n#+DATE: %t\n#+FILETAGS: nil\n")
          :unnarrowed t)
         ("h" "Hub Page (Overview note)" plain "%?"
          :target (file+head "hubs/${slug}.org"
-                            "#+TITLE: ${title}\n#+FILETAGS: nil\n")
+                            "#+TITLE: ${title}\n#+DATE: %t\n#+FILETAGS: nil\n")
          :unnarrowed t)))
 
 (use-package! org-roam-ui
