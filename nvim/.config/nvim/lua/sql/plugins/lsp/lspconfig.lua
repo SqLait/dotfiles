@@ -73,7 +73,7 @@ return {
 
         vim.lsp.config.clangd = {
             capabilities = capabilities,
-            cmd = { "clangd", "--compile-commands-dir=build" },
+            cmd = { "clangd", "--compile-commands-dir=build", "--clang-tidy" },
             filetype = { "c", "cpp" },
         }
 
