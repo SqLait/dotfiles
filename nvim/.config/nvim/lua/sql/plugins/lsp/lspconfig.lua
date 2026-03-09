@@ -5,9 +5,7 @@ return {
         "williamboman/mason-lspconfig.nvim",
     },
     config = function()
-        local capabilities = require("blink.cmp").get_lsp_capabilities()
         local lspconfig = vim.lsp.config('*', {
-            capabilities = capabilities,
         })
         local map = vim.keymap
 
@@ -67,21 +65,17 @@ return {
 
         -- Individual LSP server setups
         vim.lsp.config.lua_ls = {
-            capabilities = capabilities,
         }
 
         vim.lsp.config.clangd = {
-            capabilities = capabilities,
             cmd = { "clangd", "--compile-commands-dir=build", "--clang-tidy" },
             filetype = { "c", "cpp" },
         }
 
         vim.lsp.config.csharp_ls = {
-            capabilities = capabilities,
         }
 
         vim.lsp.config.pyright = {
-            capabilities = capabilities,
             settings = {
                 python = {
                     analysis = {
@@ -95,16 +89,13 @@ return {
         }
 
         vim.lsp.config.rust_analyzer = {
-            capabilities = capabilities,
         }
 
         vim.lsp.config.denols = {
-            capabilities = capabilities,
         }
 
         vim.lsp.config.elixirls = {
             cmd = { "elixir-ls" },
-            capabilities = capabilities,
         }
     end,
 }
