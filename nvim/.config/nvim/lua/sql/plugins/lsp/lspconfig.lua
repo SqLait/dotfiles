@@ -5,7 +5,9 @@ return {
         "williamboman/mason-lspconfig.nvim",
     },
     config = function()
+        local capabilities = require("blink.cmp").get_lsp_capabilities()
         local lspconfig = vim.lsp.config('*', {
+            capabilities = capabilities
         })
         local map = vim.keymap
 
@@ -44,7 +46,6 @@ return {
                 map.set("n", "<leader>td", "<cmd>FzfLua lsp_typedef<CR>", opts)
 
                 opts.desc = "See available code actions"
-                -- map.set({ "n", "v" }, "<leader>ca", "<cmd>FzfLua lsp_code_actions<CR>", opts)
                 map.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
 
                 opts.desc = "Show line diagnostics"
@@ -65,14 +66,17 @@ return {
 
         -- Individual LSP server setups
         vim.lsp.config.lua_ls = {
+            capabilities = capabilities
         }
 
         vim.lsp.config.clangd = {
             cmd = { "clangd", "--compile-commands-dir=build", "--clang-tidy" },
             filetype = { "c", "cpp" },
+            capabilities = capabilities
         }
 
         vim.lsp.config.csharp_ls = {
+            capabilities = capabilities
         }
 
         vim.lsp.config.pyright = {
@@ -86,16 +90,6 @@ return {
                     },
                 },
             },
-        }
-
-        vim.lsp.config.rust_analyzer = {
-        }
-
-        vim.lsp.config.denols = {
-        }
-
-        vim.lsp.config.elixirls = {
-            cmd = { "elixir-ls" },
         }
     end,
 }
