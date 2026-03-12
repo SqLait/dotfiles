@@ -15,13 +15,13 @@ require("lazy").setup({
     { import = "sql.plugins.lsp" },
     { import = "sql.plugins.ui" },
     { import = "sql.plugins.syntax" },
-    -- { import = "sql.plugins.completion"},
+    { import = "sql.plugins.completion"},
     { import = "sql.plugins.git" },
     { import = "sql.plugins.misc" },
 },
 
     {
-        --defaults = { lazy = true },
+        defaults = { lazy = true },
         checker = {
             enabled = true,
             notify = false,
