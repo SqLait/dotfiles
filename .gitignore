@@ -1,3 +1,4 @@
 hypr/.config/hypr/monitor.conf
 tmux/.config/tmux/plugins/*
 hypr/.config/hypr/.current_wallpaper
+nvim/.config/nvim/lazy-lock.json
