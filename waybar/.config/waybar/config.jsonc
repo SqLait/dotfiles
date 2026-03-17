@@ -5,8 +5,8 @@
     // "width": 1280, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
-    "modules-left": ["hyprland/workspaces", "pulseaudio", "backlight", "network", "idle_inhibitor", "custom/updates"],
-    "modules-center": ["hyprland/window"],
+    "modules-left": ["hyprland/workspaces", "sway/workspaces", "pulseaudio", "backlight", "network", "idle_inhibitor", "custom/updates"],
+    "modules-center": ["hyprland/window", "sway/window"],
     "modules-right": ["hyprland/submap", "hyprland/language", "cpu", "memory", "temperature", "battery", "tray", "clock"],
     // Modules configuration
 
@@ -27,6 +27,24 @@
             "*": 4
         }       
     },
+    "sway/workspaces" : {
+        "on-click": "activate",
+        "show-special": false,
+        "special-visible-only": false,
+        "active-only": false,
+        "all-outputs": true,
+        "format": "{icon}",
+        "format-icons": {
+            "focused": "",
+            "visible": "",
+            "default": "",
+            "urgent": "",
+            "empty": ""
+        },
+        "persistent-workspaces": {
+            "*": 4
+        }       
+    },
     "keyboard-state": {
         "numlock": false,
         "capslock": false,
@@ -37,6 +55,10 @@
         }
     },
     "hyprland/window": {
+        "max-length": 50,
+        "separate-outputs": true
+    },
+    "sway/window": {
         "max-length": 50,
         "separate-outputs": true
     },

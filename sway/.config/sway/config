@@ -99,7 +99,7 @@ bindsym XF86MonBrightnessUp exec backlight up
 bindsym XF86MonBrightnessDown exec backlight down
 
 bindsym $mod+Shift+r exec swaymsg reload
-bindsym Ctrl+Shift+s exec grim -g "$(slurp)" - | wl-copy
+bindsym Ctrl+Shift+s exec sh -c 'grim -g "$(slurp)" - | wl-copy --type image/png'
 
 input "type:keyboard" {
     xkb_options caps:ctrl_modifier
