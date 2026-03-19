@@ -1,55 +1,91 @@
+#######################################
+# VARIABLES
+#######################################
 set $mod Mod4
-
-floating_modifier $mod
 
 set $terminal kitty
 set $fileManager kitty yazi
 set $menu rofi -show drun
 set $locker swaylock
 
+# Floating modifier (hold $mod to drag floating windows)
+floating_modifier $mod
+
+
+#######################################
+# AUTOSTART APPLICATIONS
+#######################################
+# Night light / gamma adjustment
 exec wlsunset -l 52.37 -L 4.89 -t 4000 -T 4500 -g 0.85
+
+# Wallpaper daemon
 exec LaunchSwww
+
+# Notification daemon
 exec swaync
+
+# Idle management (lock + screen off)
 exec swayidle -w \
     timeout 3000 'swaylock -f -c 000000' \
-    timeout 6000 'swaymsg "output * poweroff"' resume 'swaymsg "output * power on"' \
+    timeout 6000 'swaymsg "output * poweroff"' \
+        resume 'swaymsg "output * power on"' \
     before-sleep 'swaylock -f -c 000000'
 
+# Auto-tiling script
 exec_always autotiling
 
-bindsym $mod+q exec $terminal
-bindsym $mod+c kill
-bindsym $mod+m exit
+
+#######################################
+# BASIC KEYBINDINGS
+#######################################
+bindsym $mod+q exec $terminal 
 bindsym $mod+e exec $fileManager
-bindsym $mod+v floating toggle
 bindsym $mod+r exec $menu
+
+bindsym $mod+c kill
 bindsym $mod+f fullscreen
+bindsym $mod+v floating toggle
+bindsym $mod+m exit
+
 bindsym $mod+o exec $locker
 bindsym $mod+x exec powermenu
 bindsym $mod+n exec switchwall
+
 bindsym $mod+w exec firefox --no-remote -P
-bindsym $mod+Shift+m exec rofi -show calc -modi calc -no-show-match -no-sort 
+
+# Extra tools
+bindsym $mod+Shift+m exec rofi -show calc -modi calc -no-show-match -no-sort
 bindsym $mod+Shift+e exec emacsclient -c -a 'emacs'
 bindsym $mod+Shift+n exec swaync-client -t -sw
 
+
+#######################################
+# LAYOUT CONTROLS
+#######################################
 bindsym $mod+t layout tabbed
+bindsym $mod+p layout toggle split
+
+# Window focus movement (Vim-style)
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# Move windows
+bindsym $mod+Shift+h move left; move left
+bindsym $mod+Shift+j move down; move down
+bindsym $mod+Shift+k move up; move up
+bindsym $mod+Shift+l move right; move right
+
+# Cycle focus
 bindsym $mod+Tab focus next
 bindsym $mod+Shift+Tab focus prev
 
-# bindsym $mod+s layout stacking
-bindsym $mod+p layout toggle split
 
-bindsym $mod+h focus left
-bindsym $mod+l focus right
-bindsym $mod+k focus up
-bindsym $mod+j focus down
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+l move right
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+j move down
-
-bindsym $mod+Shift+c reload
-
+#######################################
+# WORKSPACES
+#######################################
+# Switch to workspace
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
 bindsym $mod+3 workspace 3
@@ -61,7 +97,7 @@ bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
-
+# Move container to workspace and follow it
 bindsym $mod+Shift+1 move container to workspace 1, workspace 1, focus
 bindsym $mod+Shift+2 move container to workspace 2, workspace 2, focus
 bindsym $mod+Shift+3 move container to workspace 3, workspace 3, focus
@@ -73,33 +109,55 @@ bindsym $mod+Shift+8 move container to workspace 8, workspace 8, focus
 bindsym $mod+Shift+9 move container to workspace 9, workspace 9, focus
 bindsym $mod+Shift+0 move container to workspace 10, workspace 10, focus
 
+
+#######################################
+# SCRATCHPAD
+#######################################
 bindsym $mod+s move scratchpad
 bindsym $mod+Shift+s scratchpad show
 
+
+#######################################
+# MEDIA & SYSTEM CONTROLS
+#######################################
+# Volume
 bindsym XF86AudioRaiseVolume exec changevolume up
 bindsym XF86AudioLowerVolume exec changevolume down
 bindsym F8 exec changevolume mute
 bindsym F9 exec changevolume unmute
 
+# Media playback
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86AudioPlay exec playerctl play-pause
 
+# Alternative media keys
 bindsym $mod+Right exec playerctl next
 bindsym $mod+Left exec playerctl previous
 bindsym $mod+Shift+Page_Up exec playerctl play-pause
 
+# Volume via arrows
 bindsym $mod+Up exec changevolume up
 bindsym $mod+Down exec changevolume down
 
+# Brightness
+bindsym XF86MonBrightnessUp exec backlight up
+bindsym XF86MonBrightnessDown exec backlight down
 bindsym $mod+Page_Up exec backlight up
 bindsym $mod+Page_Down exec backlight down
 
-bindsym XF86MonBrightnessUp exec backlight up
-bindsym XF86MonBrightnessDown exec backlight down
 
-bindsym $mod+Shift+r exec swaymsg reload
-bindsym Ctrl+Shift+s exec sh -c 'grim -g "$(slurp)" - | wl-copy --type image/png'
+#######################################
+# SYSTEM ACTIONS
+#######################################
+bindsym $mod+Shift+r reload
+bindsym $mod+Ctrl+s exec sway-screenshot -m region --clipboard-only
+
+
+#######################################
+# INPUT CONFIGURATION
+#######################################
+# Keyboard settings
 
 input "type:keyboard" {
     xkb_options caps:ctrl_modifier
@@ -107,42 +165,68 @@ input "type:keyboard" {
     repeat_rate 30
 }
 
+# Mouse settings
+input "type:pointer" {
+    accel_profile flat
+    pointer_accel 0.9
+}
+
+# Default layout
 input * {
     xkb_layout us
 }
 
+
+#######################################
+# BAR CONFIGURATION
+#######################################
 bar {
     swaybar_command waybar
-    # swaybar_command waybar
 
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
+    # Fallback status (if waybar not used)
     status_command while date +'%Y-%m-%d :: %H:%M:%S'; do sleep 1; done;
 
-  position top
-  separator_symbol "::"
-  colors {
-    background #222222
-    statusline #9b8d7f
-    separator #9b8d7f
+    position top
+    separator_symbol "::"
 
-    # gruvbox color: #d4be98
-    focused_workspace #9b8d7f #9b8d7f #222222
-    inactive_workspace #222222 #222222 #9b8d7f
-    active_workspace #222222 #222222 #9b8d7f
-    urgent_workspace #222222 #222222 #9b8d7f
-    binding_mode #222222 #222222 #9b8d7f
-  }
-  font pango:Jetbrains Mono Nerd Font 12
-  tray_output HDMI-A-0
+    colors {
+        background #222222
+        statusline #9b8d7f
+        separator  #9b8d7f
+
+        focused_workspace #9b8d7f #9b8d7f #222222
+        inactive_workspace #222222 #222222 #9b8d7f
+        active_workspace   #222222 #222222 #9b8d7f
+        urgent_workspace   #222222 #222222 #9b8d7f
+        binding_mode       #222222 #222222 #9b8d7f
+    }
+
+    font pango:Jetbrains Mono Nerd Font 12
+    tray_output HDMI-A-0
 }
-mouse_warping none
 
+
+#######################################
+# DISPLAY CONFIG (COMMENTED OUT)
+#######################################
 # output DP-2 resolution 1920x1080@144Hz pos 0 0
 # output DP-3 resolution 1920x1080@60Hz pos 1920 0
 
-# Default border colors
+
+#######################################
+# WINDOW APPEARANCE
+#######################################
+# Border colors
 client.focused          #333333 #363636 #ffffff #888888
 client.unfocused        #333333 #222222 #888888 #292929
 client.focused_inactive #3b3b3b #222222 #888888 #292929
 client.urgent           #900000 #900000 #ffffff #900000
+
+# Border style
+default_border pixel 2
+
+
+#######################################
+# MISC
+#######################################
+mouse_warping none

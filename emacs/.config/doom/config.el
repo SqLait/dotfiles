@@ -50,3 +50,6 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 
+(setq confirm-kill-emacs nil)
+(setq select-enable-clipboard t)
+(setq select-enable-primary t)
