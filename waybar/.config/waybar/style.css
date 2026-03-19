@@ -85,7 +85,14 @@ window#waybar {
     opacity:0.5;
 }
 
-/* ------ Pulseaudio ------ */
+#workspaces button.focused {
+    background-color: @surface1;
+}
+
+#workspaces button.urgent {
+    background-color: @red;
+    color: @base;
+}/* ------ Pulseaudio ------ */
 #pulseaudio {
     color: @peach;
     /*background-color: @surface1;*/
