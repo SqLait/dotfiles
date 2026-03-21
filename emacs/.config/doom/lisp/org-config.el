@@ -86,6 +86,14 @@
          :target (file+head "zettels/${slug}.org"
                             "#+TITLE: ${title}\n#+DATE: %t\n#+FILETAGS: nil\n")
          :unnarrowed t)
+        ("t" "Zettel + template (Atomic note)" plain "%?"
+         :target (file+head "zettels/${slug}.org"
+                            "#+TITLE: ${title}\n#+DATE: %t\n#+FILETAGS: nil\n\n* Core idea\n* Why it matters\n* Application\n* Connections")
+         :unnarrowed t)
+        ("a" "API Zettel (Atomic note)" plain "%?"
+         :target (file+head "zettels/${slug}.org"
+                            "#+TITLE: ${title}\n#+DATE: %t\n#+FILETAGS: nil\n\n* Role\n* Application\n* Points of failure\n* Code example")
+         :unnarrowed t)
         ("h" "Hub Page (Overview note)" plain "%?"
          :target (file+head "hubs/${slug}.org"
                             "#+TITLE: ${title}\n#+DATE: %t\n#+FILETAGS: nil\n")
