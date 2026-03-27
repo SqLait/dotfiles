@@ -15,6 +15,7 @@
     "shell",
     "wm",
     "terminal",
+    "packages",
     "cpu",
     "memory",
     "separator"
