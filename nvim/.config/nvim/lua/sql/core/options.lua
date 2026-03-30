@@ -66,7 +66,7 @@ g.loaded_matchparen = 1
 
 --Optimization:
 o.lazyredraw = true
-o.updatetime = 200
+o.updatetime = 100
 o.swapfile = false
 o.hidden = true
 o.termguicolors = true
