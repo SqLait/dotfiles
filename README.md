@@ -1,6 +1,6 @@
 # SqL's dotfiles
 
-A collection of all my config files used for different applications, making use of **GNU stow** as the symlink manager.
+A collection of all my config files used for different applications, making use of **GNU stow** as the symlink manager (now on codeberg!).
 
 ## Dependencies
 You need only 2 packages from your distributions package repository:
