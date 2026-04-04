@@ -1,7 +1,6 @@
 return {
     -- 'saghen/blink.cmp',
     -- event = { "InsertEnter" },
-    -- --dependencies = 'rafamadriz/friendly-snippets',
     -- version = '*',
     -- opts = {
     --     -- 'default' for mappings similar to built-in completion
@@ -9,6 +8,7 @@ return {
     --     -- 'enter' for mappings similar to 'super-tab' but with 'enter' to accept
     --     -- See the full "keymap" documentation for information on defining your own keymap.
     --     keymap = {
+    --         ['<C-p>'] = { 'show_and_insert_or_accept_single', 'select_next' },
     --         ['<C-k>'] = { 'select_prev' },
     --         ['<C-j>'] = { 'select_next' },
     --         ['<CR>'] = { 'accept', 'fallback' },
@@ -60,12 +60,11 @@ return {
     --                     { "kind_icon", "label", gap = 1 },
     --                     { "kind" }
     --                 },
-    --                 components = {
-    --                     kind_icon = {
-    --                     }
-    --                 }
     --             }
     --         },
+    --         trigger = {
+    --             show_on_keyword = false,
+    --         }
     --     },
     --     -- Default list of enabled providers defined so that you can extend it
     --     -- elsewhere in your config, without redefining it, due to `opts_extend`

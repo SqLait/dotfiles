@@ -56,7 +56,7 @@ keymap.set("n", "<leader>bp", "<cmd>bprev<cr>", {desc = "Prev Buffer"})
 keymap.set("n", "<leader>bn", "<cmd>bnext<cr>", {desc = "Next Buffer"})
 
 --Toggle line numbers
-keymap.set("n", "<leader>rl", ":set relativenumber!<CR>", { desc = "Toggle relative line numbers" })
+-- keymap.set("n", "<leader>rl", ":set relativenumber!<CR>", { desc = "Toggle relative line numbers" })
 
 --NvimTree
 keymap.set("n", "<leader>ee", "<cmd>Oil --float<CR>", { desc = "Toggle file explorer" }) -- toggle file explorer
