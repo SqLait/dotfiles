@@ -28,12 +28,8 @@ return {
         })
 
         vim.api.nvim_create_autocmd("FileType", {
-            callback = function(args)
-                local lang = args.match
-
-                if vim.treesitter.language.get_lang(lang) then
-                    pcall(vim.treesitter.start)
-                end
+            callback = function()
+                pcall(vim.treesitter.start)
             end,
         })
 
