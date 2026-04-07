@@ -1,0 +1,13 @@
+e scr.color=2
+e scr.theme=gruvbox
+e scr.highlight
+e scr.wheel.speed=8
+e scr.prompt.vi=true
+
+e asm.bytes=false
+e asm.comments=true
+e asm.lines=false
+e emu.str=true
+e asm.syntax=intel
+e asm.cmt.esil=true
+e asm.midcursor=true
