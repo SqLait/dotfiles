@@ -1,11 +1,9 @@
 set previewer ~/.config/lf/previewer
-set cleaner ~/.config/lf/cleaner
- 
+
 # Basic Settings
 set hidden true
 set ignorecase true
 set icons true
-set sixel true
 set rulerfmt "%d  |%a  |%p  |\033[7;31m %m \033[0m  |\033[7;33m %c \033[0m  |\033[7;35m %s \033[0m  |\033[7;34m %f \033[0m  |%i/%t"
 
 # Custom Functions
@@ -19,10 +17,6 @@ cmd mkfile ${{
   printf "File Name: "
   read ans
   $EDITOR $ans
-}}
-
-cmd setwallpaper ${{
-    setwallpaper "$f"
 }}
 
 # Archive bindings
@@ -53,10 +47,10 @@ cmd trash ${{
 }}
 
 cmd open &{{
-	case $(file --mime-type -Lb $f) in
-		text/*) lf -remote "send $id \$nvim \$fx";;
-		*) xdg-open "$f"
-	esac
+    case $(file --mime-type -Lb $f) in
+        text/*) lf -remote "send $id \$nvim \$fx";;
+        *) xdg-open "$f"
+    esac
 }}
 
 cmd on-select &{{
@@ -89,11 +83,6 @@ cmd fzf_search ${{
 }}
 map <c-g> :fzf_search
 
-cmd z-jump ${{
-  ZLUA_SCRIPT="$ZDOTDIR/plugins/z.lua/z.lua"
-  lf -remote "send ${id} cd \"$($ZLUA_SCRIPT -e $@ | sed 's/\\/\\\\/g;s/"/\\"/g')\""
-}}
-
 cmd gotohome ${{
   lf -remote "send $id cd ~"
 }}
@@ -105,36 +94,21 @@ map zz push :z-jump<space>
 
 # Bindings
 map c
-map d
+map d trash
 map m
-
-map cf $dotbare fadd -f
-
-map au unarchive
-map ae $wine "$f"
 
 # Basic Functions
 map . set hidden!
-map dd trash
-map u $trashy restore -r 0
-map dr $trashy restore
-map de $trashy empty --all
-map p paste
-map x cut
-map y copy
+map D delete
 map <enter> open
 map R reload
-map mf mkfile
-map md mkdir
-map bg setwallpaper
+map a mkfile
+map A mkdir
 map C clear
 
-# Movement
-map gc cd ~/.config
-map gD cd ~/documents
-map gd cd ~/downloads
-map gp cd ~/pictures
-map gr cd ~/repos
-map gv cd ~/videos
-map gs cd ~/.local/bin
-map gt cd ~/.local/share/Trash/files
+map y copy
+map x cut
+map d delete
+map p paste
+
+map V toggle

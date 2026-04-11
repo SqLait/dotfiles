@@ -1,8 +1,12 @@
 # If not running interactively, don't do anything
 [[ -o interactive ]] || return
 
-source ~/.sh_config/prompt
+# source ~/.sh_config/prompt
+autoload -U select-word-style
+select-word-style bash
 
+PROMPT="%F{green}[%f%F{red}%n%f%F{yellow}@%f%F{green}%m%f:%F{cyan}%~%f%F{green}]%f
+$ "
 # Alias lazygit
 lg() {
     lazygit "$@"
@@ -55,8 +59,15 @@ ts() {
 
 # Enable fs to work in Zsh interactive mode
 bindkey "^F" yazi
+# Move forward and backward by word
+bindkey '^[[1;5C' forward-word
+bindkey '^[[1;5D' backward-word
 
 source ~/.sh_config/init
 source ~/.sh_config/colours
-source ~/.sh_config/export
 source ~/.sh_config/plugins
+
+if [[ -o interactive ]] && [[ -z "$TMUX" ]]; then
+    tmux
+    clear
+fi
