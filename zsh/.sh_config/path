@@ -1,0 +1,28 @@
+#!/bin/zsh
+
+if [ -z "${GHCUP_INSTALL_BASE_PREFIX}" ]; then
+  GHCUP_INSTALL_BASE_PREFIX="$HOME"
+fi
+export GHCUP_INSTALL_BASE_PREFIX
+
+# Environment variables
+export PLASMA_USE_QT_SCALING="1"
+export FZF_DEFAULT_OPTS=""
+export EMACSDIR="$HOME/.config/emacs/"
+export MANPAGER="nvim +Man!"
+export SUDO="run0 --background="
+
+# PATH additions
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.config/lf:$PATH"
+export PATH="$HOME/.local/bin/C-scripts:$PATH"
+export PATH="$HOME/.local/bin/Sh-scripts:$PATH"
+export PATH="$HOME/.local/scripts/C-scripts:$PATH"
+export PATH="$HOME/.local/scripts/Sh-scripts:$PATH"
+export PATH="$HOME/.local/bin/Sh-scripts/pomodoro-cli:$PATH"
+export PATH="$HOME/.dotnet/tools:$PATH"
+export PATH="$HOME/.config/ohmyposh/oh-my-posh:$PATH"
+export PATH="$HOME/.config/emacs/bin:$PATH"
+export PATH="$HOME/.local/share/gem/ruby/3.4.0/bin:$PATH"
+export PATH="$HOME/Projects/libs/JLink_Linux_V872_x86_64:$PATH"
+export PATH="$HOME/Projects/libs/nrf-command-line-tools/bin:$PATH"
