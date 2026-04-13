@@ -1,0 +1,11 @@
+#!/usr/bin/zsh
+
+# Enable fs to work in Zsh interactive mode
+bindkey "^F" yazi
+# Move forward and backward by word
+bindkey '^[[1;5C' forward-word
+bindkey '^[[1;5D' backward-word
+
+# Keybindings
+bindkey '^k' history-search-backward
+bindkey '^j' history-search-forward
