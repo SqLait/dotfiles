@@ -59,10 +59,11 @@ ts() {
 
 source ~/.sh_config/init
 source ~/.sh_config/colours
-source ~/.sh_config/plugins
 source ~/.sh_config/keybinds
 source ~/.sh_config/history
 
 if [[ -o interactive ]] && [[ -z "$TMUX" ]]; then
     tmux
 fi
+
+source ~/.sh_config/plugins
