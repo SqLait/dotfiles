@@ -57,15 +57,11 @@ ts() {
     tmux-sessionizer
 }
 
-# Enable fs to work in Zsh interactive mode
-bindkey "^F" yazi
-# Move forward and backward by word
-bindkey '^[[1;5C' forward-word
-bindkey '^[[1;5D' backward-word
-
 source ~/.sh_config/init
 source ~/.sh_config/colours
 source ~/.sh_config/plugins
+source ~/.sh_config/keybinds
+source ~/.sh_config/history
 
 if [[ -o interactive ]] && [[ -z "$TMUX" ]]; then
     tmux
