@@ -65,5 +65,4 @@ source ~/.sh_config/history
 
 if [[ -o interactive ]] && [[ -z "$TMUX" ]]; then
     tmux
-    clear
 fi

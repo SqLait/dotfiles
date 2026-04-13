@@ -2,7 +2,10 @@ if status is-interactive
     set fish_greeting ""
 
     # alias sudo "run0 --background="
-    tmux; clear;
+    if command -v tmux >/dev/null 2>&1
+        and not set -q TMUX
+        tmux attach -t d 2>/dev/null || tmux new -s d
+    end
 end
 
 source ~/.config/fish/functions/vi.fish
