@@ -10,6 +10,7 @@ export ZEPHYR_TOOLCHAIN_VARIANT="gnuarmemb"
 export GNUARMEMB_TOOLCHAIN_PATH="/home/deanr/Projects/libs/arm-gnu-toolchain-14.3.rel1-x86_64-arm-none-eabi"
 export OZONE_PLATFORM=wayland
 export LIBVIRT_DEFAULT_URI=qemu:///system
+export JQ_COLORS="0;90:0;35:0;35:0;35:0;32:0;10:0;10:1;33"
 # export GCC_13_3="/tools/arm-gnu-toolchain-13.3.rel1-x86_64-arm-none-eabi" 
 # export TOOLCHAIN_PATH="$GCC_13_3"
 # export PATH="$PATH:$TOOLCHAIN_PATH/bin"
