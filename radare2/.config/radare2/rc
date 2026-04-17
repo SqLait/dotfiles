@@ -11,3 +11,5 @@ e emu.str=true
 e asm.syntax=intel
 e asm.cmt.esil=true
 e asm.midcursor=true
+
+e stack.size=256

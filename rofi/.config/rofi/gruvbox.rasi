@@ -5,7 +5,7 @@
     b-color: #282828FF; /* Background color from gruvbox */
     fg-color: #ebdbb2FF; /* Foreground color from gruvbox */
     fgp-color: #928374FF; /* Placeholder color from gruvbox */
-    b-radius: 8px;
+    b-radius: 0px;
     g-padding: 8px;
     hl-color: #a89984FF; /* Highlight color */
     hlt-color: #282828FF; /* Highlight text color */
@@ -18,8 +18,8 @@
 
 configuration {
     modi: "drun";
-    show-icons: true;
-    display-drun: "";
+    show-icons: false;
+    display-drun: ">";
 }
 
 listview {
