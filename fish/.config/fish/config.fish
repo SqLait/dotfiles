@@ -4,7 +4,7 @@ if status is-interactive
     # alias sudo "run0 --background="
     if command -v tmux >/dev/null 2>&1
         and not set -q TMUX
-        tmux attach -t d 2>/dev/null || tmux new -s d
+        tmux
     end
     set -g fish_transient_prompt 1
 end
