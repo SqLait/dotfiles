@@ -12,7 +12,7 @@ function fish_prompt --description 'Custom prompt'
     
         # Transient prompt (short version after command runs)
         if contains -- --final-rendering $argv
-                echo -n (set_color brblack)(prompt_pwd)$normal' ❯ '
+                echo -n (set_color cyan)(prompt_pwd)$normal' ❯ '
                 return
         end
     
