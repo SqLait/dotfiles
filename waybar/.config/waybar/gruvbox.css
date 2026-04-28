@@ -1,0 +1,36 @@
+/*
+*
+* Gruvbox palette customized
+*
+*/
+
+@define-color base   #282828;  /* Dark background (from bg1/bg2) */
+@define-color mantle #1d2021;  /* Slightly lighter background (from bg0) */
+@define-color crust  #141617;  /* Darker background for the crust (from bg_dim) */
+
+@define-color text     #d4be98;  /* Light text (fg0) */
+@define-color subtext0 #ddc7a1;  /* Light text (fg1) */
+@define-color subtext1 #ddc7a1;  /* Light text (fg1) */
+
+@define-color surface0 #3c3836;  /* Surface color 1 (bg3/bg4) */
+@define-color surface1 #504945;  /* Surface color 2 (bg5) */
+@define-color surface2 #928374;  /* Surface color 3 (grey1) */
+
+@define-color overlay0 #7c6f64;  /* Overlay color 1 (grey0) */
+@define-color overlay1 #928374;  /* Overlay color 2 (grey1) */
+@define-color overlay2 #ea6962;  /* Overlay color 3 (red) */
+
+@define-color blue      #7daea3;  /* Blue (blue) */
+@define-color lavender  #d3869b;  /* Lavender (purple) */
+@define-color sapphire  #89b482;  /* Sapphire/teal (aqua) */
+@define-color sky       #a89984;  /* Neutral (grey2) */
+@define-color teal      #89b482;  /* Teal (aqua) */
+@define-color green     #a9b665;  /* Green (green) */
+@define-color yellow    #d8a657;  /* Yellow (yellow) */
+@define-color peach     #e78a4e;  /* Peach/orange (orange) */
+@define-color maroon    #ea6962;  /* Red/maroon (red) */
+@define-color red       #ea6962;  /* Red (red) */
+@define-color mauve     #d3869b;  /* Mauve (purple) */
+@define-color pink      #d3869b;  /* Pink (purple) */
+@define-color flamingo  #d3869b;  /* Flamingo (purple) */
+@define-color rosewater #d4be98;  /* Rosewater (fg0) */
