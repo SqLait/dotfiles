@@ -1,5 +1,4 @@
-e scr.color=2
-e scr.theme=gruvbox
+e scr.color=1
 e scr.highlight
 e scr.wheel.speed=8
 e scr.prompt.vi=true
