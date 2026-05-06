@@ -1,7 +1,7 @@
 # If not running interactively, don't do anything
 [[ -o interactive ]] || return
 
-# source ~/.sh_config/prompt
+# source ~/.zsh/prompt
 autoload -U select-word-style
 select-word-style bash
 
@@ -57,13 +57,13 @@ ts() {
     tmux-sessionizer
 }
 
-source ~/.sh_config/init
-source ~/.sh_config/colours
-source ~/.sh_config/keybinds
-source ~/.sh_config/history
+source ~/.zsh/init
+source ~/.zsh/colours
+source ~/.zsh/keybinds
+source ~/.zsh/history
 
 if [[ -o interactive ]] && [[ -z "$TMUX" ]]; then
     tmux
 fi
 
-source ~/.sh_config/plugins
+source ~/.zsh/plugins
