@@ -81,3 +81,10 @@ if vim.fn.isdirectory(undodir) == 0 then
 end
 
 opt.undodir = vim.fn.expand("~/.vim/undodir")  -- Undo directory
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "ada",
+  callback = function()
+    pcall(vim.keymap.del, "i", "<Space>aj", { buffer = 0 })
+    pcall(vim.keymap.del, "i", "<Space>al", { buffer = 0 })
+  end,
+})

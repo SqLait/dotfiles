@@ -1,2 +1,2 @@
-source ~/.sh_config/path
-source ~/.sh_config/export
+source ~/.zsh/path
+source ~/.zsh/export
