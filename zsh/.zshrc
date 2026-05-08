@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # If not running interactively, don't do anything
 [[ -o interactive ]] || return
 
@@ -5,58 +12,10 @@
 autoload -U select-word-style
 select-word-style bash
 
-PROMPT="%F{green}[%f%F{red}%n%f%F{yellow}@%f%F{green}%m%f:%F{cyan}%~%f%F{green}]%f
-$ "
-# Alias lazygit
-lg() {
-    lazygit "$@"
-}
+PROMPT="%F{green}[%f%F{red}%n%f%F{yellow}@%f%F{green}%m%f:%F{cyan}%~%f%F{green}]%f%F{yellow}
+❯%f "
 
-# Alias Neovim
-vim() {
-    nvim "$@"
-}
-
-vi() {
-    command vim "$@"
-}
-
-# Use fastfetch instead of neofetch
-neofetch() {
-    fastfetch "$@"
-}
-
-nfetch() {
-    neofetch -c ~/.config/fastfetch/openbsd.jsonc "$@"
-}
-
-# Fuzzy search command history and insert into prompt
-fs() {
-    command=$(history | fzf --preview '' | sed 's/^[ \t]*[0-9]*[ \t]*//')
-    
-    if [[ -n "$command" ]]; then
-        READLINE_LINE="$command"
-        READLINE_POINT=${#READLINE_LINE}
-    fi
-}
-
-# Fuzzy search command history and execute immediately
-fe() {
-    command=$(history | fzf --preview '' | sed 's/^[ \t]*[0-9]*[ \t]*//')
-    
-    if [[ -n "$command" ]]; then
-        eval "$command"
-    fi
-}
-
-zathura() {
-    zathura-sandbox "$@"
-}
-
-ts() {
-    tmux-sessionizer
-}
-
+source ~/.zsh/aliases
 source ~/.zsh/init
 source ~/.zsh/colours
 source ~/.zsh/keybinds
