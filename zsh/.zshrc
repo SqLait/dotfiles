@@ -12,7 +12,7 @@ fi
 autoload -U select-word-style
 select-word-style bash
 
-PROMPT="%F{green}[%f%F{red}%n%f%F{yellow}@%f%F{green}%m%f:%F{cyan}%~%f%F{green}]%f%F{yellow}
+PROMPT="%F{red}[%f%F{yellow}%n%f%F{green}@%f%F{blue}%m%f %F{magenta}%~%f%F{red}]%f%F{green}
 ❯%f "
 
 source ~/.zsh/aliases
