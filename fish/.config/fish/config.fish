@@ -17,6 +17,4 @@ source ~/.config/fish/env/path.fish
 source ~/.config/fish/env/init.fish
 source ~/.config/fish/themes/gruvbox.fish
 
-fish_add_path /home/deanr/.spicetify
-
 set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; set -gx PATH $HOME/.cabal/bin /home/deanr/.ghcup/bin $PATH # ghcup-env
