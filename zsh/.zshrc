@@ -20,6 +20,7 @@ source ~/.zsh/init
 source ~/.zsh/colours
 source ~/.zsh/keybinds
 source ~/.zsh/history
+source ~/.zsh/extra
 
 if [[ -o interactive ]] && [[ -z "$TMUX" ]]; then
     tmux

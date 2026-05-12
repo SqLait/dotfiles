@@ -1,0 +1,59 @@
+#!/usr/bin/env bash
+
+# Incognito history toggle for Bash/Zsh
+# Usage:
+#   source incognito.sh
+#   incognito on
+#   incognito off
+#   incognito status
+
+# Internal state variable
+export SHELL_INCOGNITO_MODE="${SHELL_INCOGNITO_MODE:-0}"
+
+incognito() {
+    case "$1" in
+        on)
+            if [ -n "$ZSH_VERSION" ]; then
+                # Zsh
+                export _OLD_HISTFILE="$HISTFILE"
+                unset HISTFILE
+                setopt HIST_IGNORE_SPACE
+            else
+                # Bash
+                export _OLD_HISTFILE="$HISTFILE"
+                unset HISTFILE
+                set +o history
+            fi
+
+            export SHELL_INCOGNITO_MODE=1
+            echo "Incognito mode ENABLED"
+            ;;
+        
+        off)
+            if [ -n "$ZSH_VERSION" ]; then
+                # Zsh
+                export HISTFILE="${_OLD_HISTFILE:-$HOME/.zsh_history}"
+            else
+                # Bash
+                export HISTFILE="${_OLD_HISTFILE:-$HOME/.bash_history}"
+                set -o history
+            fi
+
+            export SHELL_INCOGNITO_MODE=0
+            echo "Incognito mode DISABLED"
+            ;;
+        
+        status)
+            if [ "$SHELL_INCOGNITO_MODE" = "1" ]; then
+                echo "Incognito mode is ON"
+            else
+                echo "Incognito mode is OFF"
+            fi
+            ;;
+        
+        *)
+            echo "Usage: incognito {on|off|status}"
+            return 1
+            ;;
+    esac
+}

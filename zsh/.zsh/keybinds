@@ -1,13 +1,13 @@
 #!/usr/bin/zsh
 
-autoload -Uz edit-command-line
-zle -N edit-command-line
-bindkey '^x^e' edit-command-line 
-
 # Enable fs to work in Zsh interactive mode
 bindkey -e
 
 # Move forward and backward by word
 bindkey '^[[1;5C' forward-word
 bindkey '^[[1;5D' backward-word
+
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey '^x^e' edit-command-line 
 
