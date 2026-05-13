@@ -1,2 +1,29 @@
 set disassembly-flavor intel
 set print pretty on
+set style emoji off
+
+source ~/.config/gdb/tree-tui.py
+source ~/.config/gdb/hexdump.py
+tui new-layout tree tree 1 src 1 cmd 1
+tui new-layout asm+ asm 1 regs 1 cmd 1
+alias -a dasm = disassemble
+
+# ========file styling===========#
+set style line-number foreground green
+set style line-number intensity normal
+# ======end file styling=========#
+
+python
+print("\n===============================================================")
+print("'Everything is open source when you know assembly'")
+print("================================================================\n")
+
+class HelloWorld(gdb.Command):
+  def __init__(self):
+    super(HelloWorld, self).__init__("hello", gdb.COMMAND_STATUS)
+
+  def invoke(self, arg, from_tty):
+    print(from_tty)
+
+HelloWorld()
+end
