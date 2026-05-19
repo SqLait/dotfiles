@@ -12,8 +12,13 @@ fi
 autoload -U select-word-style
 select-word-style bash
 
-PROMPT="%F{red}[%f%F{yellow}%n%f%F{green}@%f%F{blue}%m%f %F{magenta}%~%f%F{red}]%f%F{green}
-❯%f "
+setopt PROMPT_SUBST
+# old prompt
+# PROMPT='%F{red}[%f%F{yellow}%n%f%F{green}@%f%F{blue}%m%f %F{magenta}%~%f%F{red}] %(?.%F{green}.%F{red}[%?] )%f
+# %(?.%F{green}❯.%F{red}❯)%f '
+
+PROMPT='%F{green}%~%f %(?.%F{green}.%F{magenta}[%?] )%f
+%(?.%F{yellow}$.%F{red}$)%f '
 
 source ~/.zsh/aliases
 source ~/.zsh/init

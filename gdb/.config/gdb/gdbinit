@@ -26,4 +26,5 @@ class HelloWorld(gdb.Command):
     print(from_tty)
 
 HelloWorld()
+
 end
