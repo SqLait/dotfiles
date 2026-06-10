@@ -1,16 +1,17 @@
 ;;; lisp/ui.el --- UI Configuration -*- lexical-binding: t; -*-
 
 ;; Set the Gruvbox variant to soft
-(setq doom-gruvbox-dark-variant "soft")
-(setq doom-theme 'doom-gruvbox)
-(custom-set-faces!
-   '(region :background "#504945"))
+;; (setq doom-gruvbox-dark-variant "soft")
+;; It might be good to look for an alternative where your theme changes based on the time of day.
+(setq doom-theme 'doom-gruvbox-light)
+;; (custom-set-faces!
+;;    '(region :background "#504945"))
 
 (setq doom-themes-enable-bold t
       doom-themes-enable-italic t)
 
-(set-face-attribute 'default nil :family "JetBrains Mono Nerd Font" :height 120)
-(set-face-attribute 'variable-pitch nil :family "JetBrains Mono Nerd Font" :height 140)
+(set-face-attribute 'default nil :family "JetBrains Mono Nerd Font" :height 140)
+(set-face-attribute 'variable-pitch nil :family "JetBrains Mono Nerd Font" :height 160)
 
 (setq display-line-numbers-type nil)
 
