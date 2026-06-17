@@ -31,4 +31,10 @@ if [[ -o interactive ]] && [[ -z "$TMUX" ]]; then
     tmux
 fi
 
+if [ -n "$TTY" ]; then
+  export GPG_TTY=$(tty)
+else
+  export GPG_TTY="$TTY"
+fi
+
 source ~/.zsh/plugins
