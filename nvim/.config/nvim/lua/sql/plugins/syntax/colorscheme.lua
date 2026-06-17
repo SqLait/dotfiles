@@ -12,6 +12,17 @@ return {
         vim.g.gruvbox_material_diagnostic_virtual_text = 'colored'
         vim.g.gruvbox_material_better_performance = 1
         vim.cmd.colorscheme('gruvbox-material')
+
+        local config = vim.fn['gruvbox_material#get_configuration']()
+        local palette = vim.fn['gruvbox_material#get_palette'](config.background, config.foreground, config.colors_override)
+        local set_hl = vim.fn['gruvbox_material#highlight']
+
+        set_hl('LineNr', palette.grey2, palette.none)
+        set_hl('CursorLineNr', palette.yellow, palette.none)
+
+        -- vim.api.nvim_set_hl(0, 'LineNrAbove', { fg=palette.green, bold=true })
+        -- vim.api.nvim_set_hl(0, 'LineNr', { fg='white', bold=true })
+        -- vim.api.nvim_set_hl(0, 'LineNrBelow', { fg=green, bold=true })
       end
     --[[{
         "catppuccin/nvim",
