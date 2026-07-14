@@ -1,5 +1,9 @@
 #!/bin/zsh
 
+ll() {
+    ls -l "$@"
+}
+
 # Alias lazygit
 lg() {
     lazygit "$@"

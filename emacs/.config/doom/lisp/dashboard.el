@@ -9,7 +9,7 @@
   (setq dashboard-week-agenda t)
   ;; vertically center content
 (setq dashboard-banner-logo-title
-      "To lead is to serve\nMove towards fear and discomfort\nEquanimity, grace & wisdom are the fruits of meditation")
+      "Rejection isn't failure, it's the courage of trying.")
   (setq dashboard-items '((recents . 5)
                           (agenda . 10)   ;; show org-agenda
                           )))

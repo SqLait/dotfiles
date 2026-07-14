@@ -39,6 +39,7 @@
             "TODO(t)"
             "PLAN(p)"
             "STRT(s)"
+            "NEXT(n)"
             "PROG(P)"
             "REVIEW(r)"
             "WAIT(w)"
@@ -63,10 +64,18 @@
 
 (setq org-tag-faces
       '(
-        ("WORK"  . (:foreground "#fe8019" :weight bold))
-        ("STUDY"  . (:foreground "#d3869b" :weight bold))
-        ("NEXT"  . (:foreground "#fabd2f" :weight bold))
-        ("SCHOOL"  . (:foreground "#8dc07b" :weight bold))
+        ;; studying
+        ("EXAM"  . (:foreground "#fe8019" :weight bold))
+        ("TEST"  . (:foreground "#d3869b" :weight bold))
+        ("SELF"  . (:foreground "#8dc07b" :weight bold))
+        ;; personal
+        ("GOV"  . (:foreground "blue" :weight bold))
+        ("EVENT"  . (:foreground "green" :weight bold))
+        ("CHORE"  . (:foreground "red" :weight bold))
+        ;; work
+        ("MEETING"  . (:foreground "brown" :weight bold))
+        ("NEXT"  . (:foreground "black" :weight bold))
+        ("PROJ"  . (:weight bold))
 
         ;("PLANNING"  . (:foreground "mediumPurple1" :weight bold))
         ;("backend"   . (:foreground "royalblue1"    :weight bold))

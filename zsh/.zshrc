@@ -20,9 +20,9 @@ setopt PROMPT_SUBST
 PROMPT='%F{green}%~%f %(?.%F{green}.%F{magenta}[%?] )%f
 %(?.%F{yellow}$.%F{red}$)%f '
 
+source ~/.zsh/colours
 source ~/.zsh/aliases
 source ~/.zsh/init
-source ~/.zsh/colours
 source ~/.zsh/keybinds
 source ~/.zsh/history
 source ~/.zsh/extra

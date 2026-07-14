@@ -29,10 +29,18 @@
                   ((org-agenda-skip-function
                     '(org-agenda-skip-entry-if 'todo 'done))
                    (org-agenda-overriding-header "High-priority tasks:")))
-            (tags-todo "WORK")
-            (tags-todo "STUDY")
-            (tags-todo "SCHOOL")
+            ;; studying
+            (tags-todo "EXAM")
+            (tags-todo "TEST")
+            (tags-todo "SELF")
+            ;; personal
+            (tags-todo "GOV")
+            (tags-todo "EVENT")
+            (tags-todo "CHORE")
+            ;; work
+            (tags-todo "MEETING")
             (tags-todo "NEXT")
+            (tags-todo "PROJ")
             (alltodo "")))
 
           ("d" "Done today"

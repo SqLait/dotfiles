@@ -63,6 +63,9 @@
       ;; Make bash script executable
       (:desc "Make script executable" "chx"
              (cmd! (shell-command (concat "chmod +x " (buffer-file-name)))))
+      (:desc "Switch to month view" "vm" #'org-agenda-month-view)
+      (:desc "Switch to month view" "vw" #'org-agenda-week-view)
+      (:desc "Switch to month view" "vd" #'org-agenda-day-view)
 
       ;; Undo Tree Toggle
       (:desc "Undo tree" "u" #'undo-tree-visualize)
@@ -102,8 +105,8 @@
       :n "<tab>l" #'end-of-buffer)
 
 (after! evil
-  ;; Rebind C-j and C-k in normal mode in org-mode to window movement
-  (map! :map org-mode-map
-        :n "C-j" #'evil-window-down
-        :n "C-k" #'evil-window-up))
+        ;; Rebind C-j and C-k in normal mode in org-mode to window movement
+        (map! :map org-mode-map
+              :n "C-j" #'evil-window-down
+              :n "C-k" #'evil-window-up))
 
