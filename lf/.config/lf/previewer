@@ -18,7 +18,7 @@ case "$mime" in
     *)
         # Let bat handle all code / text-like files safely
         if file -Lb -- "$1" | grep -qi "text"; then
-            bat --decorations=never --paging=never --color=always "$1"
+            bat --style=full --paging=never --color=always "$1"
         fi
         exit $?
         ;;
