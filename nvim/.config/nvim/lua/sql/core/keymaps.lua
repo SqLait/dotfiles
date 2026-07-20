@@ -116,7 +116,7 @@ keymap.set('n', '<leader>sm', '<cmd>MaximizerToggle<Cr>')
 keymap.set('i', '<C-H>', '<C-W>', { silent = true, noremap = true })
 keymap.set({'n', 'v', 'i'}, '<C-C>', '<Esc>')
 
-keymap.set('n', '<tab>', 'za', { silent = true, noremap = true })
+--keymap.set('n', '<tab>', 'za', { silent = true, noremap = true })
 
 -- Formatting
 -- Not bothered to download a linter so this is some simple vimscript that swaps from common formats

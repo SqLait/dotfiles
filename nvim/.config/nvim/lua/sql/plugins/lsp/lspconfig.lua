@@ -54,12 +54,6 @@ return {
                 map.set("n", "gt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
 
                 map.set("n", "gs", vim.lsp.buf.signature_help, opts)
-
-                opts.desc = "Restart LSP"
-                map.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
-
-                opts.desc = "Stop LSP"
-                map.set("n", "<leader>rl", ":LspStop<CR>", opts)
             end,
         })
 
@@ -73,7 +67,6 @@ return {
                 "clangd",
                 "--compile-commands-dir=build",
                 "--clang-tidy",
-                "--background-index=false"
             },
             filetype = { "c", "cpp" },
             capabilities = capabilities
