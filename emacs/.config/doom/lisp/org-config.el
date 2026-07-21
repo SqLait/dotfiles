@@ -34,9 +34,9 @@
 (after! org
   (setq org-todo-keywords
         '((sequence
+            "TODO(t)"
             "IDEA(i)"
             "SOMEDAY(S)"
-            "TODO(t)"
             "PLAN(p)"
             "STRT(s)"
             "NEXT(n)"

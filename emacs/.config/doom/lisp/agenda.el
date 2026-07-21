@@ -32,15 +32,12 @@
             ;; studying
             (tags-todo "EXAM")
             (tags-todo "TEST")
-            (tags-todo "SELF")
             ;; personal
             (tags-todo "GOV")
             (tags-todo "EVENT")
             (tags-todo "CHORE")
             ;; work
             (tags-todo "MEETING")
-            (tags-todo "NEXT")
-            (tags-todo "PROJ")
             (alltodo "")))
 
           ("d" "Done today"
