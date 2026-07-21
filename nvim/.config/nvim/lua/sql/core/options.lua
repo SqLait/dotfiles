@@ -16,6 +16,7 @@ opt.autoindent = true
 opt.colorcolumn = "80"
 opt.showtabline = 0
 opt.tabline = ''
+opt.termsync = false
 
 opt.wrap = false
 
