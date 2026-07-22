@@ -18,6 +18,10 @@ vi() {
     command vim "$@"
 }
 
+open() {
+    xdg-open "$@"
+}
+
 # Use fastfetch instead of neofetch
 neofetch() {
     fastfetch "$@"
