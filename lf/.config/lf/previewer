@@ -4,7 +4,8 @@ mime=$(file -Lb --mime-type -- "$1")
 
 case "$mime" in
     image/*)
-        chafa -f sixel -s "$2x$3" --animate off --polite on -t 1 --bg white "$1"
+        #chafa -f sixel -s "$2x$3" --animate off --polite on -t 1 --bg white "$1"
+        exiftool -- "$1"
         exit $?
         ;;
     application/pdf)
