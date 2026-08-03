@@ -1,0 +1,94 @@
+#!/bin/bash
+
+# Usage: ftaac ~/Music/<ARTIST>
+# Automatically converts to ~/Music-aac/<ARTIST> preserving structure.
+
+INPUT_ARG="$1"
+
+if [ -z "$INPUT_ARG" ]; then
+    echo "Error: Please provide the path to the artist folder."
+    echo "Usage: $0 ~/Music/ArtistName"
+    exit 1
+fi
+
+INPUT_ROOT="${INPUT_ARG/#\~/$HOME}"
+
+if [[ "$INPUT_ROOT" != /* ]]; then
+    INPUT_ROOT="$(pwd)/$INPUT_ROOT"
+fi
+
+INPUT_ROOT="${INPUT_ROOT%/}"
+
+ARTIST_NAME=$(basename "$INPUT_ROOT")
+OUTPUT_ROOT="$HOME/Music-aac/$ARTIST_NAME"
+
+if [ ! -d "$INPUT_ROOT" ]; then
+    echo "Error: Directory '$INPUT_ROOT' not found."
+    exit 1
+fi
+
+echo "Source: $INPUT_ROOT"
+echo "Target: $OUTPUT_ROOT"
+echo "-----------------------------------"
+
+mkdir -p "$OUTPUT_ROOT"
+
+while IFS= read -r -d '' f; do
+    rel_path="${f#$INPUT_ROOT/}"
+
+    if [ "$rel_path" == "$f" ] || [ -z "$rel_path" ]; then
+        echo "Warning: Could not resolve path for: $f"
+        continue
+    fi
+
+    output_subdir="$(dirname "$OUTPUT_ROOT/$rel_path")"
+    mkdir -p "$output_subdir"
+
+    output_file="${output_subdir}/$(basename "$f" .flac).m4a"
+
+    tmp_cover="$(mktemp --suffix=.jpg)"
+    has_cover=false
+
+    # Extract embedded artwork from FLAC
+    if ffmpeg -nostdin -loglevel error \
+        -i "$f" \
+        -an \
+        -map 0:v:0? \
+        -c:v mjpeg \
+        -y \
+        "$tmp_cover"; then
+
+        if [ -s "$tmp_cover" ]; then
+            has_cover=true
+        fi
+    fi
+
+    # Convert FLAC to AAC VBR
+    if ffmpeg -nostdin \
+        -loglevel error \
+        -y \
+        -i "$f" \
+        -map 0:a \
+        -map_metadata 0 \
+        -map_chapters 0 \
+        -c:a aac \
+        -q:a 2 \
+        -movflags +faststart \
+        "$output_file"; then
+
+        # Add artwork without rewriting existing metadata
+        if $has_cover; then
+            muta.py "$output_file" "$tmp_cover"
+        fi
+
+        echo "Converted: $rel_path"
+    else
+        echo "FAILED: $rel_path"
+    fi
+
+    rm -f "$tmp_cover"
+
+done < <(find "$INPUT_ROOT" -type f -name "*.flac" -print0)
+
+echo "-----------------------------------"
+echo "Conversion complete!"
