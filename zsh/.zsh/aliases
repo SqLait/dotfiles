@@ -18,6 +18,10 @@ vi() {
     command vim "$@"
 }
 
+wttr() {
+    curl wttr.in/"$@"
+}
+
 open() {
     xdg-open "$@"
 }
