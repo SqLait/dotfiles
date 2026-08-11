@@ -16,6 +16,11 @@ case "$mime" in
         mediainfo -- "$1"
         exit $?
         ;;
+    application/x-executable|application/x-sharedlib|application/x-pie-executable)
+        # Disassemble binaries with objdump and view with bat
+        objdump -d -M intel "$1" | bat -l asm --style=plain --paging=never --color=always
+        exit $?
+        ;;
     *)
         # Let bat handle all code / text-like files safely
         if file -Lb -- "$1" | grep -qi "text"; then

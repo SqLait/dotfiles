@@ -50,6 +50,9 @@ cmd open &{{
     case $(file --mime-type -Lb $f) in
         text/*) lf -remote "send $id \$nvim \$fx";;
         image/*) swayimg "$fx";;
+        application/x-executable|application/x-sharedlib|application/x-pie-executable)
+            tmux split-window -h "r2 -A \"$fx\""
+            ;;
         *) xdg-open "$f";;
     esac
 }}
