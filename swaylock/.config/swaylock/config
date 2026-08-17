@@ -1,34 +1,115 @@
+# ~/.config/swaylock/config
+
+# ─────────────────────────────────────────────
+# Background
+# ─────────────────────────────────────────────
+
 image="$(cat ~/.config/hypr/.current_wallpaper)"
 
-indicator
-indicator-thickness=15
+# ─────────────────────────────────────────────
+# Indicator
+# ─────────────────────────────────────────────
+
 indicator-radius=150
-clock
+indicator-thickness=15
+indicator-idle-visible
 
-effect-blur=7x5
-effect-vignette=0.5:0.5
-fade-in=0.2
+font=JetBrains Nerd Font Mono
+# font-size=32
 
-font=Jetbrains Nerd Font Mono
+# Position (leave unset for centered)
+# indicator-x-position=960
+# indicator-y-position=540
 
-ring-color=fe8019
-key-hl-color=fabd2f
-line-color=00000000
-separator-color=00000000
 
-inside-color=50494588
-inside-clear-color=50494588
+# ─────────────────────────────────────────────
+# Gruvbox Material Dark — Medium
+# ─────────────────────────────────────────────
 
-text-color=ebdbb2
-text-clear-color=ebdbb2
+# Palette:
+# bg0       #282828
+# bg1       #32302f
+# bg2       #3c3836
+# bg3       #504945
+# fg0       #d4be98
+# gray      #928374
+#
+# red       #ea6962
+# orange    #e78a4e
+# yellow    #d8a657
+# green     #a9b665
+# aqua      #89b482
+# blue      #7daea3
+# purple    #d3869b
 
-ring-clear-color=83a598
 
-ring-ver-color=d65d0e
-text-ver-color=ebdbb2
-inside-ver-color=50494588
-line-ver-color=00000000
+# ─────────────────────────────────────────────
+# Normal / typing
+# ─────────────────────────────────────────────
 
-# background-color=32302fcc
+ring-color=d4be98
+key-hl-color=d8a657
+bs-hl-color=ea6962
+separator-color=3c3836
+
+inside-color=282828
+line-color=504945
+
+text-color=d4be98
+
+
+# ─────────────────────────────────────────────
+# Cleared / backspace state
+# ─────────────────────────────────────────────
+
+ring-clear-color=D3869b
+inside-clear-color=32302f
+line-clear-color=504945
+text-clear-color=d4be98
+
+
+# ─────────────────────────────────────────────
+# Caps Lock
+# ─────────────────────────────────────────────
+
+ring-caps-lock-color=a9b665
+inside-caps-lock-color=32302f
+line-caps-lock-color=504945
+text-caps-lock-color=d4be98
+caps-lock-key-hl-color=a9b665
+caps-lock-bs-hl-color=ea6962
+
+
+# ─────────────────────────────────────────────
+# Verifying
+# ─────────────────────────────────────────────
+
+ring-ver-color=7daea3
+inside-ver-color=32302f
+line-ver-color=504945
+text-ver-color=d4be98
+
+# ─────────────────────────────────────────────
+# Wrong password
+# ─────────────────────────────────────────────
+
+ring-wrong-color=ea6962
+inside-wrong-color=32302f
+line-wrong-color=504945
+text-wrong-color=d4be98
+
+
+# ─────────────────────────────────────────────
+# Keyboard layout indicator
+# ─────────────────────────────────────────────
+
+layout-bg-color=32302f
+layout-border-color=504945
+layout-text-color=d4be98
+
+
+# ─────────────────────────────────────────────
+# Behaviour
+# ─────────────────────────────────────────────
 
 ignore-empty-password
