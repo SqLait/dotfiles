@@ -3,7 +3,6 @@ basic = false
 temperature_type = "c"
 disable_click = true
 show_table_scroll_position = true
-disable_gpu = true # I don't care about my gpu stats :p
 
 [processes]
 default_grouped = true
@@ -13,3 +12,6 @@ default_memory_value = true
 swap_color = "Light Blue"
 ram_color = "Light Cyan"
 cache_color = "Light Red"
+
+[styles]
+theme = "gruvbox"
