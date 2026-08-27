@@ -113,7 +113,6 @@
   :hook (org-roam-mode . org-roam-ui-mode)
   :config
   (setq org-roam-ui-sync-theme t
-        org-roam-ui-follow nil
         org-roam-ui-update-on-save t))
 
 (defun my-daily-plan-file ()

@@ -60,6 +60,29 @@
       (?D (my/set-ispell-dictionary "de_DE"))
       (_ (message "Cancelled.")))))
 
+(defun insert-greek-letter ()
+  "Insert a Greek letter by selecting its name from a menu.
+Maps Roman input (a, b, g...) to Greek characters (α, β, γ...)."
+  (interactive)
+  (let* ((greek-map
+          '(("alpha (α)" . "α") ("beta (β)" . "β") ("gamma (γ)" . "γ") ("delta (δ)" . "δ")
+            ("epsilon (ε)" . "ε") ("zeta (ζ)" . "ζ") ("eta (η)" . "η") ("theta (θ)" . "θ")
+            ("iota (ι)" . "ι") ("kappa (κ)" . "κ") ("lambda (λ)" . "λ") ("mu (μ)" . "μ")
+            ("nu (ν)" . "ν") ("xi (ξ)" . "ξ") ("omicron (ο)" . "ο") ("pi (π)" . "π")
+            ("rho (ρ)" . "ρ") ("sigma (σ)" . "σ") ("tau (τ)" . "τ") ("upsilon (υ)" . "υ")
+            ("phi (φ)" . "φ") ("chi (χ)" . "χ") ("psi (ψ)" . "ψ") ("omega (ω)" . "ω")
+            ;; Uppercase variants
+            ("Alpha (Α)" . "Α") ("Beta (Β)" . "Β") ("Gamma (Γ)" . "Γ") ("Delta (Δ)" . "Δ")
+            ("Epsilon (Ε)" . "Ε") ("Zeta (Ζ)" . "Ζ") ("Eta (Η)" . "Η") ("Theta (Θ)" . "Θ")
+            ("Iota (Ι)" . "Ι") ("Kappa (Κ)" . "Κ") ("Lambda (Λ)" . "Λ") ("Mu (Μ)" . "Μ")
+            ("Nu (Ν)" . "Ν") ("Xi (Ξ)" . "Ξ") ("Omicron (Ο)" . "Ο") ("Pi (Π)" . "Π")
+            ("Rho (Ρ)" . "Ρ") ("Sigma (Σ)" . "Σ") ("Tau (Τ)" . "Τ") ("Upsilon (Υ)" . "Υ")
+            ("Phi (Φ)" . "Φ") ("Chi (Χ)" . "Χ") ("Psi (Ψ)" . "Ψ") ("Omega (Ω)" . "Ω")))
+         (names (mapcar #'car greek-map))
+         (choice (completing-read "Greek letter (e.g., alpha, Beta): " names nil t)))
+    (when choice
+      (insert (cdr (assoc choice greek-map))))))   
+
 ;; Keybinding: SPC t s for spell checker menu
 (map! :leader
       :prefix ("t" . "toggles")
