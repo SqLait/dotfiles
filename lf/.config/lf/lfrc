@@ -1,10 +1,11 @@
-set previewer ~/.config/lf/previewer
-
-# Basic Settings
 set hidden true
 set ignorecase true
 set icons true
 set rulerfile ~/.config/lf/ruler
+set previewer ~/.config/lf/previewer
+set drawbox
+
+# Basic Settings
 
 # Custom Functions
 cmd mkdir ${{

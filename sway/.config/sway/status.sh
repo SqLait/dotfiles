@@ -1,12 +1,12 @@
 #!/bin/sh
 
 while true; do
-  #datetime=$(date '+%Y-%m-%d :: %H:%M')
-  datetime=$(date '+%a %d %b :: %H:%M')
+    datetime=$(date '+%a %d %b :: %H:%M')
 
-  battery=$(upower -b | grep percentage | awk '{print $2}')
+    battery=$(upower -b | grep percentage | awk '{print $2}')
+    net=$(cat /sys/class/net/wlan0/operstate 2>/dev/null)   
 
-  echo "Bat: ${battery:-N/A} | $datetime"
-  
-  sleep 1
+    echo "bat: ${battery:-N/A} | wlan0: ${net:-down} | $datetime"
+
+    sleep 1
 done   
